@@ -183,10 +183,10 @@ Taken together, your inputs do not identify any vars to value-label. Possibiliti
 
     # Approach #1 - qtiles
     if (!is.null(qtiles)) {
-      # check for excessive qtiles
-      if (qtiles > 100 || qtiles < 2) {
+      # check for excessive qtiles or non-conforming qtiles arg
+      if (length(qtiles) != 1 || (qtiles[1] > 100 || qtiles[1] < 2)) {
         stop("
-qtiles argument must be >1 and cannot exceed 100.\n")
+qtiles argument must be a single integer value between 2 and 100.\n")
       }
 
       # get mapping labs to percentile max vals
@@ -194,6 +194,7 @@ qtiles argument must be >1 and cannot exceed 100.\n")
       qtiles_expand <- quantile(x, probs = seq(0, 1, by = 1 / qtiles))[-1]
       qtiles_unique <- unique(qtiles_expand)
       qtiles_clean <- gsub("%", "", names(qtiles_expand))
+      qtiles_clean <- as.character(round(as.numeric(qtiles_clean, 1)))
 
       # second check for excessive qtiles
       if (length(qtiles_unique) != length(qtiles_expand)) {

@@ -8,38 +8,27 @@
 #' Note: `uvl` is a compact alias for `use_val_labs`: they do the same thing,
 #' and the former is easier to type.
 #'
-#' Warning: `use_val_labs` will replace existing variable values with value
-#' labels and cannot be undone. If you wish to preserve variable values, be sure
-#' to assign the result of `use_val_labs` to a new object (vs. overwriting the
-#' data.frame you supply to the data argument), OR use `add_lab_cols` to add
-#' variables containing value labels to the supplied data set without replacing
-#' the original variables, OR use `val_abs_vec` to replace a single column's
-#' values with its value labels and return the result as a stand-alone character
-#' vector. For other ways to leverage value labels for common data management or
-#' inspection tasks, while preserving raw data values in returned object, see
-#' `flab` ("filter using labels"), `slab` ("subset using labels"), `tabl`
-#' (tabulate frequencies using labels), `somel`, `headl`, and `taill`.
-#'
-#' `use_val_labs` works with `add_val_labs`, `add_val1`, `add_quant_labs`,
-#' `add_q1`, `add_m1_lab`, `add1m1`, `get_val_labs`, `drop_val_labs`, and
-#' `drop_val1` to facilitate creation, modification, accessing, use, and
-#' destruction of variable-specific value labels.
-#'
 #' `use_val_labs` takes a variable value-labeled data.frame and substitutes each
-#' (labeled) variable's labels for its values, returning a data.frame whose
+#' (labeled) variable's value labels for its values, returning a data.frame whose
 #' dimensions, names, and members are the same as the inputted data.frame. This
-#' may be useful if one wishes to inspect the data.frame (using, e.g., head(),
-#' tail(), View()) or labeled value frequencies (e.g., table()) using the
+#' may be useful if one wishes to view data.frame information using the
 #' (potentially) more intuitively meaningful value labels (e.g., gender=1 values
 #' displayed as "Male" instead of 1).
-#' @param data a data.frame.
-#' @param vars the names of the columns (variables) for which labels-on
-#' versions of the variable will replace the original variable in the returned
-#' data.frame.
 #'
-#' @return A data.frame, with (all or the select) variable value labels "turned
-#' on" (i.e., substituted for original variable values), and any affected
-#' variables coerced to character if they were not already.
+#' #' Warning: `use_val_labs` will replace existing variable values with value
+#' labels and cannot be undone. If you wish to preserve variable values, be sure
+#' to assign the result of `use_val_labs` to a new object. For other ways to
+#' leverage value labels for common data management or inspection tasks, while
+#' preserving raw data values in returned object, see `add_lab_cols`,
+#' `add_lab_dummies`, `flab`, `slab`, `tabl`, `headl`, `taill`, and `somel`.
+#'
+#' @param data a data.frame.
+#' @param vars the names of the columns (variables) for which value labels will
+#' will replace original values in the returned data.frame.
+#'
+#' @return A data.frame, with (all or the select) variable value labels
+#' substituted for original variable values and any affected variables coerced
+#' to character if they were not already.
 #' @export
 #' @examples
 #' # Example #1 - mtcars example, one variable at a time
@@ -130,17 +119,6 @@
 #' dflik_conv <- use_val_labs(dflik)
 #' head(dflik_conv, 3)
 use_val_labs <- function(data, vars = NULL) {
-  # make this a Base R data.frame
-  data <- as_base_data_frame(data)
-
-  # ensure value labels are sorted
-  data <- sort_val_labs(data)
-
-  if (nrow(data) > 300000) {
-    warning("
-Note: labelr is not optimized for data.frames this large.")
-  }
-
   # use numeric range labs for numeric variables
   use_q_labs <- function(data, var) {
     x <- data[[var]]
@@ -163,6 +141,17 @@ Note: labelr is not optimized for data.frames this large.")
     x_out <- as_numv(x_out)
     data[[var]] <- x_out
     return(data)
+  }
+
+  # make this a Base R data.frame
+  data <- as_base_data_frame(data)
+
+  # ensure value labels are sorted
+  data <- sort_val_labs(data)
+
+  if (nrow(data) > 300000) {
+    warning("
+Note: labelr is not optimized for data.frames this large.")
   }
 
   # check systematically for all found values being NA
@@ -201,6 +190,14 @@ if any, variables have value labels.
       # handle any labeled numerical values
       val_lab_name <- paste0("val.labs.", var_name)
 
+      if (!check_labs_att(data, val_lab_name)) {
+        stop(sprintf(
+          "
+No value labels found for supplied var --%s--.",
+          var_name
+        ))
+      }
+
       # handle value-labeled numerical variables
       # test for whether variable could be numeric
       num_test <- is_numable(names(attributes(data)[[val_lab_name]]))
@@ -220,7 +217,7 @@ if any, variables have value labels.
         names(val_labv) <- gsub(paste0(val_lab_name, "."), "", names(val_labv))
         var_old <- data[[var_name]]
         var_old <- as.character(var_old)
-        var_old <- irregular2v(var_old, "NA")
+        var_old <- irregular2v(var_old, NA)
         var_new <- val_labv[var_old]
         var_new <- unname(var_new)
         var_new <- as_numv(var_new)
@@ -244,7 +241,7 @@ if any, variables have value labels.
       stop("
 \nThis application of use_val_labs() would lead a column to be coerced to all NA values,
 which is not allowed. This may result from attempting multiple nested or redundant
-calls to use_val_labs().
+calls to use_val_labs() and/or related functions.
            ")
     }
 

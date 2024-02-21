@@ -1,49 +1,38 @@
-#' "Add Variable Value Label Columns to a Data Frame
+#' Add Variable Value Label Columns to a Data Frame
 #'
 #' @description
-#' For a data.frame with value-labeled columns, make copies of those columns
-#' for which the labels are "turned on" (i.e., the values are converted to the
-#' labels), and add those columns to the data.frame (with the same names as the
-#' source columns plus a name suffix - "_lab," by default).
+#' Add copies of value-labeled columns to a data.frame, where the new columns'
+#' values are replaced with the corresponding value labels.
 #'
 #' @details
-#' labelr defines "value labels" as a vector of character strings, each of which
-#' is uniquely associated with a single distinct value of a data.frame column,
-#' such that there is a one-to-one mapping where converting labels to values and
-#' back again results in no information loss (i.e., no "collapsing" of multiple
-#' distinct values into a common label-defined category). `add_lab_cols` is
-#' an alternative to `use_val_labs` that preserves all variables (including
-#' value-labeled ones) in their present state and adds a version of each value-
-#' labeled variable for which values have converted labels -- allowing for
-#' a direct, side-by-side view of each value's corresponding label (e.g., follow
-#' along any row from "x1" to "x1_lab," noting which values go together). For
-#' manageably-sized data.frames, this may be an acceptably compact and
-#' comparatively more convenient, intuitive, and "safe" (i.e., less confusion-
-#' or error-inducing) alternative to other workflows, such as those that involve
-#' toggling back and forth between `use_val_labs` and `use_vals` and/or multiple
-#' data.frames derived from them. (Note that the "labels-on" variables that are
-#' added to the data.frame will be simple, self-contained character vectors that
-#' cannot themselves be converted or reverted to the original ("labels-off")
-#' values of the parent variables. Rather than acting as value-labeled variables
-#' unto themselves, the labels-on variables that are added to the data.frame
-#' should be regarded simply as free-standing character vectors with a purely
-#' conceptual relationship to their "parent" variables, serving as pragmatic
-#' adjuncts and/or surrogates for their parent variables wherever and to
-#' whatever extent may be useful). See also `use_val_labs`, `use_vals`,
-#' `add_val_labs`, `add_val1`, `get_val_labs`, `drop_val_labs`, and `drop_val1`.
+#' Note: `alc` is a compact alias for `add_lab_cols`: they do the same thing,
+#' and the former is easier to type.
 #'
-#' If you wish to convert a single, value-labeled column's values to labels and
-#' return the result as a stand-alone vector, see `val_labs_vec`.
-#' @param data the data.frame whose variable value labels you wish to leverage
-#' to add labels-on version of value-labeled variables to the supplied
-#' data.frame.
-#' (aka swap, turn on, activate, etc.)
-#' @param vars the names of the columns (variables) for which labels-on
-#' versions of the variable will be added to the returned data.frame.
+#' `add_lab_cols` adds one or more "labels-on" columns to a data.frame, where
+#' "labels-on" means that the column's original values are replaced with the
+#' corresponding value labels. Note that these columns do not replace but are
+#' added to their parent/source columns in the returned data.frame. The
+#' resulting "labels-on" columns are simple, self-contained character columns
+#' that cannot themselves be converted or reverted to the original
+#' ("labels-off") values of their parent/source columns.
+#'
+#' For other ways of accessing or leveraging value labels, see, e.g.,
+#' `use_val_labs`, `val_labs_vec`, `add_lab_dummies`, `lab_int_to_factor`,
+#' `flab`, `slab`, `get_val_labs`, `with_val_labs`, `headl`, `taill`, `somel`,
+#' and `tabl`. In particular, see `use_val_labs` if, rather than adding a
+#' "labels-on" column to a data.frame, you wish to replace a column's values
+#' with the corresponding value labels. See `val_labs_vec` if you wish to
+#' convert a single, value-labeled column's values to labels and return the
+#' result as a stand-alone vector, see `val_labs_vec`.
+#'
+#' @param data a data.frame.
+#' @param vars the names of the columns (variables) for which "labels-on"
+#' (values replaced with value labels) versions of the variable will be added to
+#' the returned data.frame.
 #' @param suffix a suffix that will be added to the names of all labels-on
 #' variables added to the data.frame (the non-suffix portion of the variable
-#' name will be identical to the original variable, e.g., the values-on version
-#' of "x1" will be "x1_lab" (or whatever alternative suffix you supply).
+#' name will be identical to the original variable, e.g., the labels-on version
+#' of "x1" will be "x1_lab" (or whatever alternative suffix you supply)).
 #'
 #' @return A data.frame consisting of the originally supplied data.frame, along
 #'  with (all or the select) labels-on variable versions added to it.
@@ -108,18 +97,6 @@
 add_lab_cols <- function(data,
                          vars = NULL,
                          suffix = "_lab") {
-  # make this a Base R data.frame
-  data <- as_base_data_frame(data)
-
-  # ensure value labels are sorted
-  data <- sort_val_labs(data)
-
-
-  if (nrow(data) > 300000) {
-    warning("
-\nNote: labelr is not optimized for data.frames this large.")
-  }
-
   # use numeric range labs for numeric variables
   use_q_labsv <- function(data, var) {
     x <- data[[var]]
@@ -142,6 +119,18 @@ add_lab_cols <- function(data,
     x_out[is.na(x)] <- "NA"
     x_out <- as_numv(x_out)
     return(x_out)
+  }
+
+  # make this a Base R data.frame
+  data <- as_base_data_frame(data)
+
+  # ensure value labels are sorted
+  data <- sort_val_labs(data)
+
+
+  if (nrow(data) > 300000) {
+    warning("
+\nNote: labelr is not optimized for data.frames this large.")
   }
 
   # check systematically for all found values being NA
@@ -177,6 +166,14 @@ add_lab_cols <- function(data,
     var_name_suffix <- paste0(var_name, suffix)
     val_lab_name <- paste0("val.labs.", var_name)
 
+    if (!check_labs_att(data, val_lab_name)) {
+      stop(sprintf(
+        "
+No value labels found for supplied var --%s--.",
+        var_name
+      ))
+    }
+
     # test for whether variable could be numeric
     num_test <- is_numable(names(attributes(data)[[val_lab_name]]))
 
@@ -195,7 +192,7 @@ add_lab_cols <- function(data,
     } else if (var_name %in% val.labs$var) {
       var_old <- data[[var_name]]
       var_old <- as.character(var_old)
-      var_old <- irregular2v(var_old, "NA")
+      var_old <- irregular2v(var_old, NA)
       val_labv <- unlist(attributes(data)[val_lab_name])
       names(val_labv) <- gsub(paste0(val_lab_name, "."), "", names(val_labv))
       var_new <- val_labv[var_old]
@@ -220,8 +217,12 @@ add_lab_cols <- function(data,
     stop("
 \nThis application of add_lab_cols() would lead a column to be coerced to all NA values,
 which is not allowed. This may result from attempting multiple nested or redundant
-calls to add_lab_cols() and/or use_val_labs().
+calls to add_lab_cols() and/or related functions.
            ")
   }
   return(data)
 }
+
+#' @export
+#' @rdname add_lab_cols
+alc <- add_lab_cols

@@ -79,6 +79,17 @@ add_quant1 <- function(data, var, qtiles = NULL, vals = NULL, labs = NULL) {
   test_quote <- any(grepl("\"", vars))
   if (test_quote && is.character(vars)) vars <- gsub("\"", "", vars)
 
+  vars <- gsub("c\\(", "", vars)
+  vars <- gsub("\\(", "", vars)
+  vars <- gsub("\\)", "", vars)
+
+  if (!all(vars %in% names(data))) {
+    stop("
+\nInvalid var argument specification: var arg should be a single, unquoted
+name of a variable that is present in the data.frame.
+         ")
+  }
+
   # test for NULL - one of qtiles and vals must be NULL, other must be non-NULL
   null_qtiles <- is.null(qtiles)
   null_vals <- is.null(vals)
@@ -157,10 +168,10 @@ No variable found that matches the name of your var argument.\n")
 
     # Approach #1 - qtiles
     if (!is.null(qtiles)) {
-      # check for excessive qtiles
-      if (qtiles > 100 || qtiles < 2) {
+      # check for excessive qtiles or non-conforming qtiles arg
+      if (length(qtiles) != 1 || (qtiles[1] > 100 || qtiles[1] < 2)) {
         stop("
-qtiles argument must be >1 and cannot exceed 100.\n")
+qtiles argument must be a single integer value between 2 and 100.\n")
       }
 
       # get mapping labs to percentile max vals
@@ -168,6 +179,7 @@ qtiles argument must be >1 and cannot exceed 100.\n")
       qtiles_expand <- quantile(x, probs = seq(0, 1, by = 1 / qtiles))[-1]
       qtiles_unique <- unique(qtiles_expand)
       qtiles_clean <- gsub("%", "", names(qtiles_expand))
+      qtiles_clean <- as.character(round(as.numeric(qtiles_clean, 1)))
 
       # second check for excessive qtiles
       if (length(qtiles_unique) != length(qtiles_expand)) {

@@ -31,14 +31,14 @@
 #'   labs = c("M", "F", "O"), max.unique.vals = 50
 #' )
 #'
-#' somel(df) # same, but with value labels in place of values
+#' somel(df) # six random rows with value labels visible
 somel <- function(data, n = 6L) {
   # make this a Base R data.frame
   data <- as_base_data_frame(data)
   these_atts <- get_all_lab_atts(data)
   inds2sample <- seq_len(nrow(data))
   inds <- sample(inds2sample, n, replace = FALSE)
-  datax <- data[inds, ]
+  datax <- data[inds, , drop = FALSE]
   datax <- add_lab_atts(datax, these_atts, num.convert = FALSE)
   data <- use_val_labs(datax)
   return(data)

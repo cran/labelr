@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Labelr - Special Topics</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Labelr - Special Topics</h1>
+
+
+
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>While the Introductory vignette gives an overview of core labelr
+functions, here, we offer an ad hoc dive into a range of miscellaneous
+special topics and additional functionalities. Let’s go.</p>
+</div>
+<div id="larger-data-frames" class="section level2">
+<h2>Larger Data Frames</h2>
+<p>labelr is not intended for “large” data.frames, which is a fuzzy
+concept. To give a sense of what labelr <strong>can</strong> handle,
+let’s see it in action with the NYC Flights 2013 data set: a
+moderate-not-big data.frame of ~340K rows.</p>
+<p>Let’s load labelr and the nycflights13 package.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>opening_ding <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>() <span class="co"># to time labelr</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="do">### &gt; Warning: package &#39;nycflights13&#39; was built under R version 4.3.2</span></span></code></pre></div>
+<p>We’ll assign the data.frame to one we call df.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> flights</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">nrow</span>(df)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="do">### &gt; [1] 336776</span></span></code></pre></div>
+<p>We’ll add a “frame label,” which describes the data.frame
+overall.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_frame_lab</span>(df, <span class="at">frame.lab =</span> <span class="st">&quot;On-time data for all flights that</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="st">                    departed NYC (i.e. JFK, LGA or EWR) in 2013.&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="do">### &gt; Warning in as_base_data_frame(data): </span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="do">### &gt; data argument object coerced from augmented to conventional (Base R) data.frame.</span></span></code></pre></div>
+<p>Let’s see what this did.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">attr</span>(df, <span class="st">&quot;frame.lab&quot;</span>) <span class="co"># check for attribute</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="do">### &gt; [1] &quot;On-time data for all flights that departed NYC (i.e. JFK, LGA or EWR) in 2013.&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">get_frame_lab</span>(df) <span class="co"># return frame.lab alongside data.frame name as a data.frame</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="do">### &gt;   data.frame</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="do">### &gt; 1         df</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="do">### &gt;                                                                        frame.lab</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="do">### &gt; 1 On-time data for all flights that departed NYC (i.e. JFK, LGA or EWR) in 2013.</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="fu">get_frame_lab</span>(df)<span class="sc">$</span>frame.lab</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="do">### &gt; [1] &quot;On-time data for all flights that departed NYC (i.e. JFK, LGA or EWR) in 2013.&quot;</span></span></code></pre></div>
+<p>Now, let’s assign variable NAME labels.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>names_labs_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="st">&quot;year&quot;</span> <span class="ot">=</span> <span class="st">&quot;Year of departure&quot;</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  <span class="st">&quot;month&quot;</span> <span class="ot">=</span> <span class="st">&quot;Month of departure&quot;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="st">&quot;year&quot;</span> <span class="ot">=</span> <span class="st">&quot;Day of departure&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="st">&quot;dep_time&quot;</span> <span class="ot">=</span> <span class="st">&quot;Actual departure time (format HHMM or HMM), local tz&quot;</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  <span class="st">&quot;arr_time&quot;</span> <span class="ot">=</span> <span class="st">&quot;Actual arrival time (format HHMM or HMM), local tz&quot;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  <span class="st">&quot;sched_dep_time&quot;</span> <span class="ot">=</span> <span class="st">&quot;Scheduled departure times (format HHMM or HMM)&quot;</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  <span class="st">&quot;sched_arr_time&quot;</span> <span class="ot">=</span> <span class="st">&quot;Scheduled arrival time (format HHMM or HMM)&quot;</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>  <span class="st">&quot;dep_delay&quot;</span> <span class="ot">=</span> <span class="st">&quot;Departure delays, in minutes&quot;</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>  <span class="st">&quot;arr_delay&quot;</span> <span class="ot">=</span> <span class="st">&quot;Arrival delays, in minutes&quot;</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>  <span class="st">&quot;carrier&quot;</span> <span class="ot">=</span> <span class="st">&quot;Two letter airline carrier abbreviation&quot;</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>  <span class="st">&quot;flight&quot;</span> <span class="ot">=</span> <span class="st">&quot;Flight number&quot;</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>  <span class="st">&quot;tailnum&quot;</span> <span class="ot">=</span> <span class="st">&quot;Plane tail number&quot;</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>  <span class="st">&quot;origin&quot;</span> <span class="ot">=</span> <span class="st">&quot;Flight origin airport code&quot;</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>  <span class="st">&quot;dest&quot;</span> <span class="ot">=</span> <span class="st">&quot;Flight destination airport code&quot;</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>  <span class="st">&quot;air_time&quot;</span> <span class="ot">=</span> <span class="st">&quot;Minutes spent in the air&quot;</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>  <span class="st">&quot;distance&quot;</span> <span class="ot">=</span> <span class="st">&quot;Miles between airports&quot;</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="st">&quot;hour&quot;</span> <span class="ot">=</span> <span class="st">&quot;Hour of scheduled departure time&quot;</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>  <span class="st">&quot;minute&quot;</span> <span class="ot">=</span> <span class="st">&quot;Minutes component of scheduled departure time&quot;</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>  <span class="st">&quot;time_hour&quot;</span> <span class="ot">=</span> <span class="st">&quot;Scheduled date and hour of the flight as a POSIXct date&quot;</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>)</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_name_labs</span>(df, <span class="at">name.labs =</span> names_labs_vec)</span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="fu">get_name_labs</span>(df) <span class="co"># show that they&#39;ve been added</span></span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="do">### &gt;               var                                                     lab</span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="do">### &gt; 1            year                                        Day of departure</span></span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="do">### &gt; 2           month                                      Month of departure</span></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="do">### &gt; 3             day                                                     day</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="do">### &gt; 4        dep_time    Actual departure time (format HHMM or HMM), local tz</span></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="do">### &gt; 5  sched_dep_time          Scheduled departure times (format HHMM or HMM)</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="do">### &gt; 6       dep_delay                            Departure delays, in minutes</span></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="do">### &gt; 7        arr_time      Actual arrival time (format HHMM or HMM), local tz</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="do">### &gt; 8  sched_arr_time             Scheduled arrival time (format HHMM or HMM)</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="do">### &gt; 9       arr_delay                              Arrival delays, in minutes</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a><span class="do">### &gt; 10        carrier                 Two letter airline carrier abbreviation</span></span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="do">### &gt; 11         flight                                           Flight number</span></span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a><span class="do">### &gt; 12        tailnum                                       Plane tail number</span></span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="do">### &gt; 13         origin                              Flight origin airport code</span></span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a><span class="do">### &gt; 14           dest                         Flight destination airport code</span></span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a><span class="do">### &gt; 15       air_time                                Minutes spent in the air</span></span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="do">### &gt; 16       distance                                  Miles between airports</span></span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="do">### &gt; 17           hour                        Hour of scheduled departure time</span></span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="do">### &gt; 18         minute           Minutes component of scheduled departure time</span></span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a><span class="do">### &gt; 19      time_hour Scheduled date and hour of the flight as a POSIXct date</span></span></code></pre></div>
+<p>Let’s add variable VALUE labels for variable “carrier.” Helpfully,
+this ships with the nycflights13 package itself.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>airlines <span class="ot">&lt;-</span> nycflights13<span class="sc">::</span>airlines</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">head</span>(airlines)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="do">### &gt; # A tibble: 6 × 2</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="do">### &gt;   carrier name                    </span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="do">### &gt;   &lt;chr&gt;   &lt;chr&gt;                   </span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="do">### &gt; 1 9E      Endeavor Air Inc.       </span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="do">### &gt; 2 AA      American Airlines Inc.  </span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="do">### &gt; 3 AS      Alaska Airlines Inc.    </span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="do">### &gt; 4 B6      JetBlue Airways         </span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="do">### &gt; 5 DL      Delta Air Lines Inc.    </span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="do">### &gt; 6 EV      ExpressJet Airlines Inc.</span></span></code></pre></div>
+<p>The carrier field of airlines matches the carrier column of df
+(formerly, flights)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>ny_val <span class="ot">&lt;-</span> airlines<span class="sc">$</span>carrier</span></code></pre></div>
+<p>The name field of airlines gives us the full airline names.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>ny_lab <span class="ot">&lt;-</span> airlines<span class="sc">$</span>name</span></code></pre></div>
+<p>df (flights) also has an integer month variable. We will “hand-jam”
+month value labels</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>ny_month_vals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="co"># values</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>ny_month_labs <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="st">&quot;JAN&quot;</span>, <span class="st">&quot;FEB&quot;</span>, <span class="st">&quot;MAR&quot;</span>, <span class="st">&quot;APR&quot;</span>, <span class="st">&quot;MAY&quot;</span>, <span class="st">&quot;JUN&quot;</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="st">&quot;JUL&quot;</span>, <span class="st">&quot;AUG&quot;</span>, <span class="st">&quot;SEP&quot;</span>, <span class="st">&quot;OCT&quot;</span>, <span class="st">&quot;NOV&quot;</span>, <span class="st">&quot;DEC&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>) <span class="co"># labels</span></span></code></pre></div>
+<p>Let’s add these value labels. First, we’ll demo
+<code>add_val1()</code>, then <code>add_val_labs()</code>, then
+<code>add_quant_labs()</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_val1</span>(df,</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="at">var =</span> carrier, <span class="at">vals =</span> ny_val,</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="at">labs =</span> ny_lab,</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="at">max.unique.vals =</span> <span class="dv">20</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>)</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="do">### &gt; Warning in add_val1(df, var = carrier, vals = ny_val, labs = ny_lab, max.unique.vals = 20): </span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="do">### &gt; Note: labelr is not optimized for data.frames this large.</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_val_labs</span>(df,</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;month&quot;</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="at">vals =</span> ny_month_vals,</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="at">labs =</span> ny_month_labs,</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  <span class="at">max.unique.vals =</span> <span class="dv">20</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="do">### &gt; Warning in add_val_labs(df, vars = &quot;month&quot;, vals = ny_month_vals, labs = ny_month_labs, : </span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="do">### &gt; Note: labelr is not optimized for data.frames this large.</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_quant_labs</span>(df, <span class="st">&quot;dep_time&quot;</span>, <span class="at">qtiles =</span> <span class="dv">5</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="do">### &gt; Warning in add_quant_labs(df, &quot;dep_time&quot;, qtiles = 5): </span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="do">### &gt; Note: labelr is not optimized for data.frames this large.</span></span></code></pre></div>
+<p>Let’s see where this leaves us.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">get_val_labs</span>(df)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="do">### &gt;         var vals                        labs</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="do">### &gt; 1     month    1                         JAN</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="do">### &gt; 2     month    2                         FEB</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="do">### &gt; 3     month    3                         MAR</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="do">### &gt; 4     month    4                         APR</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="do">### &gt; 5     month    5                         MAY</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="do">### &gt; 6     month    6                         JUN</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="do">### &gt; 7     month    7                         JUL</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="do">### &gt; 8     month    8                         AUG</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="do">### &gt; 9     month    9                         SEP</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="do">### &gt; 10    month   10                         OCT</span></span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="do">### &gt; 11    month   11                         NOV</span></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="do">### &gt; 12    month   12                         DEC</span></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="do">### &gt; 13    month   NA                          NA</span></span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a><span class="do">### &gt; 14 dep_time  827                        q020</span></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a><span class="do">### &gt; 15 dep_time 1200                        q040</span></span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a><span class="do">### &gt; 16 dep_time 1536                        q060</span></span>
+<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a><span class="do">### &gt; 17 dep_time 1830                        q080</span></span>
+<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a><span class="do">### &gt; 18 dep_time 2400                        q100</span></span>
+<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a><span class="do">### &gt; 19 dep_time   NA                          NA</span></span>
+<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a><span class="do">### &gt; 20  carrier   9E           Endeavor Air Inc.</span></span>
+<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a><span class="do">### &gt; 21  carrier   AA      American Airlines Inc.</span></span>
+<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a><span class="do">### &gt; 22  carrier   AS        Alaska Airlines Inc.</span></span>
+<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a><span class="do">### &gt; 23  carrier   B6             JetBlue Airways</span></span>
+<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a><span class="do">### &gt; 24  carrier   DL        Delta Air Lines Inc.</span></span>
+<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a><span class="do">### &gt; 25  carrier   EV    ExpressJet Airlines Inc.</span></span>
+<span id="cb13-28"><a href="#cb13-28" tabindex="-1"></a><span class="do">### &gt; 26  carrier   F9      Frontier Airlines Inc.</span></span>
+<span id="cb13-29"><a href="#cb13-29" tabindex="-1"></a><span class="do">### &gt; 27  carrier   FL AirTran Airways Corporation</span></span>
+<span id="cb13-30"><a href="#cb13-30" tabindex="-1"></a><span class="do">### &gt; 28  carrier   HA      Hawaiian Airlines Inc.</span></span>
+<span id="cb13-31"><a href="#cb13-31" tabindex="-1"></a><span class="do">### &gt; 29  carrier   MQ                   Envoy Air</span></span>
+<span id="cb13-32"><a href="#cb13-32" tabindex="-1"></a><span class="do">### &gt; 30  carrier   OO       SkyWest Airlines Inc.</span></span>
+<span id="cb13-33"><a href="#cb13-33" tabindex="-1"></a><span class="do">### &gt; 31  carrier   UA       United Air Lines Inc.</span></span>
+<span id="cb13-34"><a href="#cb13-34" tabindex="-1"></a><span class="do">### &gt; 32  carrier   US             US Airways Inc.</span></span>
+<span id="cb13-35"><a href="#cb13-35" tabindex="-1"></a><span class="do">### &gt; 33  carrier   VX              Virgin America</span></span>
+<span id="cb13-36"><a href="#cb13-36" tabindex="-1"></a><span class="do">### &gt; 34  carrier   WN      Southwest Airlines Co.</span></span>
+<span id="cb13-37"><a href="#cb13-37" tabindex="-1"></a><span class="do">### &gt; 35  carrier   YV          Mesa Airlines Inc.</span></span>
+<span id="cb13-38"><a href="#cb13-38" tabindex="-1"></a><span class="do">### &gt; 36  carrier   NA                          NA</span></span></code></pre></div>
+<p>We can use <code>head()</code> to get a baseline look at select rows
+and variables</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">head</span>(df[<span class="fu">c</span>(<span class="st">&quot;origin&quot;</span>, <span class="st">&quot;dep_time&quot;</span>, <span class="st">&quot;dest&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;carrier&quot;</span>)])</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="do">### &gt;   origin dep_time dest year month carrier</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="do">### &gt; 1    EWR      517  IAH 2013     1      UA</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="do">### &gt; 2    LGA      533  IAH 2013     1      UA</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="do">### &gt; 3    JFK      542  MIA 2013     1      AA</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="do">### &gt; 4    JFK      544  BQN 2013     1      B6</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="do">### &gt; 5    LGA      554  ATL 2013     1      DL</span></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="do">### &gt; 6    EWR      554  ORD 2013     1      UA</span></span></code></pre></div>
+<p>Now, let’s do the same for a version we modified with
+<code>use_val_labs()</code>. This cannot be “undone” (except for the
+usual clunky way of re-running our script up to this point and not doing
+this!).</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>df_swapd <span class="ot">&lt;-</span> <span class="fu">use_val_labs</span>(df)</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="do">### &gt; Warning in use_val_labs(df): </span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="do">### &gt; Note: labelr is not optimized for data.frames this large.</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="fu">head</span>(df_swapd[<span class="fu">c</span>(<span class="st">&quot;origin&quot;</span>, <span class="st">&quot;dep_time&quot;</span>, <span class="st">&quot;dest&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;carrier&quot;</span>)])</span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="do">### &gt;   origin dep_time dest year month                carrier</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="do">### &gt; 1    EWR     q020  IAH 2013   JAN  United Air Lines Inc.</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="do">### &gt; 2    LGA     q020  IAH 2013   JAN  United Air Lines Inc.</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="do">### &gt; 3    JFK     q020  MIA 2013   JAN American Airlines Inc.</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="do">### &gt; 4    JFK     q020  BQN 2013   JAN        JetBlue Airways</span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="do">### &gt; 5    LGA     q020  ATL 2013   JAN   Delta Air Lines Inc.</span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="do">### &gt; 6    EWR     q020  ORD 2013   JAN  United Air Lines Inc.</span></span></code></pre></div>
+<p>Instead of replacing values (which we can’t undo), it might be safer
+to simply add “value-labels-on” character variables to the data.frame.
+This adds nearly 1M new cells, but let’s throw caution to the wind with
+<code>add_lab_cols()</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>df_plus <span class="ot">&lt;-</span> <span class="fu">add_lab_cols</span>(df, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">&quot;carrier&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;dep_time&quot;</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="do">### &gt; Warning in add_lab_cols(df, vars = c(&quot;carrier&quot;, &quot;month&quot;, &quot;dep_time&quot;)): </span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="do">### &gt; Note: labelr is not optimized for data.frames this large.</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="fu">head</span>(df_plus[<span class="fu">c</span>(</span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>  <span class="st">&quot;origin&quot;</span>, <span class="st">&quot;dest&quot;</span>, <span class="st">&quot;year&quot;</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>  <span class="st">&quot;month&quot;</span>, <span class="st">&quot;month_lab&quot;</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a>  <span class="st">&quot;dep_time&quot;</span>, <span class="st">&quot;dep_time_lab&quot;</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a>  <span class="st">&quot;carrier&quot;</span>, <span class="st">&quot;carrier_lab&quot;</span></span>
+<span id="cb16-11"><a href="#cb16-11" tabindex="-1"></a>)])</span>
+<span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a><span class="do">### &gt;   origin dest year month month_lab dep_time dep_time_lab carrier</span></span>
+<span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a><span class="do">### &gt; 1    EWR  IAH 2013     1       JAN      517         q020      UA</span></span>
+<span id="cb16-14"><a href="#cb16-14" tabindex="-1"></a><span class="do">### &gt; 2    LGA  IAH 2013     1       JAN      533         q020      UA</span></span>
+<span id="cb16-15"><a href="#cb16-15" tabindex="-1"></a><span class="do">### &gt; 3    JFK  MIA 2013     1       JAN      542         q020      AA</span></span>
+<span id="cb16-16"><a href="#cb16-16" tabindex="-1"></a><span class="do">### &gt; 4    JFK  BQN 2013     1       JAN      544         q020      B6</span></span>
+<span id="cb16-17"><a href="#cb16-17" tabindex="-1"></a><span class="do">### &gt; 5    LGA  ATL 2013     1       JAN      554         q020      DL</span></span>
+<span id="cb16-18"><a href="#cb16-18" tabindex="-1"></a><span class="do">### &gt; 6    EWR  ORD 2013     1       JAN      554         q020      UA</span></span>
+<span id="cb16-19"><a href="#cb16-19" tabindex="-1"></a><span class="do">### &gt;              carrier_lab</span></span>
+<span id="cb16-20"><a href="#cb16-20" tabindex="-1"></a><span class="do">### &gt; 1  United Air Lines Inc.</span></span>
+<span id="cb16-21"><a href="#cb16-21" tabindex="-1"></a><span class="do">### &gt; 2  United Air Lines Inc.</span></span>
+<span id="cb16-22"><a href="#cb16-22" tabindex="-1"></a><span class="do">### &gt; 3 American Airlines Inc.</span></span>
+<span id="cb16-23"><a href="#cb16-23" tabindex="-1"></a><span class="do">### &gt; 4        JetBlue Airways</span></span>
+<span id="cb16-24"><a href="#cb16-24" tabindex="-1"></a><span class="do">### &gt; 5   Delta Air Lines Inc.</span></span>
+<span id="cb16-25"><a href="#cb16-25" tabindex="-1"></a><span class="do">### &gt; 6  United Air Lines Inc.</span></span></code></pre></div>
+<p>We can use <code>flab()</code> to filter df based on month and
+carrier, even when value labels are “invisible” (i.e., existing only as
+attributes() meta-data.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="co"># labels are not visible (they exist only as attributes() meta-data)</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="fu">head</span>(df[<span class="fu">c</span>(<span class="st">&quot;carrier&quot;</span>, <span class="st">&quot;arr_delay&quot;</span>)])</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="do">### &gt;   carrier arr_delay</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a><span class="do">### &gt; 1      UA        11</span></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="do">### &gt; 2      UA        20</span></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="do">### &gt; 3      AA        33</span></span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a><span class="do">### &gt; 4      B6       -18</span></span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a><span class="do">### &gt; 5      DL       -25</span></span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a><span class="do">### &gt; 6      UA        12</span></span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a><span class="co"># we still can use them to filter (note: we&#39;re filtering on &quot;JetBlue Airways&quot;,</span></span>
+<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a><span class="co"># ...NOT its obscure code &quot;B6&quot;)</span></span>
+<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a>df_fl <span class="ot">&lt;-</span> <span class="fu">flab</span>(df, carrier <span class="sc">==</span> <span class="st">&quot;JetBlue Airways&quot;</span> <span class="sc">&amp;</span> arr_delay <span class="sc">&gt;</span> <span class="dv">20</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a><span class="do">### &gt; Warning in use_val_labs(data): </span></span>
+<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a><span class="do">### &gt; Note: labelr is not optimized for data.frames this large.</span></span>
+<span id="cb17-16"><a href="#cb17-16" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" tabindex="-1"></a><span class="co"># here&#39;s what&#39;s returned when we filtered on &quot;JetBlue Airways&quot; using flab()</span></span>
+<span id="cb17-18"><a href="#cb17-18" tabindex="-1"></a><span class="fu">head</span>(df_fl[<span class="fu">c</span>(<span class="st">&quot;carrier&quot;</span>, <span class="st">&quot;arr_delay&quot;</span>)])</span>
+<span id="cb17-19"><a href="#cb17-19" tabindex="-1"></a><span class="do">### &gt;     carrier arr_delay</span></span>
+<span id="cb17-20"><a href="#cb17-20" tabindex="-1"></a><span class="do">### &gt; 70       B6        44</span></span>
+<span id="cb17-21"><a href="#cb17-21" tabindex="-1"></a><span class="do">### &gt; 129      B6        24</span></span>
+<span id="cb17-22"><a href="#cb17-22" tabindex="-1"></a><span class="do">### &gt; 174      B6        40</span></span>
+<span id="cb17-23"><a href="#cb17-23" tabindex="-1"></a><span class="do">### &gt; 203      B6        42</span></span>
+<span id="cb17-24"><a href="#cb17-24" tabindex="-1"></a><span class="do">### &gt; 292      B6        29</span></span>
+<span id="cb17-25"><a href="#cb17-25" tabindex="-1"></a><span class="do">### &gt; 314      B6        38</span></span>
+<span id="cb17-26"><a href="#cb17-26" tabindex="-1"></a></span>
+<span id="cb17-27"><a href="#cb17-27" tabindex="-1"></a><span class="co"># double-check that this is JetBlue</span></span>
+<span id="cb17-28"><a href="#cb17-28" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">use_val_labs</span>(df_fl)[<span class="fu">c</span>(<span class="st">&quot;carrier&quot;</span>, <span class="st">&quot;arr_delay&quot;</span>)])</span>
+<span id="cb17-29"><a href="#cb17-29" tabindex="-1"></a><span class="do">### &gt;             carrier arr_delay</span></span>
+<span id="cb17-30"><a href="#cb17-30" tabindex="-1"></a><span class="do">### &gt; 70  JetBlue Airways        44</span></span>
+<span id="cb17-31"><a href="#cb17-31" tabindex="-1"></a><span class="do">### &gt; 129 JetBlue Airways        24</span></span>
+<span id="cb17-32"><a href="#cb17-32" tabindex="-1"></a><span class="do">### &gt; 174 JetBlue Airways        40</span></span>
+<span id="cb17-33"><a href="#cb17-33" tabindex="-1"></a><span class="do">### &gt; 203 JetBlue Airways        42</span></span>
+<span id="cb17-34"><a href="#cb17-34" tabindex="-1"></a><span class="do">### &gt; 292 JetBlue Airways        29</span></span>
+<span id="cb17-35"><a href="#cb17-35" tabindex="-1"></a><span class="do">### &gt; 314 JetBlue Airways        38</span></span></code></pre></div>
+<p>How long did this entire NYC Flights session take (results will
+vary)?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>the_buzzer <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>the_buzzer <span class="sc">-</span> opening_ding</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="do">### &gt; Time difference of 1.149763 mins</span></span></code></pre></div>
+</div>
+<div id="na-and-irregular-values" class="section level2">
+<h2>NA and “Irregular” Values</h2>
+<p>labelr is no fan of NA values or other “irregular” values, which are
+defined as infinite values, not-a-number values, and character values
+that look like them (e.g., “NAN”, “INF”, “inf”, “Na”).</p>
+<p>When value-labeling a column / variable, such values are
+automatically given the catch-all label “NA” (which will be converted to
+an actual NA in any columns created by <code>add_lab_cols()</code> or
+<code>use_val_labs()</code>). You do not need (and should not try) to
+specify this yourself, and you should not try to over-ride labelr on
+this. If you want to use labelr AND you present with these sorts of
+values, your options are to accept the default “NA” label or convert
+these sorts of values to something else before labeling.</p>
+<p>With that said, let’s see how labelr handles this, with an assist
+from our old friend mtcars (packaged with R’s base distribution).</p>
+<p>First, let’s assign mtcars to a new data.frame object that we will
+besmirch.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>mtbad <span class="ot">&lt;-</span> mtcars</span></code></pre></div>
+<p>Let’s get on with the besmirching.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>mtbad[<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">rownames</span>(mtbad)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Missing Car&quot;</span></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>mtbad[<span class="dv">2</span>, <span class="st">&quot;am&quot;</span>] <span class="ot">&lt;-</span> <span class="cn">Inf</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>mtbad[<span class="dv">3</span>, <span class="st">&quot;gear&quot;</span>] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="cn">Inf</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>mtbad[<span class="dv">5</span>, <span class="st">&quot;carb&quot;</span>] <span class="ot">&lt;-</span> <span class="cn">NaN</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a>mtbad[<span class="dv">2</span>, <span class="st">&quot;mpg&quot;</span>] <span class="ot">&lt;-</span> <span class="cn">Inf</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>mtbad[<span class="dv">3</span>, <span class="st">&quot;mpg&quot;</span>] <span class="ot">&lt;-</span> <span class="cn">NaN</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="co"># add a character variable, for demonstration purposes</span></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="co"># if it makes you feel better, you can pretend these are Consumer Reports or</span></span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="co"># ...JD Power ratings or something</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">9202</span>) <span class="co"># for reproducibility</span></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a>mtbad<span class="sc">$</span>grade <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>), <span class="fu">nrow</span>(mtbad), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a>mtbad[<span class="dv">4</span>, <span class="st">&quot;grade&quot;</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a>mtbad[<span class="dv">5</span>, <span class="st">&quot;grade&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;NA&quot;</span></span>
+<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a>mtbad[<span class="dv">6</span>, <span class="st">&quot;grade&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Inf&quot;</span></span>
+<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a><span class="co"># see where this leaves us</span></span>
+<span id="cb20-19"><a href="#cb20-19" tabindex="-1"></a><span class="fu">head</span>(mtbad)</span>
+<span id="cb20-20"><a href="#cb20-20" tabindex="-1"></a><span class="do">### &gt;                    mpg cyl disp  hp drat    wt  qsec vs  am gear carb grade</span></span>
+<span id="cb20-21"><a href="#cb20-21" tabindex="-1"></a><span class="do">### &gt; Missing Car         NA  NA   NA  NA   NA    NA    NA NA  NA   NA   NA     B</span></span>
+<span id="cb20-22"><a href="#cb20-22" tabindex="-1"></a><span class="do">### &gt; Mazda RX4 Wag      Inf   6  160 110 3.90 2.875 17.02  0 Inf    4    4     C</span></span>
+<span id="cb20-23"><a href="#cb20-23" tabindex="-1"></a><span class="do">### &gt; Datsun 710         NaN   4  108  93 3.85 2.320 18.61  1   1 -Inf    1     C</span></span>
+<span id="cb20-24"><a href="#cb20-24" tabindex="-1"></a><span class="do">### &gt; Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1   0    3    1  &lt;NA&gt;</span></span>
+<span id="cb20-25"><a href="#cb20-25" tabindex="-1"></a><span class="do">### &gt; Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0   0    3  NaN    NA</span></span>
+<span id="cb20-26"><a href="#cb20-26" tabindex="-1"></a><span class="do">### &gt; Valiant           18.1   6  225 105 2.76 3.460 20.22  1   0    3    1   Inf</span></span>
+<span id="cb20-27"><a href="#cb20-27" tabindex="-1"></a></span>
+<span id="cb20-28"><a href="#cb20-28" tabindex="-1"></a><span class="fu">sapply</span>(mtbad, class)</span>
+<span id="cb20-29"><a href="#cb20-29" tabindex="-1"></a><span class="do">### &gt;         mpg         cyl        disp          hp        drat          wt </span></span>
+<span id="cb20-30"><a href="#cb20-30" tabindex="-1"></a><span class="do">### &gt;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; </span></span>
+<span id="cb20-31"><a href="#cb20-31" tabindex="-1"></a><span class="do">### &gt;        qsec          vs          am        gear        carb       grade </span></span>
+<span id="cb20-32"><a href="#cb20-32" tabindex="-1"></a><span class="do">### &gt;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; &quot;character&quot;</span></span></code></pre></div>
+<p>Now, let’s add value labels to this unruly data.frame.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>mtlabs <span class="ot">&lt;-</span> mtbad <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>  <span class="fu">add_val1</span>(grade,</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>    <span class="at">vals =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>),</span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>    <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;Gold&quot;</span>, <span class="st">&quot;Silver&quot;</span>, <span class="st">&quot;Bronze&quot;</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a>  <span class="fu">add_val1</span>(am,</span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a>    <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a>    <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;auto&quot;</span>, <span class="st">&quot;stick&quot;</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a>  <span class="fu">add_val1</span>(carb,</span>
+<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a>    <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>), <span class="co"># not the most inspired use of labels</span></span>
+<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a>    <span class="at">labs =</span> <span class="fu">c</span>(</span>
+<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a>      <span class="st">&quot;1c&quot;</span>, <span class="st">&quot;2c&quot;</span>, <span class="st">&quot;3c&quot;</span>,</span>
+<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a>      <span class="st">&quot;4c&quot;</span>, <span class="st">&quot;6c&quot;</span>, <span class="st">&quot;8c&quot;</span></span>
+<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a>    )</span>
+<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a>  <span class="fu">add_val1</span>(gear,</span>
+<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a>    <span class="at">vals =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>, <span class="co"># again, not the most compelling use case</span></span>
+<span id="cb21-19"><a href="#cb21-19" tabindex="-1"></a>    <span class="at">labs =</span> <span class="fu">c</span>(</span>
+<span id="cb21-20"><a href="#cb21-20" tabindex="-1"></a>      <span class="st">&quot;3-speed&quot;</span>,</span>
+<span id="cb21-21"><a href="#cb21-21" tabindex="-1"></a>      <span class="st">&quot;4-speed&quot;</span>,</span>
+<span id="cb21-22"><a href="#cb21-22" tabindex="-1"></a>      <span class="st">&quot;5-speed&quot;</span></span>
+<span id="cb21-23"><a href="#cb21-23" tabindex="-1"></a>    )</span>
+<span id="cb21-24"><a href="#cb21-24" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb21-25"><a href="#cb21-25" tabindex="-1"></a>  <span class="fu">add_quant1</span>(mpg, <span class="at">qtiles =</span> <span class="dv">4</span>) <span class="co"># add quartile-based value labels</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">get_val_labs</span>(mtlabs, <span class="st">&quot;am&quot;</span>) <span class="co"># NA values were detected and dealt with</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="do">### &gt;   var vals  labs</span></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="do">### &gt; 6  am    0  auto</span></span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="do">### &gt; 7  am    1 stick</span></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="do">### &gt; 8  am   NA    NA</span></span></code></pre></div>
+<p>Let’s streamline the data.frame with <code>sselect()</code> to make
+it more manageable.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>mtless <span class="ot">&lt;-</span> <span class="fu">sselect</span>(mtlabs, mpg, cyl, am, gear, carb, grade) <span class="co"># safely select</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="fu">head</span>(mtless, <span class="dv">5</span>) <span class="co"># note that the irregular values are still here</span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="do">### &gt;                    mpg cyl  am gear carb grade</span></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="do">### &gt; Missing Car         NA  NA  NA   NA   NA     B</span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="do">### &gt; Mazda RX4 Wag      Inf   6 Inf    4    4     C</span></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="do">### &gt; Datsun 710         NaN   4   1 -Inf    1     C</span></span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="do">### &gt; Hornet 4 Drive    21.4   6   0    3    1  &lt;NA&gt;</span></span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="do">### &gt; Hornet Sportabout 18.7   8   0    3  NaN    NA</span></span></code></pre></div>
+<p>Notice how all irregular values are coerced to NA when we substitute
+labels for values with <code>use_val_labs()</code>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">use_val_labs</span>(mtless), <span class="dv">5</span>) <span class="co"># but they all go to NA if we `use_val_labs`</span></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="do">### &gt;                    mpg cyl    am    gear carb  grade</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="do">### &gt; Missing Car       &lt;NA&gt;  NA  &lt;NA&gt;    &lt;NA&gt; &lt;NA&gt; Silver</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="do">### &gt; Mazda RX4 Wag     &lt;NA&gt;   6  &lt;NA&gt; 4-speed   4c Bronze</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="do">### &gt; Datsun 710        &lt;NA&gt;   4 stick    &lt;NA&gt;   1c Bronze</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="do">### &gt; Hornet 4 Drive    q075   6  auto 3-speed   1c   &lt;NA&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="do">### &gt; Hornet Sportabout q050   8  auto 3-speed &lt;NA&gt;   &lt;NA&gt;</span></span></code></pre></div>
+<p>Now, let’s try an <code>add_lab_cols()</code> view.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>mtlabs_plus <span class="ot">&lt;-</span> <span class="fu">add_lab_cols</span>(mtlabs, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;am&quot;</span>)) <span class="co"># creates, adds &quot;am_lab&quot; col</span></span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>mtlabs_plus <span class="ot">&lt;-</span> <span class="fu">sselect</span>(mtlabs_plus, mpg, mpg_lab, am, am_lab) <span class="co"># select cols</span></span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="fu">head</span>(mtlabs_plus) <span class="co"># where we landed</span></span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="do">### &gt;                    mpg mpg_lab  am am_lab</span></span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a><span class="do">### &gt; Missing Car         NA    &lt;NA&gt;  NA   &lt;NA&gt;</span></span>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="do">### &gt; Mazda RX4 Wag      Inf    &lt;NA&gt; Inf   &lt;NA&gt;</span></span>
+<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a><span class="do">### &gt; Datsun 710         NaN    &lt;NA&gt;   1  stick</span></span>
+<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a><span class="do">### &gt; Hornet 4 Drive    21.4    q075   0   auto</span></span>
+<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a><span class="do">### &gt; Hornet Sportabout 18.7    q050   0   auto</span></span>
+<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a><span class="do">### &gt; Valiant           18.1    q050   0   auto</span></span></code></pre></div>
+<p>What if we had tried to explicitly label the NA values and/or
+irregular values themselves? We would have failed.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="co"># Trying to Label an Irregular Value (-Inf)</span></span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>mtbad <span class="ot">&lt;-</span> <span class="fu">add_val1</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a>  <span class="at">data =</span> mtcars,</span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a>  <span class="at">var =</span> gear,</span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>  <span class="at">vals =</span> <span class="sc">-</span><span class="cn">Inf</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;neg.inf&quot;</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a>)</span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a><span class="do">### &gt; Error in add_val1(data = mtcars, var = gear, vals = -Inf, labs = c(&quot;neg.inf&quot;)): </span></span>
+<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a><span class="do">### &gt; Cannot supply NA, NaN, Inf, or character variants as a val or lab arg.</span></span>
+<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a><span class="do">### &gt; These are handled automatically.</span></span>
+<span id="cb26-11"><a href="#cb26-11" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="#cb26-12" tabindex="-1"></a><span class="co"># Trying to Label an Irregular Value (NA)</span></span>
+<span id="cb26-13"><a href="#cb26-13" tabindex="-1"></a>mtbad <span class="ot">&lt;-</span> <span class="fu">add_val_labs</span>(</span>
+<span id="cb26-14"><a href="#cb26-14" tabindex="-1"></a>  <span class="at">data =</span> mtbad,</span>
+<span id="cb26-15"><a href="#cb26-15" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;grade&quot;</span>,</span>
+<span id="cb26-16"><a href="#cb26-16" tabindex="-1"></a>  <span class="at">vals =</span> <span class="cn">NA</span>,</span>
+<span id="cb26-17"><a href="#cb26-17" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;miss&quot;</span>)</span>
+<span id="cb26-18"><a href="#cb26-18" tabindex="-1"></a>)</span>
+<span id="cb26-19"><a href="#cb26-19" tabindex="-1"></a><span class="do">### &gt; Error in add_val_labs(data = mtbad, vars = &quot;grade&quot;, vals = NA, labs = c(&quot;miss&quot;)): </span></span>
+<span id="cb26-20"><a href="#cb26-20" tabindex="-1"></a><span class="do">### &gt; Cannot supply NA, NaN, Inf, or character variants as a val or lab arg.</span></span>
+<span id="cb26-21"><a href="#cb26-21" tabindex="-1"></a><span class="do">### &gt; These are handled automatically.</span></span>
+<span id="cb26-22"><a href="#cb26-22" tabindex="-1"></a></span>
+<span id="cb26-23"><a href="#cb26-23" tabindex="-1"></a><span class="co"># Trying to Label an Irregular Value (NaN)</span></span>
+<span id="cb26-24"><a href="#cb26-24" tabindex="-1"></a>mtbad <span class="ot">&lt;-</span> <span class="fu">add_val_labs</span>(</span>
+<span id="cb26-25"><a href="#cb26-25" tabindex="-1"></a>  <span class="at">data =</span> mtbad,</span>
+<span id="cb26-26"><a href="#cb26-26" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;carb&quot;</span>,</span>
+<span id="cb26-27"><a href="#cb26-27" tabindex="-1"></a>  <span class="at">vals =</span> <span class="cn">NaN</span>,</span>
+<span id="cb26-28"><a href="#cb26-28" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;nan-v&quot;</span>)</span>
+<span id="cb26-29"><a href="#cb26-29" tabindex="-1"></a>)</span>
+<span id="cb26-30"><a href="#cb26-30" tabindex="-1"></a><span class="do">### &gt; Error in add_val_labs(data = mtbad, vars = &quot;carb&quot;, vals = NaN, labs = c(&quot;nan-v&quot;)): </span></span>
+<span id="cb26-31"><a href="#cb26-31" tabindex="-1"></a><span class="do">### &gt; Cannot supply NA, NaN, Inf, or character variants as a val or lab arg.</span></span>
+<span id="cb26-32"><a href="#cb26-32" tabindex="-1"></a><span class="do">### &gt; These are handled automatically.</span></span>
+<span id="cb26-33"><a href="#cb26-33" tabindex="-1"></a></span>
+<span id="cb26-34"><a href="#cb26-34" tabindex="-1"></a><span class="co"># labelr also treats &quot;character variants&quot; of irregular values as irregular values.</span></span>
+<span id="cb26-35"><a href="#cb26-35" tabindex="-1"></a>mtbad <span class="ot">&lt;-</span> <span class="fu">add_val1</span>(</span>
+<span id="cb26-36"><a href="#cb26-36" tabindex="-1"></a>  <span class="at">data =</span> mtbad,</span>
+<span id="cb26-37"><a href="#cb26-37" tabindex="-1"></a>  <span class="at">var =</span> carb,</span>
+<span id="cb26-38"><a href="#cb26-38" tabindex="-1"></a>  <span class="at">vals =</span> <span class="st">&quot;NAN&quot;</span>,</span>
+<span id="cb26-39"><a href="#cb26-39" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;nan-v&quot;</span>)</span>
+<span id="cb26-40"><a href="#cb26-40" tabindex="-1"></a>)</span>
+<span id="cb26-41"><a href="#cb26-41" tabindex="-1"></a><span class="do">### &gt; Error in add_val1(data = mtbad, var = carb, vals = &quot;NAN&quot;, labs = c(&quot;nan-v&quot;)): </span></span>
+<span id="cb26-42"><a href="#cb26-42" tabindex="-1"></a><span class="do">### &gt; Cannot supply NA, NaN, Inf, or character variants as a val or lab arg.</span></span>
+<span id="cb26-43"><a href="#cb26-43" tabindex="-1"></a><span class="do">### &gt; These are handled automatically.</span></span></code></pre></div>
+<p>Again, labelr handles NA and irregular values and resists our efforts
+to take such matters into our own hands.</p>
+</div>
+<div id="factors-and-value-labels" class="section level2">
+<h2>Factors and Value Labels</h2>
+<p>R’s concept of a factor variable shares some affinities with the
+concept of a value-labeled variable and can be viewed as one approach to
+value labeling. However, factors can manifest idiosyncratic and
+surprising behaviors depending on the function to which you’re trying to
+apply them. They are character-like, but they are not character values.
+They are built on top of integers, but they won’t submit to all of the
+operations that integers do. They do some very handy things in certain
+model-fitting applications, but their behavior “under the hood” can be
+counter-intuitive or opaque. Simply put, they are their own thing.</p>
+<p>So, while factors have their purposes, it would be nice to associate
+value labels with the distinct values of data.frame variables in a
+manner that preserves the integrity and transparency of the underlying
+values (factors tend to be a bit opaque about this) and that allows you
+to view or use the labels in flexible ways.</p>
+<p>And if you wanted to work with a factor, it would be nice if you
+could add value labels to it without it ceasing to exist and behave as a
+factor.</p>
+<div id="adding-labels-to-a-factor" class="section level3">
+<h3>Adding Labels to a Factor</h3>
+<p>With that said, let’s see if we can have our label-factor cake and
+eat it, too, using the iris data.frame that comes pre-packaged with
+R.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">unique</span>(iris<span class="sc">$</span>Species)</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="do">### &gt; [1] setosa     versicolor virginica </span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="do">### &gt; Levels: setosa versicolor virginica</span></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a><span class="fu">sapply</span>(iris, class) <span class="co"># nothing up our sleeve -- &quot;Species&quot; is a factor</span></span>
+<span id="cb27-6"><a href="#cb27-6" tabindex="-1"></a><span class="do">### &gt; Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species </span></span>
+<span id="cb27-7"><a href="#cb27-7" tabindex="-1"></a><span class="do">### &gt;    &quot;numeric&quot;    &quot;numeric&quot;    &quot;numeric&quot;    &quot;numeric&quot;     &quot;factor&quot;</span></span></code></pre></div>
+<p>Let’s add value labels to “Species” and assign the result to a new
+data.frame that we’ll call irlab. For our value labels, we’ll use “se”,
+“ve”, and “vi”, which are not adding much new information, but they will
+help to illustrate what we can do with labelr and a factor variable.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>irlab <span class="ot">&lt;-</span> <span class="fu">add_val_labs</span>(iris,</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;Species&quot;</span>,</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;versicolor&quot;</span>, <span class="st">&quot;virginica&quot;</span>),</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ve&quot;</span>, <span class="st">&quot;vi&quot;</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>)</span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" tabindex="-1"></a><span class="co"># this also would&#39;ve worked</span></span>
+<span id="cb28-8"><a href="#cb28-8" tabindex="-1"></a><span class="co"># irlab_dos &lt;- add_val1(iris, Species,</span></span>
+<span id="cb28-9"><a href="#cb28-9" tabindex="-1"></a><span class="co">#   vals = c(&quot;setosa&quot;, &quot;versicolor&quot;, &quot;virginica&quot;),</span></span>
+<span id="cb28-10"><a href="#cb28-10" tabindex="-1"></a><span class="co">#   labs = c(&quot;se&quot;, &quot;ve&quot;, &quot;vi&quot;)</span></span>
+<span id="cb28-11"><a href="#cb28-11" tabindex="-1"></a><span class="co"># )</span></span></code></pre></div>
+<p>Note that we could have just as (or even more) easily used
+<code>add_val1()</code>, which works for a single variable at a time and
+allows us to avoid quoting our column name, if that matters to us. In
+contrast, <code>add_val_labs()</code> requires us to put our variable
+name(s) in quotes, but it also gives us the option to apply a common
+value-label scheme to several variables at once (e.g., Likert-style
+survey responses). We’ll see an example of this type of use case in
+action in a little bit.</p>
+<p>For now, though, let’s prove that the iris and irlab data.frames are
+functionally identical.</p>
+<p>First, note that irlab looks and acts just like iris in the usual
+ways that matter</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">summary</span>(iris)</span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   </span></span>
+<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a><span class="do">### &gt;  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  </span></span>
+<span id="cb29-4"><a href="#cb29-4" tabindex="-1"></a><span class="do">### &gt;  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  </span></span>
+<span id="cb29-5"><a href="#cb29-5" tabindex="-1"></a><span class="do">### &gt;  Median :5.800   Median :3.000   Median :4.350   Median :1.300  </span></span>
+<span id="cb29-6"><a href="#cb29-6" tabindex="-1"></a><span class="do">### &gt;  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  </span></span>
+<span id="cb29-7"><a href="#cb29-7" tabindex="-1"></a><span class="do">### &gt;  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  </span></span>
+<span id="cb29-8"><a href="#cb29-8" tabindex="-1"></a><span class="do">### &gt;  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  </span></span>
+<span id="cb29-9"><a href="#cb29-9" tabindex="-1"></a><span class="do">### &gt;        Species  </span></span>
+<span id="cb29-10"><a href="#cb29-10" tabindex="-1"></a><span class="do">### &gt;  setosa    :50  </span></span>
+<span id="cb29-11"><a href="#cb29-11" tabindex="-1"></a><span class="do">### &gt;  versicolor:50  </span></span>
+<span id="cb29-12"><a href="#cb29-12" tabindex="-1"></a><span class="do">### &gt;  virginica :50  </span></span>
+<span id="cb29-13"><a href="#cb29-13" tabindex="-1"></a><span class="do">### &gt;                 </span></span>
+<span id="cb29-14"><a href="#cb29-14" tabindex="-1"></a><span class="do">### &gt;                 </span></span>
+<span id="cb29-15"><a href="#cb29-15" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb29-16"><a href="#cb29-16" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" tabindex="-1"></a><span class="fu">summary</span>(irlab)</span>
+<span id="cb29-18"><a href="#cb29-18" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   </span></span>
+<span id="cb29-19"><a href="#cb29-19" tabindex="-1"></a><span class="do">### &gt;  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  </span></span>
+<span id="cb29-20"><a href="#cb29-20" tabindex="-1"></a><span class="do">### &gt;  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  </span></span>
+<span id="cb29-21"><a href="#cb29-21" tabindex="-1"></a><span class="do">### &gt;  Median :5.800   Median :3.000   Median :4.350   Median :1.300  </span></span>
+<span id="cb29-22"><a href="#cb29-22" tabindex="-1"></a><span class="do">### &gt;  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  </span></span>
+<span id="cb29-23"><a href="#cb29-23" tabindex="-1"></a><span class="do">### &gt;  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  </span></span>
+<span id="cb29-24"><a href="#cb29-24" tabindex="-1"></a><span class="do">### &gt;  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  </span></span>
+<span id="cb29-25"><a href="#cb29-25" tabindex="-1"></a><span class="do">### &gt;        Species  </span></span>
+<span id="cb29-26"><a href="#cb29-26" tabindex="-1"></a><span class="do">### &gt;  setosa    :50  </span></span>
+<span id="cb29-27"><a href="#cb29-27" tabindex="-1"></a><span class="do">### &gt;  versicolor:50  </span></span>
+<span id="cb29-28"><a href="#cb29-28" tabindex="-1"></a><span class="do">### &gt;  virginica :50  </span></span>
+<span id="cb29-29"><a href="#cb29-29" tabindex="-1"></a><span class="do">### &gt;                 </span></span>
+<span id="cb29-30"><a href="#cb29-30" tabindex="-1"></a><span class="do">### &gt;                 </span></span>
+<span id="cb29-31"><a href="#cb29-31" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb29-32"><a href="#cb29-32" tabindex="-1"></a></span>
+<span id="cb29-33"><a href="#cb29-33" tabindex="-1"></a><span class="fu">head</span>(iris, <span class="dv">4</span>)</span>
+<span id="cb29-34"><a href="#cb29-34" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb29-35"><a href="#cb29-35" tabindex="-1"></a><span class="do">### &gt; 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span id="cb29-36"><a href="#cb29-36" tabindex="-1"></a><span class="do">### &gt; 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span id="cb29-37"><a href="#cb29-37" tabindex="-1"></a><span class="do">### &gt; 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span id="cb29-38"><a href="#cb29-38" tabindex="-1"></a><span class="do">### &gt; 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span id="cb29-39"><a href="#cb29-39" tabindex="-1"></a></span>
+<span id="cb29-40"><a href="#cb29-40" tabindex="-1"></a><span class="fu">head</span>(irlab, <span class="dv">4</span>)</span>
+<span id="cb29-41"><a href="#cb29-41" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb29-42"><a href="#cb29-42" tabindex="-1"></a><span class="do">### &gt; 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span id="cb29-43"><a href="#cb29-43" tabindex="-1"></a><span class="do">### &gt; 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span id="cb29-44"><a href="#cb29-44" tabindex="-1"></a><span class="do">### &gt; 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span id="cb29-45"><a href="#cb29-45" tabindex="-1"></a><span class="do">### &gt; 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span id="cb29-46"><a href="#cb29-46" tabindex="-1"></a></span>
+<span id="cb29-47"><a href="#cb29-47" tabindex="-1"></a><span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Sepal.Width <span class="sc">+</span> Species, <span class="at">data =</span> iris)</span>
+<span id="cb29-48"><a href="#cb29-48" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb29-49"><a href="#cb29-49" tabindex="-1"></a><span class="do">### &gt; Call:</span></span>
+<span id="cb29-50"><a href="#cb29-50" tabindex="-1"></a><span class="do">### &gt; lm(formula = Sepal.Length ~ Sepal.Width + Species, data = iris)</span></span>
+<span id="cb29-51"><a href="#cb29-51" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb29-52"><a href="#cb29-52" tabindex="-1"></a><span class="do">### &gt; Coefficients:</span></span>
+<span id="cb29-53"><a href="#cb29-53" tabindex="-1"></a><span class="do">### &gt;       (Intercept)        Sepal.Width  Speciesversicolor   Speciesvirginica  </span></span>
+<span id="cb29-54"><a href="#cb29-54" tabindex="-1"></a><span class="do">### &gt;            2.2514             0.8036             1.4587             1.9468</span></span>
+<span id="cb29-55"><a href="#cb29-55" tabindex="-1"></a></span>
+<span id="cb29-56"><a href="#cb29-56" tabindex="-1"></a><span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Sepal.Width <span class="sc">+</span> Species, <span class="at">data =</span> irlab) <span class="co"># values are same</span></span>
+<span id="cb29-57"><a href="#cb29-57" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb29-58"><a href="#cb29-58" tabindex="-1"></a><span class="do">### &gt; Call:</span></span>
+<span id="cb29-59"><a href="#cb29-59" tabindex="-1"></a><span class="do">### &gt; lm(formula = Sepal.Length ~ Sepal.Width + Species, data = irlab)</span></span>
+<span id="cb29-60"><a href="#cb29-60" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb29-61"><a href="#cb29-61" tabindex="-1"></a><span class="do">### &gt; Coefficients:</span></span>
+<span id="cb29-62"><a href="#cb29-62" tabindex="-1"></a><span class="do">### &gt;       (Intercept)        Sepal.Width  Speciesversicolor   Speciesvirginica  </span></span>
+<span id="cb29-63"><a href="#cb29-63" tabindex="-1"></a><span class="do">### &gt;            2.2514             0.8036             1.4587             1.9468</span></span></code></pre></div>
+<p>Note also that irlab’s “Species” is still a factor, just like its
+iris counterpart/parent.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">sapply</span>(irlab, class)</span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a><span class="do">### &gt; Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species </span></span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a><span class="do">### &gt;    &quot;numeric&quot;    &quot;numeric&quot;    &quot;numeric&quot;    &quot;numeric&quot;     &quot;factor&quot;</span></span>
+<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" tabindex="-1"></a><span class="fu">levels</span>(irlab<span class="sc">$</span>Species)</span>
+<span id="cb30-6"><a href="#cb30-6" tabindex="-1"></a><span class="do">### &gt; [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</span></span></code></pre></div>
+<p>But irlab’s “Species” has value labels!</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">get_val_labs</span>(irlab, <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="do">### &gt;       var       vals labs</span></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a><span class="do">### &gt; 1 Species     setosa   se</span></span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a><span class="do">### &gt; 2 Species versicolor   ve</span></span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a><span class="do">### &gt; 3 Species  virginica   vi</span></span>
+<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a><span class="do">### &gt; 4 Species         NA   NA</span></span></code></pre></div>
+<p>And they work.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">use_val_labs</span>(irlab))</span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a><span class="do">### &gt; 1          5.1         3.5          1.4         0.2      se</span></span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a><span class="do">### &gt; 2          4.9         3.0          1.4         0.2      se</span></span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a><span class="do">### &gt; 3          4.7         3.2          1.3         0.2      se</span></span>
+<span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a><span class="do">### &gt; 4          4.6         3.1          1.5         0.2      se</span></span>
+<span id="cb32-7"><a href="#cb32-7" tabindex="-1"></a><span class="do">### &gt; 5          5.0         3.6          1.4         0.2      se</span></span>
+<span id="cb32-8"><a href="#cb32-8" tabindex="-1"></a><span class="do">### &gt; 6          5.4         3.9          1.7         0.4      se</span></span>
+<span id="cb32-9"><a href="#cb32-9" tabindex="-1"></a>ir_v <span class="ot">&lt;-</span> <span class="fu">flab</span>(irlab, Species <span class="sc">==</span> <span class="st">&quot;vi&quot;</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" tabindex="-1"></a><span class="fu">head</span>(ir_v, <span class="dv">5</span>)</span>
+<span id="cb32-11"><a href="#cb32-11" tabindex="-1"></a><span class="do">### &gt;     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species</span></span>
+<span id="cb32-12"><a href="#cb32-12" tabindex="-1"></a><span class="do">### &gt; 101          6.3         3.3          6.0         2.5 virginica</span></span>
+<span id="cb32-13"><a href="#cb32-13" tabindex="-1"></a><span class="do">### &gt; 102          5.8         2.7          5.1         1.9 virginica</span></span>
+<span id="cb32-14"><a href="#cb32-14" tabindex="-1"></a><span class="do">### &gt; 103          7.1         3.0          5.9         2.1 virginica</span></span>
+<span id="cb32-15"><a href="#cb32-15" tabindex="-1"></a><span class="do">### &gt; 104          6.3         2.9          5.6         1.8 virginica</span></span>
+<span id="cb32-16"><a href="#cb32-16" tabindex="-1"></a><span class="do">### &gt; 105          6.5         3.0          5.8         2.2 virginica</span></span></code></pre></div>
+<p>Our take-aways so far? Factors can be value-labeled while staying
+factors, and we can use the labels to do labelr-y things with those
+factors. We can have both.</p>
+<p>We may want to go further and add the labeled variable alongside the
+factor version.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>irlab_aug <span class="ot">&lt;-</span> <span class="fu">add_lab_cols</span>(irlab, <span class="at">vars =</span> <span class="st">&quot;Species&quot;</span>)</span></code></pre></div>
+<p>This gives us a new variable called “Species_lab”. Let’s get select
+rows of the resulting data.frame, since we want to see all the different
+species.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">231</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>sample_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(irlab)), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a>irlab_aug[sample_rows, ]</span>
+<span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a><span class="do">### &gt;     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species Species_lab</span></span>
+<span id="cb34-6"><a href="#cb34-6" tabindex="-1"></a><span class="do">### &gt; 7            4.6         3.4          1.4         0.3     setosa          se</span></span>
+<span id="cb34-7"><a href="#cb34-7" tabindex="-1"></a><span class="do">### &gt; 91           5.5         2.6          4.4         1.2 versicolor          ve</span></span>
+<span id="cb34-8"><a href="#cb34-8" tabindex="-1"></a><span class="do">### &gt; 41           5.0         3.5          1.3         0.3     setosa          se</span></span>
+<span id="cb34-9"><a href="#cb34-9" tabindex="-1"></a><span class="do">### &gt; 133          6.4         2.8          5.6         2.2  virginica          vi</span></span>
+<span id="cb34-10"><a href="#cb34-10" tabindex="-1"></a><span class="do">### &gt; 130          7.2         3.0          5.8         1.6  virginica          vi</span></span>
+<span id="cb34-11"><a href="#cb34-11" tabindex="-1"></a><span class="do">### &gt; 19           5.7         3.8          1.7         0.3     setosa          se</span></span>
+<span id="cb34-12"><a href="#cb34-12" tabindex="-1"></a><span class="do">### &gt; 104          6.3         2.9          5.6         1.8  virginica          vi</span></span>
+<span id="cb34-13"><a href="#cb34-13" tabindex="-1"></a><span class="do">### &gt; 43           4.4         3.2          1.3         0.2     setosa          se</span></span>
+<span id="cb34-14"><a href="#cb34-14" tabindex="-1"></a><span class="do">### &gt; 8            5.0         3.4          1.5         0.2     setosa          se</span></span>
+<span id="cb34-15"><a href="#cb34-15" tabindex="-1"></a><span class="do">### &gt; 68           5.8         2.7          4.1         1.0 versicolor          ve</span></span>
+<span id="cb34-16"><a href="#cb34-16" tabindex="-1"></a></span>
+<span id="cb34-17"><a href="#cb34-17" tabindex="-1"></a><span class="fu">sapply</span>(irlab_aug, class)</span>
+<span id="cb34-18"><a href="#cb34-18" tabindex="-1"></a><span class="do">### &gt; Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species  Species_lab </span></span>
+<span id="cb34-19"><a href="#cb34-19" tabindex="-1"></a><span class="do">### &gt;    &quot;numeric&quot;    &quot;numeric&quot;    &quot;numeric&quot;    &quot;numeric&quot;     &quot;factor&quot;  &quot;character&quot;</span></span>
+<span id="cb34-20"><a href="#cb34-20" tabindex="-1"></a></span>
+<span id="cb34-21"><a href="#cb34-21" tabindex="-1"></a><span class="fu">with</span>(irlab_aug, <span class="fu">table</span>(Species, Species_lab))</span>
+<span id="cb34-22"><a href="#cb34-22" tabindex="-1"></a><span class="do">### &gt;             Species_lab</span></span>
+<span id="cb34-23"><a href="#cb34-23" tabindex="-1"></a><span class="do">### &gt; Species      se ve vi</span></span>
+<span id="cb34-24"><a href="#cb34-24" tabindex="-1"></a><span class="do">### &gt;   setosa     50  0  0</span></span>
+<span id="cb34-25"><a href="#cb34-25" tabindex="-1"></a><span class="do">### &gt;   versicolor  0 50  0</span></span>
+<span id="cb34-26"><a href="#cb34-26" tabindex="-1"></a><span class="do">### &gt;   virginica   0  0 50</span></span></code></pre></div>
+<p>Caution: Replacing the entire data.frame using
+<code>use_val_labs()</code> WILL coerce factors to character, since the
+value labels are character values, not recognized factor levels</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>ir_char <span class="ot">&lt;-</span> <span class="fu">use_val_labs</span>(irlab) <span class="co"># we assign this to a new data.frame</span></span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a><span class="fu">sapply</span>(ir_char, class)</span>
+<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a><span class="do">### &gt; Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species </span></span>
+<span id="cb35-4"><a href="#cb35-4" tabindex="-1"></a><span class="do">### &gt;    &quot;numeric&quot;    &quot;numeric&quot;    &quot;numeric&quot;    &quot;numeric&quot;  &quot;character&quot;</span></span>
+<span id="cb35-5"><a href="#cb35-5" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" tabindex="-1"></a><span class="fu">head</span>(ir_char, <span class="dv">3</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb35-8"><a href="#cb35-8" tabindex="-1"></a><span class="do">### &gt; 1          5.1         3.5          1.4         0.2      se</span></span>
+<span id="cb35-9"><a href="#cb35-9" tabindex="-1"></a><span class="do">### &gt; 2          4.9         3.0          1.4         0.2      se</span></span>
+<span id="cb35-10"><a href="#cb35-10" tabindex="-1"></a><span class="do">### &gt; 3          4.7         3.2          1.3         0.2      se</span></span>
+<span id="cb35-11"><a href="#cb35-11" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" tabindex="-1"></a><span class="fu">class</span>(ir_char<span class="sc">$</span>Species) <span class="co"># it&#39;s character</span></span>
+<span id="cb35-13"><a href="#cb35-13" tabindex="-1"></a><span class="do">### &gt; [1] &quot;character&quot;</span></span></code></pre></div>
+<p>Of course, even then, we could explicitly coerce the labels to be
+factors if we wanted</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a>ir_fact <span class="ot">&lt;-</span> <span class="fu">use_val_labs</span>(irlab)</span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a>ir_fact<span class="sc">$</span>Species <span class="ot">&lt;-</span> <span class="fu">factor</span>(ir_char<span class="sc">$</span>Species,</span>
+<span id="cb36-4"><a href="#cb36-4" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ve&quot;</span>, <span class="st">&quot;vi&quot;</span>),</span>
+<span id="cb36-5"><a href="#cb36-5" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;se&quot;</span>, <span class="st">&quot;ve&quot;</span>, <span class="st">&quot;vi&quot;</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" tabindex="-1"></a>)</span>
+<span id="cb36-7"><a href="#cb36-7" tabindex="-1"></a><span class="fu">head</span>(ir_fact, <span class="dv">3</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span id="cb36-9"><a href="#cb36-9" tabindex="-1"></a><span class="do">### &gt; 1          5.1         3.5          1.4         0.2      se</span></span>
+<span id="cb36-10"><a href="#cb36-10" tabindex="-1"></a><span class="do">### &gt; 2          4.9         3.0          1.4         0.2      se</span></span>
+<span id="cb36-11"><a href="#cb36-11" tabindex="-1"></a><span class="do">### &gt; 3          4.7         3.2          1.3         0.2      se</span></span>
+<span id="cb36-12"><a href="#cb36-12" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" tabindex="-1"></a><span class="fu">class</span>(ir_fact<span class="sc">$</span>Species) <span class="co"># it&#39;s a factor</span></span>
+<span id="cb36-14"><a href="#cb36-14" tabindex="-1"></a><span class="do">### &gt; [1] &quot;factor&quot;</span></span>
+<span id="cb36-15"><a href="#cb36-15" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" tabindex="-1"></a><span class="fu">levels</span>(ir_fact<span class="sc">$</span>Species) <span class="co"># it&#39;s a factor</span></span>
+<span id="cb36-17"><a href="#cb36-17" tabindex="-1"></a><span class="do">### &gt; [1] &quot;se&quot; &quot;ve&quot; &quot;vi&quot;</span></span></code></pre></div>
+<p>We’ve recovered.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="fu">with</span>(ir_fact, <span class="fu">tapply</span>(Sepal.Width, Species, mean))</span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a><span class="do">### &gt;    se    ve    vi </span></span>
+<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a><span class="do">### &gt; 3.428 2.770 2.974</span></span>
+<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a><span class="fu">with</span>(irlab, <span class="fu">tapply</span>(Sepal.Width, Species, mean))</span>
+<span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a><span class="do">### &gt;     setosa versicolor  virginica </span></span>
+<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a><span class="do">### &gt;      3.428      2.770      2.974</span></span>
+<span id="cb37-7"><a href="#cb37-7" tabindex="-1"></a><span class="fu">with</span>(iris, <span class="fu">tapply</span>(Sepal.Width, Species, mean))</span>
+<span id="cb37-8"><a href="#cb37-8" tabindex="-1"></a><span class="do">### &gt;     setosa versicolor  virginica </span></span>
+<span id="cb37-9"><a href="#cb37-9" tabindex="-1"></a><span class="do">### &gt;      3.428      2.770      2.974</span></span></code></pre></div>
+</div>
+<div id="ordered-factors" class="section level3">
+<h3>Ordered factors</h3>
+<p>Value labels work with ordered factors, too. Let’s make a fictional
+ordered factor that we add to ir_ord. We can pretend that this is some
+sort of judge’s overall quality rating, if that helps.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a>ir_ord <span class="ot">&lt;-</span> iris</span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">293</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" tabindex="-1"></a>qrating <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AAA&quot;</span>, <span class="st">&quot;AA&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;BBB&quot;</span>, <span class="st">&quot;AA&quot;</span>, <span class="st">&quot;BBB&quot;</span>, <span class="st">&quot;A&quot;</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" tabindex="-1"></a>ir_ord<span class="sc">$</span>qrat <span class="ot">&lt;-</span> <span class="fu">sample</span>(qrating, <span class="dv">150</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" tabindex="-1"></a>ir_ord<span class="sc">$</span>qrat <span class="ot">&lt;-</span> <span class="fu">factor</span>(ir_ord<span class="sc">$</span>qrat,</span>
+<span id="cb38-9"><a href="#cb38-9" tabindex="-1"></a>  <span class="at">ordered =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb38-10"><a href="#cb38-10" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;AAA&quot;</span>, <span class="st">&quot;AA&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;BBB&quot;</span>)</span>
+<span id="cb38-11"><a href="#cb38-11" tabindex="-1"></a>)</span></code></pre></div>
+<p>Where do we stand with this factor?</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="fu">levels</span>(ir_ord<span class="sc">$</span>qrat)</span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a><span class="do">### &gt; [1] &quot;AAA&quot; &quot;AA&quot;  &quot;A&quot;   &quot;BBB&quot;</span></span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" tabindex="-1"></a><span class="fu">class</span>(ir_ord<span class="sc">$</span>qrat)</span>
+<span id="cb39-5"><a href="#cb39-5" tabindex="-1"></a><span class="do">### &gt; [1] &quot;ordered&quot; &quot;factor&quot;</span></span></code></pre></div>
+<p>Now, let’s add value labels to it.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>ir_ord <span class="ot">&lt;-</span> <span class="fu">add_val_labs</span>(ir_ord,</span>
+<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;qrat&quot;</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="st">&quot;AAA&quot;</span>, <span class="st">&quot;AA&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;BBB&quot;</span>),</span>
+<span id="cb40-4"><a href="#cb40-4" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(</span>
+<span id="cb40-5"><a href="#cb40-5" tabindex="-1"></a>    <span class="st">&quot;unimpeachable&quot;</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" tabindex="-1"></a>    <span class="st">&quot;excellent&quot;</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" tabindex="-1"></a>    <span class="st">&quot;very good&quot;</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" tabindex="-1"></a>    <span class="st">&quot;meh&quot;</span></span>
+<span id="cb40-9"><a href="#cb40-9" tabindex="-1"></a>  )</span>
+<span id="cb40-10"><a href="#cb40-10" tabindex="-1"></a>)</span></code></pre></div>
+<p>Let’s add a separate column with those labels as a distinct
+(character) variable unto itself, existing in addition to (not
+replacing) “qrat”.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a>ir_ord <span class="ot">&lt;-</span> <span class="fu">add_lab_cols</span>(ir_ord, <span class="at">vars =</span> <span class="st">&quot;qrat&quot;</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a><span class="fu">head</span>(ir_ord, <span class="dv">10</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" tabindex="-1"></a><span class="do">### &gt;    Sepal.Length Sepal.Width Petal.Length Petal.Width Species qrat      qrat_lab</span></span>
+<span id="cb41-5"><a href="#cb41-5" tabindex="-1"></a><span class="do">### &gt; 1           5.1         3.5          1.4         0.2  setosa   AA     excellent</span></span>
+<span id="cb41-6"><a href="#cb41-6" tabindex="-1"></a><span class="do">### &gt; 2           4.9         3.0          1.4         0.2  setosa   AA     excellent</span></span>
+<span id="cb41-7"><a href="#cb41-7" tabindex="-1"></a><span class="do">### &gt; 3           4.7         3.2          1.3         0.2  setosa   AA     excellent</span></span>
+<span id="cb41-8"><a href="#cb41-8" tabindex="-1"></a><span class="do">### &gt; 4           4.6         3.1          1.5         0.2  setosa  AAA unimpeachable</span></span>
+<span id="cb41-9"><a href="#cb41-9" tabindex="-1"></a><span class="do">### &gt; 5           5.0         3.6          1.4         0.2  setosa   AA     excellent</span></span>
+<span id="cb41-10"><a href="#cb41-10" tabindex="-1"></a><span class="do">### &gt; 6           5.4         3.9          1.7         0.4  setosa  BBB           meh</span></span>
+<span id="cb41-11"><a href="#cb41-11" tabindex="-1"></a><span class="do">### &gt; 7           4.6         3.4          1.4         0.3  setosa  AAA unimpeachable</span></span>
+<span id="cb41-12"><a href="#cb41-12" tabindex="-1"></a><span class="do">### &gt; 8           5.0         3.4          1.5         0.2  setosa   AA     excellent</span></span>
+<span id="cb41-13"><a href="#cb41-13" tabindex="-1"></a><span class="do">### &gt; 9           4.4         2.9          1.4         0.2  setosa    A     very good</span></span>
+<span id="cb41-14"><a href="#cb41-14" tabindex="-1"></a><span class="do">### &gt; 10          4.9         3.1          1.5         0.1  setosa    A     very good</span></span>
+<span id="cb41-15"><a href="#cb41-15" tabindex="-1"></a></span>
+<span id="cb41-16"><a href="#cb41-16" tabindex="-1"></a><span class="fu">with</span>(ir_ord, <span class="fu">table</span>(qrat_lab, qrat))</span>
+<span id="cb41-17"><a href="#cb41-17" tabindex="-1"></a><span class="do">### &gt;                qrat</span></span>
+<span id="cb41-18"><a href="#cb41-18" tabindex="-1"></a><span class="do">### &gt; qrat_lab        AAA AA  A BBB</span></span>
+<span id="cb41-19"><a href="#cb41-19" tabindex="-1"></a><span class="do">### &gt;   excellent       0 49  0   0</span></span>
+<span id="cb41-20"><a href="#cb41-20" tabindex="-1"></a><span class="do">### &gt;   meh             0  0  0  43</span></span>
+<span id="cb41-21"><a href="#cb41-21" tabindex="-1"></a><span class="do">### &gt;   unimpeachable  11  0  0   0</span></span>
+<span id="cb41-22"><a href="#cb41-22" tabindex="-1"></a><span class="do">### &gt;   very good       0  0 47   0</span></span>
+<span id="cb41-23"><a href="#cb41-23" tabindex="-1"></a></span>
+<span id="cb41-24"><a href="#cb41-24" tabindex="-1"></a><span class="fu">class</span>(ir_ord<span class="sc">$</span>qrat)</span>
+<span id="cb41-25"><a href="#cb41-25" tabindex="-1"></a><span class="do">### &gt; [1] &quot;ordered&quot; &quot;factor&quot;</span></span>
+<span id="cb41-26"><a href="#cb41-26" tabindex="-1"></a></span>
+<span id="cb41-27"><a href="#cb41-27" tabindex="-1"></a><span class="fu">levels</span>(ir_ord<span class="sc">$</span>qrat)</span>
+<span id="cb41-28"><a href="#cb41-28" tabindex="-1"></a><span class="do">### &gt; [1] &quot;AAA&quot; &quot;AA&quot;  &quot;A&quot;   &quot;BBB&quot;</span></span>
+<span id="cb41-29"><a href="#cb41-29" tabindex="-1"></a></span>
+<span id="cb41-30"><a href="#cb41-30" tabindex="-1"></a><span class="fu">class</span>(ir_ord<span class="sc">$</span>qrat_lab)</span>
+<span id="cb41-31"><a href="#cb41-31" tabindex="-1"></a><span class="do">### &gt; [1] &quot;character&quot;</span></span>
+<span id="cb41-32"><a href="#cb41-32" tabindex="-1"></a></span>
+<span id="cb41-33"><a href="#cb41-33" tabindex="-1"></a><span class="fu">get_val_labs</span>(ir_ord, <span class="st">&quot;qrat&quot;</span>) <span class="co"># labs are still there for qrat</span></span>
+<span id="cb41-34"><a href="#cb41-34" tabindex="-1"></a><span class="do">### &gt;    var vals          labs</span></span>
+<span id="cb41-35"><a href="#cb41-35" tabindex="-1"></a><span class="do">### &gt; 1 qrat    A     very good</span></span>
+<span id="cb41-36"><a href="#cb41-36" tabindex="-1"></a><span class="do">### &gt; 2 qrat   AA     excellent</span></span>
+<span id="cb41-37"><a href="#cb41-37" tabindex="-1"></a><span class="do">### &gt; 3 qrat  AAA unimpeachable</span></span>
+<span id="cb41-38"><a href="#cb41-38" tabindex="-1"></a><span class="do">### &gt; 4 qrat  BBB           meh</span></span>
+<span id="cb41-39"><a href="#cb41-39" tabindex="-1"></a><span class="do">### &gt; 5 qrat   NA            NA</span></span>
+<span id="cb41-40"><a href="#cb41-40" tabindex="-1"></a></span>
+<span id="cb41-41"><a href="#cb41-41" tabindex="-1"></a><span class="fu">get_val_labs</span>(ir_ord, <span class="st">&quot;qrat_lab&quot;</span>) <span class="co"># no labs here; this is just a character var</span></span>
+<span id="cb41-42"><a href="#cb41-42" tabindex="-1"></a><span class="do">### &gt; Warning in get_val_labs(ir_ord, &quot;qrat_lab&quot;): </span></span>
+<span id="cb41-43"><a href="#cb41-43" tabindex="-1"></a><span class="do">### &gt;  </span></span>
+<span id="cb41-44"><a href="#cb41-44" tabindex="-1"></a><span class="do">### &gt;   No val.labs found.</span></span>
+<span id="cb41-45"><a href="#cb41-45" tabindex="-1"></a><span class="do">### &gt; [1] var  vals labs</span></span>
+<span id="cb41-46"><a href="#cb41-46" tabindex="-1"></a><span class="do">### &gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code></pre></div>
+</div>
+<div id="other-factor-and-categorical-variable-possibilities" class="section level3">
+<h3>Other Factor and Categorical Variable Possibilities</h3>
+<p>labelr offers some additional facilities for working with factors and
+categorical variables. For example, functions
+<code>add_lab_dummies()</code> (alias <code>alb()</code>) and
+<code>add_lab_dumm1()</code> (alias <code>ald1()</code>) will generate
+and assign a dummy (aka binary aka indicator) variable for each unique
+value label of a value-labeled variable – factor or otherwise.</p>
+<p>Alternatively, <code>lab_int_to_factor()</code> (alias
+<code>int2f()</code>) allows you to convert a value-labeled integer
+variable (or other non-decimal-having numeric column) to a factor, while
+<code>factor_to_lab_int()</code> (alias <code>f2int()</code>) allows you
+to convert a factor to a value-labeled integer variable. Note that the
+latter is <strong>NOT</strong> a straightforward “undo” for the former:
+the resulting unique integer values and their ordering may differ, as we
+demonstrate.</p>
+<p>First, let’s convert a factor to a value-labeled integer.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="fu">class</span>(iris[[<span class="st">&quot;Species&quot;</span>]])</span>
+<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a><span class="do">### &gt; [1] &quot;factor&quot;</span></span>
+<span id="cb42-3"><a href="#cb42-3" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" tabindex="-1"></a>iris_df <span class="ot">&lt;-</span> <span class="fu">factor_to_lab_int</span>(iris, Species)</span>
+<span id="cb42-5"><a href="#cb42-5" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="#cb42-6" tabindex="-1"></a><span class="fu">class</span>(iris_df[[<span class="st">&quot;Species&quot;</span>]])</span>
+<span id="cb42-7"><a href="#cb42-7" tabindex="-1"></a><span class="do">### &gt; [1] &quot;integer&quot;</span></span>
+<span id="cb42-8"><a href="#cb42-8" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" tabindex="-1"></a><span class="fu">head</span>(iris_df<span class="sc">$</span>Species)</span>
+<span id="cb42-10"><a href="#cb42-10" tabindex="-1"></a><span class="do">### &gt; [1] 1 1 1 1 1 1</span></span>
+<span id="cb42-11"><a href="#cb42-11" tabindex="-1"></a></span>
+<span id="cb42-12"><a href="#cb42-12" tabindex="-1"></a><span class="fu">get_val_labs</span>(iris_df, <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb42-13"><a href="#cb42-13" tabindex="-1"></a><span class="do">### &gt;       var vals       labs</span></span>
+<span id="cb42-14"><a href="#cb42-14" tabindex="-1"></a><span class="do">### &gt; 1 Species    1     setosa</span></span>
+<span id="cb42-15"><a href="#cb42-15" tabindex="-1"></a><span class="do">### &gt; 2 Species    2 versicolor</span></span>
+<span id="cb42-16"><a href="#cb42-16" tabindex="-1"></a><span class="do">### &gt; 3 Species    3  virginica</span></span>
+<span id="cb42-17"><a href="#cb42-17" tabindex="-1"></a><span class="do">### &gt; 4 Species   NA         NA</span></span></code></pre></div>
+<p>Now, let’s value-label an integer and convert it to a factor. Note
+that our variable is not a strict <code>as.integer()</code> integer, but
+it’s a numeric variable with no decimal values, and that’s good enough
+for <code>lab_int_to_factor()</code>.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>carb_orig <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>carb_orig <span class="ot">&lt;-</span> <span class="fu">add_val_labs</span>(</span>
+<span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a>  <span class="at">data =</span> mtcars,</span>
+<span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;carb&quot;</span>,</span>
+<span id="cb43-6"><a href="#cb43-6" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>),</span>
+<span id="cb43-7"><a href="#cb43-7" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(</span>
+<span id="cb43-8"><a href="#cb43-8" tabindex="-1"></a>    <span class="st">&quot;1c&quot;</span>, <span class="st">&quot;2c&quot;</span>, <span class="co"># a tad silly, but these value labels will demo the principle</span></span>
+<span id="cb43-9"><a href="#cb43-9" tabindex="-1"></a>    <span class="st">&quot;3c&quot;</span>, <span class="st">&quot;4c&quot;</span>,</span>
+<span id="cb43-10"><a href="#cb43-10" tabindex="-1"></a>    <span class="st">&quot;6c&quot;</span>, <span class="st">&quot;8c&quot;</span></span>
+<span id="cb43-11"><a href="#cb43-11" tabindex="-1"></a>  )</span>
+<span id="cb43-12"><a href="#cb43-12" tabindex="-1"></a>)</span>
+<span id="cb43-13"><a href="#cb43-13" tabindex="-1"></a></span>
+<span id="cb43-14"><a href="#cb43-14" tabindex="-1"></a><span class="co"># carb as labeled numeric</span></span>
+<span id="cb43-15"><a href="#cb43-15" tabindex="-1"></a><span class="fu">is.integer</span>(carb_orig<span class="sc">$</span>carb) <span class="co"># note: carb not technically an &quot;as.integer()&quot; integer</span></span>
+<span id="cb43-16"><a href="#cb43-16" tabindex="-1"></a><span class="do">### &gt; [1] FALSE</span></span>
+<span id="cb43-17"><a href="#cb43-17" tabindex="-1"></a></span>
+<span id="cb43-18"><a href="#cb43-18" tabindex="-1"></a><span class="fu">class</span>(carb_orig<span class="sc">$</span>carb) <span class="co"># but it IS numeric</span></span>
+<span id="cb43-19"><a href="#cb43-19" tabindex="-1"></a><span class="do">### &gt; [1] &quot;numeric&quot;</span></span>
+<span id="cb43-20"><a href="#cb43-20" tabindex="-1"></a></span>
+<span id="cb43-21"><a href="#cb43-21" tabindex="-1"></a><span class="fu">has_decv</span>(carb_orig<span class="sc">$</span>carb) <span class="co"># and does NOT have decimals; so, lab_int_to_fac() works</span></span>
+<span id="cb43-22"><a href="#cb43-22" tabindex="-1"></a><span class="do">### &gt; [1] FALSE</span></span>
+<span id="cb43-23"><a href="#cb43-23" tabindex="-1"></a></span>
+<span id="cb43-24"><a href="#cb43-24" tabindex="-1"></a><span class="fu">levels</span>(carb_orig<span class="sc">$</span>carb) <span class="co"># none, not a factor</span></span>
+<span id="cb43-25"><a href="#cb43-25" tabindex="-1"></a><span class="do">### &gt; NULL</span></span>
+<span id="cb43-26"><a href="#cb43-26" tabindex="-1"></a></span>
+<span id="cb43-27"><a href="#cb43-27" tabindex="-1"></a><span class="fu">head</span>(carb_orig<span class="sc">$</span>carb, <span class="dv">3</span>) <span class="co"># remember to compare to carb_to_int (below)</span></span>
+<span id="cb43-28"><a href="#cb43-28" tabindex="-1"></a><span class="do">### &gt; [1] 4 4 1</span></span>
+<span id="cb43-29"><a href="#cb43-29" tabindex="-1"></a></span>
+<span id="cb43-30"><a href="#cb43-30" tabindex="-1"></a><span class="fu">mean</span>(carb_orig<span class="sc">$</span>carb) <span class="co"># remember to compare to carb_to_int (below)</span></span>
+<span id="cb43-31"><a href="#cb43-31" tabindex="-1"></a><span class="do">### &gt; [1] 2.8125</span></span>
+<span id="cb43-32"><a href="#cb43-32" tabindex="-1"></a></span>
+<span id="cb43-33"><a href="#cb43-33" tabindex="-1"></a><span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_orig) <span class="co"># remember to compare to carb_to_int (below)</span></span>
+<span id="cb43-34"><a href="#cb43-34" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb43-35"><a href="#cb43-35" tabindex="-1"></a><span class="do">### &gt; Call:</span></span>
+<span id="cb43-36"><a href="#cb43-36" tabindex="-1"></a><span class="do">### &gt; lm(formula = mpg ~ carb, data = carb_orig)</span></span>
+<span id="cb43-37"><a href="#cb43-37" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb43-38"><a href="#cb43-38" tabindex="-1"></a><span class="do">### &gt; Coefficients:</span></span>
+<span id="cb43-39"><a href="#cb43-39" tabindex="-1"></a><span class="do">### &gt; (Intercept)         carb  </span></span>
+<span id="cb43-40"><a href="#cb43-40" tabindex="-1"></a><span class="do">### &gt;      25.872       -2.056</span></span>
+<span id="cb43-41"><a href="#cb43-41" tabindex="-1"></a></span>
+<span id="cb43-42"><a href="#cb43-42" tabindex="-1"></a><span class="co"># note this for comparison to below</span></span>
+<span id="cb43-43"><a href="#cb43-43" tabindex="-1"></a>(adj_r2_orig <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_orig))<span class="sc">$</span>adj.r.squared)</span>
+<span id="cb43-44"><a href="#cb43-44" tabindex="-1"></a><span class="do">### &gt; [1] 0.2803024</span></span>
+<span id="cb43-45"><a href="#cb43-45" tabindex="-1"></a></span>
+<span id="cb43-46"><a href="#cb43-46" tabindex="-1"></a><span class="co"># compare to counterparts below</span></span>
+<span id="cb43-47"><a href="#cb43-47" tabindex="-1"></a><span class="fu">AIC</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_orig))</span>
+<span id="cb43-48"><a href="#cb43-48" tabindex="-1"></a><span class="do">### &gt; [1] 199.1807</span></span>
+<span id="cb43-49"><a href="#cb43-49" tabindex="-1"></a></span>
+<span id="cb43-50"><a href="#cb43-50" tabindex="-1"></a><span class="co"># Make carb a factor</span></span>
+<span id="cb43-51"><a href="#cb43-51" tabindex="-1"></a>carb_fac <span class="ot">&lt;-</span> <span class="fu">lab_int_to_factor</span>(carb_orig, carb) <span class="co"># alias int2f() also works</span></span>
+<span id="cb43-52"><a href="#cb43-52" tabindex="-1"></a></span>
+<span id="cb43-53"><a href="#cb43-53" tabindex="-1"></a><span class="fu">class</span>(carb_fac<span class="sc">$</span>carb) <span class="co"># now it&#39;s a factor</span></span>
+<span id="cb43-54"><a href="#cb43-54" tabindex="-1"></a><span class="do">### &gt; [1] &quot;factor&quot;</span></span>
+<span id="cb43-55"><a href="#cb43-55" tabindex="-1"></a></span>
+<span id="cb43-56"><a href="#cb43-56" tabindex="-1"></a><span class="fu">levels</span>(carb_fac<span class="sc">$</span>carb) <span class="co"># like any good factor, it has levels</span></span>
+<span id="cb43-57"><a href="#cb43-57" tabindex="-1"></a><span class="do">### &gt; [1] &quot;1c&quot; &quot;2c&quot; &quot;3c&quot; &quot;4c&quot; &quot;6c&quot; &quot;8c&quot;</span></span>
+<span id="cb43-58"><a href="#cb43-58" tabindex="-1"></a></span>
+<span id="cb43-59"><a href="#cb43-59" tabindex="-1"></a><span class="fu">head</span>(carb_fac<span class="sc">$</span>carb, <span class="dv">3</span>)</span>
+<span id="cb43-60"><a href="#cb43-60" tabindex="-1"></a><span class="do">### &gt; [1] 4c 4c 1c</span></span>
+<span id="cb43-61"><a href="#cb43-61" tabindex="-1"></a><span class="do">### &gt; Levels: 1c 2c 3c 4c 6c 8c</span></span>
+<span id="cb43-62"><a href="#cb43-62" tabindex="-1"></a></span>
+<span id="cb43-63"><a href="#cb43-63" tabindex="-1"></a><span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_fac) <span class="co"># again: carb is a factor</span></span>
+<span id="cb43-64"><a href="#cb43-64" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb43-65"><a href="#cb43-65" tabindex="-1"></a><span class="do">### &gt; Call:</span></span>
+<span id="cb43-66"><a href="#cb43-66" tabindex="-1"></a><span class="do">### &gt; lm(formula = mpg ~ carb, data = carb_fac)</span></span>
+<span id="cb43-67"><a href="#cb43-67" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb43-68"><a href="#cb43-68" tabindex="-1"></a><span class="do">### &gt; Coefficients:</span></span>
+<span id="cb43-69"><a href="#cb43-69" tabindex="-1"></a><span class="do">### &gt; (Intercept)       carb2c       carb3c       carb4c       carb6c       carb8c  </span></span>
+<span id="cb43-70"><a href="#cb43-70" tabindex="-1"></a><span class="do">### &gt;      25.343       -2.943       -9.043       -9.553       -5.643      -10.343</span></span>
+<span id="cb43-71"><a href="#cb43-71" tabindex="-1"></a></span>
+<span id="cb43-72"><a href="#cb43-72" tabindex="-1"></a><span class="co"># compare these model fit stats to counterparts above and below</span></span>
+<span id="cb43-73"><a href="#cb43-73" tabindex="-1"></a>(adj_r2_fac <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_fac))<span class="sc">$</span>adj.r.squared)</span>
+<span id="cb43-74"><a href="#cb43-74" tabindex="-1"></a><span class="do">### &gt; [1] 0.3377081</span></span>
+<span id="cb43-75"><a href="#cb43-75" tabindex="-1"></a></span>
+<span id="cb43-76"><a href="#cb43-76" tabindex="-1"></a><span class="co"># compare to counterparts above and below</span></span>
+<span id="cb43-77"><a href="#cb43-77" tabindex="-1"></a><span class="fu">AIC</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_fac))</span>
+<span id="cb43-78"><a href="#cb43-78" tabindex="-1"></a><span class="do">### &gt; [1] 199.9415</span></span></code></pre></div>
+<p>Note that we can use <code>factor_to_lab_int()</code> to convert
+“carb” from a factor to a labeled integer variable. However, this is not
+a straightforward “undo” of what we just did: the resulting labeled
+integer won’t be identical to the “carb” column of mtcars that we
+started with, because <code>factor_to_lab_int()</code> converts the
+supplied factor variable’s values to sequentially ordered integers (from
+1 to k, where k is the number of unique factor levels), ordered in terms
+of the levels of the factor variable being converted.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="co"># ??&quot;back&quot;?? to integer? Not quite. Compare below to carb_orig above</span></span>
+<span id="cb44-2"><a href="#cb44-2" tabindex="-1"></a>carb_to_int <span class="ot">&lt;-</span> <span class="fu">factor_to_lab_int</span>(carb_fac, carb) <span class="co"># alias int2f() also works</span></span>
+<span id="cb44-3"><a href="#cb44-3" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" tabindex="-1"></a><span class="fu">class</span>(carb_to_int<span class="sc">$</span>carb) <span class="co"># Is an integer</span></span>
+<span id="cb44-5"><a href="#cb44-5" tabindex="-1"></a><span class="do">### &gt; [1] &quot;integer&quot;</span></span>
+<span id="cb44-6"><a href="#cb44-6" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" tabindex="-1"></a><span class="fu">levels</span>(carb_to_int<span class="sc">$</span>carb) <span class="co"># NOT a factor</span></span>
+<span id="cb44-8"><a href="#cb44-8" tabindex="-1"></a><span class="do">### &gt; NULL</span></span>
+<span id="cb44-9"><a href="#cb44-9" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="#cb44-10" tabindex="-1"></a><span class="fu">head</span>(carb_to_int<span class="sc">$</span>carb, <span class="dv">3</span>) <span class="co"># NOT the same as carb_orig</span></span>
+<span id="cb44-11"><a href="#cb44-11" tabindex="-1"></a><span class="do">### &gt; [1] 4 4 1</span></span>
+<span id="cb44-12"><a href="#cb44-12" tabindex="-1"></a></span>
+<span id="cb44-13"><a href="#cb44-13" tabindex="-1"></a><span class="fu">mean</span>(carb_to_int<span class="sc">$</span>carb) <span class="co"># NOT the same as carb_orig</span></span>
+<span id="cb44-14"><a href="#cb44-14" tabindex="-1"></a><span class="do">### &gt; [1] 2.71875</span></span>
+<span id="cb44-15"><a href="#cb44-15" tabindex="-1"></a></span>
+<span id="cb44-16"><a href="#cb44-16" tabindex="-1"></a><span class="fu">identical</span>(carb_to_int<span class="sc">$</span>carb, carb_orig<span class="sc">$</span>carb) <span class="co"># really!</span></span>
+<span id="cb44-17"><a href="#cb44-17" tabindex="-1"></a><span class="do">### &gt; [1] FALSE</span></span>
+<span id="cb44-18"><a href="#cb44-18" tabindex="-1"></a></span>
+<span id="cb44-19"><a href="#cb44-19" tabindex="-1"></a><span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_to_int) <span class="co"># NOT the same as carb_orig</span></span>
+<span id="cb44-20"><a href="#cb44-20" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb44-21"><a href="#cb44-21" tabindex="-1"></a><span class="do">### &gt; Call:</span></span>
+<span id="cb44-22"><a href="#cb44-22" tabindex="-1"></a><span class="do">### &gt; lm(formula = mpg ~ carb, data = carb_to_int)</span></span>
+<span id="cb44-23"><a href="#cb44-23" tabindex="-1"></a><span class="do">### &gt; </span></span>
+<span id="cb44-24"><a href="#cb44-24" tabindex="-1"></a><span class="do">### &gt; Coefficients:</span></span>
+<span id="cb44-25"><a href="#cb44-25" tabindex="-1"></a><span class="do">### &gt; (Intercept)         carb  </span></span>
+<span id="cb44-26"><a href="#cb44-26" tabindex="-1"></a><span class="do">### &gt;      27.330       -2.663</span></span>
+<span id="cb44-27"><a href="#cb44-27" tabindex="-1"></a></span>
+<span id="cb44-28"><a href="#cb44-28" tabindex="-1"></a><span class="co"># Compare to counterpart calls from earlier iterations of carb (above)</span></span>
+<span id="cb44-29"><a href="#cb44-29" tabindex="-1"></a>(adj_r2_int <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_to_int))<span class="sc">$</span>adj.r.squared)</span>
+<span id="cb44-30"><a href="#cb44-30" tabindex="-1"></a><span class="do">### &gt; [1] 0.3470751</span></span>
+<span id="cb44-31"><a href="#cb44-31" tabindex="-1"></a><span class="fu">AIC</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> carb, <span class="at">data =</span> carb_to_int))</span>
+<span id="cb44-32"><a href="#cb44-32" tabindex="-1"></a><span class="do">### &gt; [1] 196.0649</span></span></code></pre></div>
+<p>Now, let’s quickly demo <code>add_lab_dummies()</code>. To do so,
+we’ll revisit the “Species” column of irlab, our factor variable from
+iris that we value-labeled a few moments ago. It’s still here and still
+has value labels.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="fu">get_val_labs</span>(irlab, <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a><span class="do">### &gt;       var       vals labs</span></span>
+<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a><span class="do">### &gt; 1 Species     setosa   se</span></span>
+<span id="cb45-4"><a href="#cb45-4" tabindex="-1"></a><span class="do">### &gt; 2 Species versicolor   ve</span></span>
+<span id="cb45-5"><a href="#cb45-5" tabindex="-1"></a><span class="do">### &gt; 3 Species  virginica   vi</span></span>
+<span id="cb45-6"><a href="#cb45-6" tabindex="-1"></a><span class="do">### &gt; 4 Species         NA   NA</span></span></code></pre></div>
+<p>Let’s use <code>add_lab_dummies()</code> to create a dummy variable
+for each of its labels.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a>irl_dumm <span class="ot">&lt;-</span> <span class="fu">add_lab_dummies</span>(irlab, <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a><span class="fu">head</span>(irl_dumm) <span class="co"># they&#39;re there!</span></span>
+<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species species_1 species_2</span></span>
+<span id="cb46-4"><a href="#cb46-4" tabindex="-1"></a><span class="do">### &gt; 1          5.1         3.5          1.4         0.2  setosa         1         0</span></span>
+<span id="cb46-5"><a href="#cb46-5" tabindex="-1"></a><span class="do">### &gt; 2          4.9         3.0          1.4         0.2  setosa         1         0</span></span>
+<span id="cb46-6"><a href="#cb46-6" tabindex="-1"></a><span class="do">### &gt; 3          4.7         3.2          1.3         0.2  setosa         1         0</span></span>
+<span id="cb46-7"><a href="#cb46-7" tabindex="-1"></a><span class="do">### &gt; 4          4.6         3.1          1.5         0.2  setosa         1         0</span></span>
+<span id="cb46-8"><a href="#cb46-8" tabindex="-1"></a><span class="do">### &gt; 5          5.0         3.6          1.4         0.2  setosa         1         0</span></span>
+<span id="cb46-9"><a href="#cb46-9" tabindex="-1"></a><span class="do">### &gt; 6          5.4         3.9          1.7         0.4  setosa         1         0</span></span>
+<span id="cb46-10"><a href="#cb46-10" tabindex="-1"></a><span class="do">### &gt;   species_3</span></span>
+<span id="cb46-11"><a href="#cb46-11" tabindex="-1"></a><span class="do">### &gt; 1         0</span></span>
+<span id="cb46-12"><a href="#cb46-12" tabindex="-1"></a><span class="do">### &gt; 2         0</span></span>
+<span id="cb46-13"><a href="#cb46-13" tabindex="-1"></a><span class="do">### &gt; 3         0</span></span>
+<span id="cb46-14"><a href="#cb46-14" tabindex="-1"></a><span class="do">### &gt; 4         0</span></span>
+<span id="cb46-15"><a href="#cb46-15" tabindex="-1"></a><span class="do">### &gt; 5         0</span></span>
+<span id="cb46-16"><a href="#cb46-16" tabindex="-1"></a><span class="do">### &gt; 6         0</span></span>
+<span id="cb46-17"><a href="#cb46-17" tabindex="-1"></a><span class="fu">tail</span>(irl_dumm) <span class="co"># again, they&#39;re there!</span></span>
+<span id="cb46-18"><a href="#cb46-18" tabindex="-1"></a><span class="do">### &gt;     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species species_1</span></span>
+<span id="cb46-19"><a href="#cb46-19" tabindex="-1"></a><span class="do">### &gt; 145          6.7         3.3          5.7         2.5 virginica         0</span></span>
+<span id="cb46-20"><a href="#cb46-20" tabindex="-1"></a><span class="do">### &gt; 146          6.7         3.0          5.2         2.3 virginica         0</span></span>
+<span id="cb46-21"><a href="#cb46-21" tabindex="-1"></a><span class="do">### &gt; 147          6.3         2.5          5.0         1.9 virginica         0</span></span>
+<span id="cb46-22"><a href="#cb46-22" tabindex="-1"></a><span class="do">### &gt; 148          6.5         3.0          5.2         2.0 virginica         0</span></span>
+<span id="cb46-23"><a href="#cb46-23" tabindex="-1"></a><span class="do">### &gt; 149          6.2         3.4          5.4         2.3 virginica         0</span></span>
+<span id="cb46-24"><a href="#cb46-24" tabindex="-1"></a><span class="do">### &gt; 150          5.9         3.0          5.1         1.8 virginica         0</span></span>
+<span id="cb46-25"><a href="#cb46-25" tabindex="-1"></a><span class="do">### &gt;     species_2 species_3</span></span>
+<span id="cb46-26"><a href="#cb46-26" tabindex="-1"></a><span class="do">### &gt; 145         0         1</span></span>
+<span id="cb46-27"><a href="#cb46-27" tabindex="-1"></a><span class="do">### &gt; 146         0         1</span></span>
+<span id="cb46-28"><a href="#cb46-28" tabindex="-1"></a><span class="do">### &gt; 147         0         1</span></span>
+<span id="cb46-29"><a href="#cb46-29" tabindex="-1"></a><span class="do">### &gt; 148         0         1</span></span>
+<span id="cb46-30"><a href="#cb46-30" tabindex="-1"></a><span class="do">### &gt; 149         0         1</span></span>
+<span id="cb46-31"><a href="#cb46-31" tabindex="-1"></a><span class="do">### &gt; 150         0         1</span></span></code></pre></div>
+<p>We can use <code>add_lab_dumm1()</code> to achieve the same result
+without quoting the column name. The countervailing advantage of
+<code>add_lab_dummies()</code> is that it let’s you create dummy
+variables for more than one value-labeled variable at a time
+(<code>add_lab_dumm1()</code> does not).</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a>irl_dumm2 <span class="ot">&lt;-</span> <span class="fu">add_lab_dumm1</span>(irlab, Species)</span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a><span class="fu">head</span>(irl_dumm2) <span class="co"># again, they&#39;re there!</span></span>
+<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a><span class="do">### &gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species species_1 species_2</span></span>
+<span id="cb47-4"><a href="#cb47-4" tabindex="-1"></a><span class="do">### &gt; 1          5.1         3.5          1.4         0.2  setosa         1         0</span></span>
+<span id="cb47-5"><a href="#cb47-5" tabindex="-1"></a><span class="do">### &gt; 2          4.9         3.0          1.4         0.2  setosa         1         0</span></span>
+<span id="cb47-6"><a href="#cb47-6" tabindex="-1"></a><span class="do">### &gt; 3          4.7         3.2          1.3         0.2  setosa         1         0</span></span>
+<span id="cb47-7"><a href="#cb47-7" tabindex="-1"></a><span class="do">### &gt; 4          4.6         3.1          1.5         0.2  setosa         1         0</span></span>
+<span id="cb47-8"><a href="#cb47-8" tabindex="-1"></a><span class="do">### &gt; 5          5.0         3.6          1.4         0.2  setosa         1         0</span></span>
+<span id="cb47-9"><a href="#cb47-9" tabindex="-1"></a><span class="do">### &gt; 6          5.4         3.9          1.7         0.4  setosa         1         0</span></span>
+<span id="cb47-10"><a href="#cb47-10" tabindex="-1"></a><span class="do">### &gt;   species_3</span></span>
+<span id="cb47-11"><a href="#cb47-11" tabindex="-1"></a><span class="do">### &gt; 1         0</span></span>
+<span id="cb47-12"><a href="#cb47-12" tabindex="-1"></a><span class="do">### &gt; 2         0</span></span>
+<span id="cb47-13"><a href="#cb47-13" tabindex="-1"></a><span class="do">### &gt; 3         0</span></span>
+<span id="cb47-14"><a href="#cb47-14" tabindex="-1"></a><span class="do">### &gt; 4         0</span></span>
+<span id="cb47-15"><a href="#cb47-15" tabindex="-1"></a><span class="do">### &gt; 5         0</span></span>
+<span id="cb47-16"><a href="#cb47-16" tabindex="-1"></a><span class="do">### &gt; 6         0</span></span>
+<span id="cb47-17"><a href="#cb47-17" tabindex="-1"></a><span class="fu">tail</span>(irl_dumm2) <span class="co"># again, they&#39;re there!</span></span>
+<span id="cb47-18"><a href="#cb47-18" tabindex="-1"></a><span class="do">### &gt;     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species species_1</span></span>
+<span id="cb47-19"><a href="#cb47-19" tabindex="-1"></a><span class="do">### &gt; 145          6.7         3.3          5.7         2.5 virginica         0</span></span>
+<span id="cb47-20"><a href="#cb47-20" tabindex="-1"></a><span class="do">### &gt; 146          6.7         3.0          5.2         2.3 virginica         0</span></span>
+<span id="cb47-21"><a href="#cb47-21" tabindex="-1"></a><span class="do">### &gt; 147          6.3         2.5          5.0         1.9 virginica         0</span></span>
+<span id="cb47-22"><a href="#cb47-22" tabindex="-1"></a><span class="do">### &gt; 148          6.5         3.0          5.2         2.0 virginica         0</span></span>
+<span id="cb47-23"><a href="#cb47-23" tabindex="-1"></a><span class="do">### &gt; 149          6.2         3.4          5.4         2.3 virginica         0</span></span>
+<span id="cb47-24"><a href="#cb47-24" tabindex="-1"></a><span class="do">### &gt; 150          5.9         3.0          5.1         1.8 virginica         0</span></span>
+<span id="cb47-25"><a href="#cb47-25" tabindex="-1"></a><span class="do">### &gt;     species_2 species_3</span></span>
+<span id="cb47-26"><a href="#cb47-26" tabindex="-1"></a><span class="do">### &gt; 145         0         1</span></span>
+<span id="cb47-27"><a href="#cb47-27" tabindex="-1"></a><span class="do">### &gt; 146         0         1</span></span>
+<span id="cb47-28"><a href="#cb47-28" tabindex="-1"></a><span class="do">### &gt; 147         0         1</span></span>
+<span id="cb47-29"><a href="#cb47-29" tabindex="-1"></a><span class="do">### &gt; 148         0         1</span></span>
+<span id="cb47-30"><a href="#cb47-30" tabindex="-1"></a><span class="do">### &gt; 149         0         1</span></span>
+<span id="cb47-31"><a href="#cb47-31" tabindex="-1"></a><span class="do">### &gt; 150         0         1</span></span></code></pre></div>
+</div>
+</div>
+<div id="value-labeling-many-variables-at-once" class="section level2">
+<h2>Value-Labeling Many Variables at Once</h2>
+<p>Functions for adding value labels (e.g., <code>add_val_labs</code>,
+<code>add_quant_labs</code> and <code>add_m1_lab</code>) will do partial
+matching if the partial argument is set to TRUE. Let’s use labelr’s
+<code>make_likert_data()</code> function to generate some fake Likert
+scale-style survey data to demonstrate this more fully.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">272</span>) <span class="co"># for reproducibility</span></span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a>dflik <span class="ot">&lt;-</span> <span class="fu">make_likert_data</span>(<span class="at">scale =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) <span class="co"># another labelr function</span></span>
+<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a><span class="fu">head</span>(dflik)</span>
+<span id="cb48-4"><a href="#cb48-4" tabindex="-1"></a><span class="do">### &gt;     id x1 x2 x3 x4 x5 y1 y2 y3 y4 y5</span></span>
+<span id="cb48-5"><a href="#cb48-5" tabindex="-1"></a><span class="do">### &gt; U-1  1  5  7  2  2  2  7  1  1  4  2</span></span>
+<span id="cb48-6"><a href="#cb48-6" tabindex="-1"></a><span class="do">### &gt; O-2  2  6  2  7  6  2  3  5  4  1  4</span></span>
+<span id="cb48-7"><a href="#cb48-7" tabindex="-1"></a><span class="do">### &gt; H-3  3  7  7  5  5  6  6  4  1  5  7</span></span>
+<span id="cb48-8"><a href="#cb48-8" tabindex="-1"></a><span class="do">### &gt; Z-4  4  4  5  5  4  5  6  3  7  3  4</span></span>
+<span id="cb48-9"><a href="#cb48-9" tabindex="-1"></a><span class="do">### &gt; C-5  5  3  3  3  1  6  2  7  6  3  5</span></span>
+<span id="cb48-10"><a href="#cb48-10" tabindex="-1"></a><span class="do">### &gt; P-6  6  7  3  5  3  7  5  7  1  6  2</span></span></code></pre></div>
+<p>We’ll put the values we wish to label and the labels we wish to use
+in stand-alone vectors, which we will supply to
+<code>add_val_labs</code> in a moment.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a>vals2label <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span></span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a>labs2use <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb49-3"><a href="#cb49-3" tabindex="-1"></a>  <span class="st">&quot;VSD&quot;</span>,</span>
+<span id="cb49-4"><a href="#cb49-4" tabindex="-1"></a>  <span class="st">&quot;SD&quot;</span>,</span>
+<span id="cb49-5"><a href="#cb49-5" tabindex="-1"></a>  <span class="st">&quot;D&quot;</span>,</span>
+<span id="cb49-6"><a href="#cb49-6" tabindex="-1"></a>  <span class="st">&quot;N&quot;</span>,</span>
+<span id="cb49-7"><a href="#cb49-7" tabindex="-1"></a>  <span class="st">&quot;A&quot;</span>,</span>
+<span id="cb49-8"><a href="#cb49-8" tabindex="-1"></a>  <span class="st">&quot;SA&quot;</span>,</span>
+<span id="cb49-9"><a href="#cb49-9" tabindex="-1"></a>  <span class="st">&quot;VSA&quot;</span></span>
+<span id="cb49-10"><a href="#cb49-10" tabindex="-1"></a>)</span></code></pre></div>
+<p>Now, let’s associate/apply the value labels to ALL vars with “x” in
+their name and also to var “y3.” Note: partial = TRUE.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a>dflik <span class="ot">&lt;-</span> <span class="fu">add_val_labs</span>(</span>
+<span id="cb50-2"><a href="#cb50-2" tabindex="-1"></a>  <span class="at">data =</span> dflik, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y3&quot;</span>), <span class="do">###  note the vars args</span></span>
+<span id="cb50-3"><a href="#cb50-3" tabindex="-1"></a>  <span class="at">vals =</span> vals2label,</span>
+<span id="cb50-4"><a href="#cb50-4" tabindex="-1"></a>  <span class="at">labs =</span> labs2use,</span>
+<span id="cb50-5"><a href="#cb50-5" tabindex="-1"></a>  <span class="at">partial =</span> <span class="cn">TRUE</span> <span class="co"># applying to all cols with &quot;x&quot; or &quot;y3&quot; substring in names</span></span>
+<span id="cb50-6"><a href="#cb50-6" tabindex="-1"></a>)</span></code></pre></div>
+<p>Let’s compare dflik with value labels present but “off” to labels
+“on.”</p>
+<p>First, present but “off.”</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="fu">head</span>(dflik)</span>
+<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a><span class="do">### &gt;     id x1 x2 x3 x4 x5 y1 y2 y3 y4 y5</span></span>
+<span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a><span class="do">### &gt; U-1  1  5  7  2  2  2  7  1  1  4  2</span></span>
+<span id="cb51-4"><a href="#cb51-4" tabindex="-1"></a><span class="do">### &gt; O-2  2  6  2  7  6  2  3  5  4  1  4</span></span>
+<span id="cb51-5"><a href="#cb51-5" tabindex="-1"></a><span class="do">### &gt; H-3  3  7  7  5  5  6  6  4  1  5  7</span></span>
+<span id="cb51-6"><a href="#cb51-6" tabindex="-1"></a><span class="do">### &gt; Z-4  4  4  5  5  4  5  6  3  7  3  4</span></span>
+<span id="cb51-7"><a href="#cb51-7" tabindex="-1"></a><span class="do">### &gt; C-5  5  3  3  3  1  6  2  7  6  3  5</span></span>
+<span id="cb51-8"><a href="#cb51-8" tabindex="-1"></a><span class="do">### &gt; P-6  6  7  3  5  3  7  5  7  1  6  2</span></span></code></pre></div>
+<p>Now, let’s “turn on” (use) these value labels.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a>lik1 <span class="ot">&lt;-</span> <span class="fu">uvl</span>(dflik) <span class="co"># assign to new object, since we can&#39;t &quot;undo&quot;</span></span>
+<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a><span class="fu">head</span>(lik1) <span class="co"># we could have skipped previous call by using labelr::headl(dflik)</span></span>
+<span id="cb52-3"><a href="#cb52-3" tabindex="-1"></a><span class="do">### &gt;     id  x1  x2  x3  x4  x5 y1 y2  y3 y4 y5</span></span>
+<span id="cb52-4"><a href="#cb52-4" tabindex="-1"></a><span class="do">### &gt; U-1  1   A VSA  SD  SD  SD  7  1 VSD  4  2</span></span>
+<span id="cb52-5"><a href="#cb52-5" tabindex="-1"></a><span class="do">### &gt; O-2  2  SA  SD VSA  SA  SD  3  5   N  1  4</span></span>
+<span id="cb52-6"><a href="#cb52-6" tabindex="-1"></a><span class="do">### &gt; H-3  3 VSA VSA   A   A  SA  6  4 VSD  5  7</span></span>
+<span id="cb52-7"><a href="#cb52-7" tabindex="-1"></a><span class="do">### &gt; Z-4  4   N   A   A   N   A  6  3 VSA  3  4</span></span>
+<span id="cb52-8"><a href="#cb52-8" tabindex="-1"></a><span class="do">### &gt; C-5  5   D   D   D VSD  SA  2  7  SA  3  5</span></span>
+<span id="cb52-9"><a href="#cb52-9" tabindex="-1"></a><span class="do">### &gt; P-6  6 VSA   D   A   D VSA  5  7 VSD  6  2</span></span></code></pre></div>
+<p>Yea, verily: All variables with “x” in their name (and “y3”) got the
+labels!</p>
+<p>Suppose we want to drop these value labels for a select few, but not
+all, of these variables. <code>drop_val_labs</code> can get the job
+done.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a>dfdrop <span class="ot">&lt;-</span> <span class="fu">drop_val_labs</span>(dflik,</span>
+<span id="cb53-2"><a href="#cb53-2" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;x2&quot;</span>, <span class="st">&quot;y3&quot;</span>),</span>
+<span id="cb53-3"><a href="#cb53-3" tabindex="-1"></a>  <span class="at">partial =</span> <span class="cn">FALSE</span></span>
+<span id="cb53-4"><a href="#cb53-4" tabindex="-1"></a>)</span></code></pre></div>
+<p>Most of our previously labeled columns remain so; but not “x2” and
+“y3.”</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="fu">get_val_labs</span>(dfdrop, <span class="fu">c</span>(<span class="st">&quot;x2&quot;</span>, <span class="st">&quot;y3&quot;</span>))</span>
+<span id="cb54-2"><a href="#cb54-2" tabindex="-1"></a><span class="do">### &gt; Warning in get_val_labs(dfdrop, c(&quot;x2&quot;, &quot;y3&quot;)): </span></span>
+<span id="cb54-3"><a href="#cb54-3" tabindex="-1"></a><span class="do">### &gt;  </span></span>
+<span id="cb54-4"><a href="#cb54-4" tabindex="-1"></a><span class="do">### &gt;   No val.labs found.</span></span>
+<span id="cb54-5"><a href="#cb54-5" tabindex="-1"></a><span class="do">### &gt; [1] var  vals labs</span></span>
+<span id="cb54-6"><a href="#cb54-6" tabindex="-1"></a><span class="do">### &gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code></pre></div>
+<p>Compare to values for variable “x1” (we did not drop value labels
+from this one)</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a><span class="fu">get_val_labs</span>(dfdrop, <span class="st">&quot;x1&quot;</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" tabindex="-1"></a><span class="do">### &gt;   var vals labs</span></span>
+<span id="cb55-3"><a href="#cb55-3" tabindex="-1"></a><span class="do">### &gt; 1  x1    1  VSD</span></span>
+<span id="cb55-4"><a href="#cb55-4" tabindex="-1"></a><span class="do">### &gt; 2  x1    2   SD</span></span>
+<span id="cb55-5"><a href="#cb55-5" tabindex="-1"></a><span class="do">### &gt; 3  x1    3    D</span></span>
+<span id="cb55-6"><a href="#cb55-6" tabindex="-1"></a><span class="do">### &gt; 4  x1    4    N</span></span>
+<span id="cb55-7"><a href="#cb55-7" tabindex="-1"></a><span class="do">### &gt; 5  x1    5    A</span></span>
+<span id="cb55-8"><a href="#cb55-8" tabindex="-1"></a><span class="do">### &gt; 6  x1    6   SA</span></span>
+<span id="cb55-9"><a href="#cb55-9" tabindex="-1"></a><span class="do">### &gt; 7  x1    7  VSA</span></span>
+<span id="cb55-10"><a href="#cb55-10" tabindex="-1"></a><span class="do">### &gt; 8  x1   NA   NA</span></span></code></pre></div>
+<p>Just like we did with <code>add_val_labs()</code>, we also can use a
+single command to drop value labels from all variables with “x” in their
+variable names.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a>dfxgone <span class="ot">&lt;-</span> <span class="fu">drop_val_labs</span>(dflik,</span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>),</span>
+<span id="cb56-3"><a href="#cb56-3" tabindex="-1"></a>  <span class="at">partial =</span> <span class="cn">TRUE</span> <span class="co"># note</span></span>
+<span id="cb56-4"><a href="#cb56-4" tabindex="-1"></a>)</span></code></pre></div>
+<p>“y3” still has value labels, but now <strong>all</strong> “x” var
+value labels are gone.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a><span class="fu">get_val_labs</span>(dfxgone)</span>
+<span id="cb57-2"><a href="#cb57-2" tabindex="-1"></a><span class="do">### &gt;   var vals labs</span></span>
+<span id="cb57-3"><a href="#cb57-3" tabindex="-1"></a><span class="do">### &gt; 1  y3    1  VSD</span></span>
+<span id="cb57-4"><a href="#cb57-4" tabindex="-1"></a><span class="do">### &gt; 2  y3    2   SD</span></span>
+<span id="cb57-5"><a href="#cb57-5" tabindex="-1"></a><span class="do">### &gt; 3  y3    3    D</span></span>
+<span id="cb57-6"><a href="#cb57-6" tabindex="-1"></a><span class="do">### &gt; 4  y3    4    N</span></span>
+<span id="cb57-7"><a href="#cb57-7" tabindex="-1"></a><span class="do">### &gt; 5  y3    5    A</span></span>
+<span id="cb57-8"><a href="#cb57-8" tabindex="-1"></a><span class="do">### &gt; 6  y3    6   SA</span></span>
+<span id="cb57-9"><a href="#cb57-9" tabindex="-1"></a><span class="do">### &gt; 7  y3    7  VSA</span></span>
+<span id="cb57-10"><a href="#cb57-10" tabindex="-1"></a><span class="do">### &gt; 8  y3   NA   NA</span></span></code></pre></div>
+<div id="tabulating-frequencies-with-tabl" class="section level3">
+<h3>Tabulating Frequencies with <code>tabl()</code></h3>
+<p>Finally, let’s get to know labelr’s <code>tabl()</code> function,
+which supports count or proportion tabulations with labels turned “on”
+or “off” and offers some other functionalities.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4847</span>) <span class="co"># for reproducibility</span></span>
+<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">make_demo_data</span>(<span class="at">n =</span> <span class="dv">100</span>) <span class="co"># make a fictional n = 100 data set</span></span>
+<span id="cb58-3"><a href="#cb58-3" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="#cb58-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_val1</span>(df, <span class="co"># data.frame</span></span>
+<span id="cb58-5"><a href="#cb58-5" tabindex="-1"></a>  <span class="at">var =</span> raceth, <span class="co"># var to label, unquoted since this is add_val1()</span></span>
+<span id="cb58-6"><a href="#cb58-6" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>), <span class="co"># label values 1 through 7, inclusive</span></span>
+<span id="cb58-7"><a href="#cb58-7" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(</span>
+<span id="cb58-8"><a href="#cb58-8" tabindex="-1"></a>    <span class="st">&quot;White&quot;</span>, <span class="st">&quot;Black&quot;</span>, <span class="st">&quot;Hispanic&quot;</span>, <span class="co"># ordered labels for sequential vals 1-7</span></span>
+<span id="cb58-9"><a href="#cb58-9" tabindex="-1"></a>    <span class="st">&quot;Asian&quot;</span>, <span class="st">&quot;AIAN&quot;</span>, <span class="st">&quot;Multi&quot;</span>, <span class="st">&quot;Other&quot;</span></span>
+<span id="cb58-10"><a href="#cb58-10" tabindex="-1"></a>  )</span>
+<span id="cb58-11"><a href="#cb58-11" tabindex="-1"></a>)</span>
+<span id="cb58-12"><a href="#cb58-12" tabindex="-1"></a></span>
+<span id="cb58-13"><a href="#cb58-13" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_val1</span>(</span>
+<span id="cb58-14"><a href="#cb58-14" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
+<span id="cb58-15"><a href="#cb58-15" tabindex="-1"></a>  <span class="at">var =</span> gender,</span>
+<span id="cb58-16"><a href="#cb58-16" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="co"># the values to be labeled</span></span>
+<span id="cb58-17"><a href="#cb58-17" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Other&quot;</span>), <span class="co"># labs order should reflect vals order</span></span>
+<span id="cb58-18"><a href="#cb58-18" tabindex="-1"></a>  <span class="at">max.unique.vals =</span> <span class="dv">10</span></span>
+<span id="cb58-19"><a href="#cb58-19" tabindex="-1"></a>)</span>
+<span id="cb58-20"><a href="#cb58-20" tabindex="-1"></a></span>
+<span id="cb58-21"><a href="#cb58-21" tabindex="-1"></a><span class="co"># label values of var &quot;x1&quot; according to quantile ranges</span></span>
+<span id="cb58-22"><a href="#cb58-22" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_quant1</span>(</span>
+<span id="cb58-23"><a href="#cb58-23" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
+<span id="cb58-24"><a href="#cb58-24" tabindex="-1"></a>  <span class="at">var =</span> x1, <span class="co"># apply quantile range value labels to this var</span></span>
+<span id="cb58-25"><a href="#cb58-25" tabindex="-1"></a>  <span class="at">qtiles =</span> <span class="dv">3</span> <span class="co"># first, second, and third tertiles</span></span>
+<span id="cb58-26"><a href="#cb58-26" tabindex="-1"></a>)</span>
+<span id="cb58-27"><a href="#cb58-27" tabindex="-1"></a></span>
+<span id="cb58-28"><a href="#cb58-28" tabindex="-1"></a><span class="co"># apply many-vals-get-one-label labels to &quot;edu&quot; (note vals 3-5 all get same lab)</span></span>
+<span id="cb58-29"><a href="#cb58-29" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_m1_lab</span>(df, <span class="st">&quot;edu&quot;</span>, <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">lab =</span> <span class="st">&quot;Some College+&quot;</span>)</span>
+<span id="cb58-30"><a href="#cb58-30" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_m1_lab</span>(df, <span class="st">&quot;edu&quot;</span>, <span class="at">vals =</span> <span class="dv">1</span>, <span class="at">lab =</span> <span class="st">&quot;Not HS Grad&quot;</span>)</span>
+<span id="cb58-31"><a href="#cb58-31" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_m1_lab</span>(df, <span class="st">&quot;edu&quot;</span>, <span class="at">vals =</span> <span class="dv">2</span>, <span class="at">lab =</span> <span class="st">&quot;HSG, No College&quot;</span>)</span>
+<span id="cb58-32"><a href="#cb58-32" tabindex="-1"></a></span>
+<span id="cb58-33"><a href="#cb58-33" tabindex="-1"></a><span class="co"># show value labels</span></span>
+<span id="cb58-34"><a href="#cb58-34" tabindex="-1"></a><span class="fu">get_val_labs</span>(df)</span>
+<span id="cb58-35"><a href="#cb58-35" tabindex="-1"></a><span class="do">### &gt;       var   vals            labs</span></span>
+<span id="cb58-36"><a href="#cb58-36" tabindex="-1"></a><span class="do">### &gt; 1  gender      0            Male</span></span>
+<span id="cb58-37"><a href="#cb58-37" tabindex="-1"></a><span class="do">### &gt; 2  gender      1          Female</span></span>
+<span id="cb58-38"><a href="#cb58-38" tabindex="-1"></a><span class="do">### &gt; 3  gender      2           Other</span></span>
+<span id="cb58-39"><a href="#cb58-39" tabindex="-1"></a><span class="do">### &gt; 4  gender     NA              NA</span></span>
+<span id="cb58-40"><a href="#cb58-40" tabindex="-1"></a><span class="do">### &gt; 5  raceth      1           White</span></span>
+<span id="cb58-41"><a href="#cb58-41" tabindex="-1"></a><span class="do">### &gt; 6  raceth      2           Black</span></span>
+<span id="cb58-42"><a href="#cb58-42" tabindex="-1"></a><span class="do">### &gt; 7  raceth      3        Hispanic</span></span>
+<span id="cb58-43"><a href="#cb58-43" tabindex="-1"></a><span class="do">### &gt; 8  raceth      4           Asian</span></span>
+<span id="cb58-44"><a href="#cb58-44" tabindex="-1"></a><span class="do">### &gt; 9  raceth      5            AIAN</span></span>
+<span id="cb58-45"><a href="#cb58-45" tabindex="-1"></a><span class="do">### &gt; 10 raceth      6           Multi</span></span>
+<span id="cb58-46"><a href="#cb58-46" tabindex="-1"></a><span class="do">### &gt; 11 raceth      7           Other</span></span>
+<span id="cb58-47"><a href="#cb58-47" tabindex="-1"></a><span class="do">### &gt; 12 raceth     NA              NA</span></span>
+<span id="cb58-48"><a href="#cb58-48" tabindex="-1"></a><span class="do">### &gt; 13    edu      1     Not HS Grad</span></span>
+<span id="cb58-49"><a href="#cb58-49" tabindex="-1"></a><span class="do">### &gt; 14    edu      2 HSG, No College</span></span>
+<span id="cb58-50"><a href="#cb58-50" tabindex="-1"></a><span class="do">### &gt; 15    edu      3   Some College+</span></span>
+<span id="cb58-51"><a href="#cb58-51" tabindex="-1"></a><span class="do">### &gt; 16    edu      4   Some College+</span></span>
+<span id="cb58-52"><a href="#cb58-52" tabindex="-1"></a><span class="do">### &gt; 17    edu      5   Some College+</span></span>
+<span id="cb58-53"><a href="#cb58-53" tabindex="-1"></a><span class="do">### &gt; 18    edu     NA              NA</span></span>
+<span id="cb58-54"><a href="#cb58-54" tabindex="-1"></a><span class="do">### &gt; 19     x1     91            q033</span></span>
+<span id="cb58-55"><a href="#cb58-55" tabindex="-1"></a><span class="do">### &gt; 20     x1 110.94            q067</span></span>
+<span id="cb58-56"><a href="#cb58-56" tabindex="-1"></a><span class="do">### &gt; 21     x1 145.53            q100</span></span>
+<span id="cb58-57"><a href="#cb58-57" tabindex="-1"></a><span class="do">### &gt; 22     x1     NA              NA</span></span></code></pre></div>
+<p>With <code>tabl()</code>, tables can be generated…</p>
+<p>…in terms of values</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a><span class="fu">tabl</span>(df, <span class="at">vars =</span> <span class="st">&quot;gender&quot;</span>, <span class="at">labs.on =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb59-2"><a href="#cb59-2" tabindex="-1"></a><span class="do">### &gt;   gender  n</span></span>
+<span id="cb59-3"><a href="#cb59-3" tabindex="-1"></a><span class="do">### &gt; 1      0 61</span></span>
+<span id="cb59-4"><a href="#cb59-4" tabindex="-1"></a><span class="do">### &gt; 2      1 33</span></span>
+<span id="cb59-5"><a href="#cb59-5" tabindex="-1"></a><span class="do">### &gt; 3      2  6</span></span></code></pre></div>
+<p>…or in terms of labels</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="fu">tabl</span>(df, <span class="at">vars =</span> <span class="st">&quot;gender&quot;</span>, <span class="at">labs.on =</span> <span class="cn">TRUE</span>) <span class="co"># labs.on = TRUE is the default</span></span>
+<span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a><span class="do">### &gt;   gender  n</span></span>
+<span id="cb60-3"><a href="#cb60-3" tabindex="-1"></a><span class="do">### &gt; 1   Male 61</span></span>
+<span id="cb60-4"><a href="#cb60-4" tabindex="-1"></a><span class="do">### &gt; 2 Female 33</span></span>
+<span id="cb60-5"><a href="#cb60-5" tabindex="-1"></a><span class="do">### &gt; 3  Other  6</span></span></code></pre></div>
+<p>…in proportions</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="fu">tabl</span>(df, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">&quot;gender&quot;</span>, <span class="st">&quot;edu&quot;</span>), <span class="at">prop.digits =</span> <span class="dv">3</span>)</span>
+<span id="cb61-2"><a href="#cb61-2" tabindex="-1"></a><span class="do">### &gt;   gender             edu    n</span></span>
+<span id="cb61-3"><a href="#cb61-3" tabindex="-1"></a><span class="do">### &gt; 1   Male   Some College+ 0.40</span></span>
+<span id="cb61-4"><a href="#cb61-4" tabindex="-1"></a><span class="do">### &gt; 2 Female   Some College+ 0.19</span></span>
+<span id="cb61-5"><a href="#cb61-5" tabindex="-1"></a><span class="do">### &gt; 3   Male HSG, No College 0.19</span></span>
+<span id="cb61-6"><a href="#cb61-6" tabindex="-1"></a><span class="do">### &gt; 4 Female HSG, No College 0.12</span></span>
+<span id="cb61-7"><a href="#cb61-7" tabindex="-1"></a><span class="do">### &gt; 5  Other HSG, No College 0.03</span></span>
+<span id="cb61-8"><a href="#cb61-8" tabindex="-1"></a><span class="do">### &gt; 6 Female     Not HS Grad 0.02</span></span>
+<span id="cb61-9"><a href="#cb61-9" tabindex="-1"></a><span class="do">### &gt; 7   Male     Not HS Grad 0.02</span></span>
+<span id="cb61-10"><a href="#cb61-10" tabindex="-1"></a><span class="do">### &gt; 8  Other   Some College+ 0.02</span></span>
+<span id="cb61-11"><a href="#cb61-11" tabindex="-1"></a><span class="do">### &gt; 9  Other     Not HS Grad 0.01</span></span></code></pre></div>
+<p>…cross-tab style</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">tabl</span>(df, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">&quot;raceth&quot;</span>, <span class="st">&quot;edu&quot;</span>), <span class="at">wide.col =</span> <span class="st">&quot;gender&quot;</span>), <span class="dv">20</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" tabindex="-1"></a><span class="do">### &gt;      raceth             edu Male Female Other</span></span>
+<span id="cb62-3"><a href="#cb62-3" tabindex="-1"></a><span class="do">### &gt; 1      AIAN   Some College+    9      0     1</span></span>
+<span id="cb62-4"><a href="#cb62-4" tabindex="-1"></a><span class="do">### &gt; 2     Black   Some College+    8      5     1</span></span>
+<span id="cb62-5"><a href="#cb62-5" tabindex="-1"></a><span class="do">### &gt; 3     Multi   Some College+    6      4     0</span></span>
+<span id="cb62-6"><a href="#cb62-6" tabindex="-1"></a><span class="do">### &gt; 4  Hispanic HSG, No College    5      4     1</span></span>
+<span id="cb62-7"><a href="#cb62-7" tabindex="-1"></a><span class="do">### &gt; 5  Hispanic   Some College+    5      2     0</span></span>
+<span id="cb62-8"><a href="#cb62-8" tabindex="-1"></a><span class="do">### &gt; 6     Other   Some College+    5      1     0</span></span>
+<span id="cb62-9"><a href="#cb62-9" tabindex="-1"></a><span class="do">### &gt; 7     White   Some College+    4      4     0</span></span>
+<span id="cb62-10"><a href="#cb62-10" tabindex="-1"></a><span class="do">### &gt; 8      AIAN HSG, No College    3      1     0</span></span>
+<span id="cb62-11"><a href="#cb62-11" tabindex="-1"></a><span class="do">### &gt; 9     Asian HSG, No College    3      1     0</span></span>
+<span id="cb62-12"><a href="#cb62-12" tabindex="-1"></a><span class="do">### &gt; 10    Asian   Some College+    3      3     0</span></span>
+<span id="cb62-13"><a href="#cb62-13" tabindex="-1"></a><span class="do">### &gt; 11    Black HSG, No College    3      2     0</span></span>
+<span id="cb62-14"><a href="#cb62-14" tabindex="-1"></a><span class="do">### &gt; 12    Multi HSG, No College    2      1     0</span></span>
+<span id="cb62-15"><a href="#cb62-15" tabindex="-1"></a><span class="do">### &gt; 13    White HSG, No College    2      2     2</span></span>
+<span id="cb62-16"><a href="#cb62-16" tabindex="-1"></a><span class="do">### &gt; 14     AIAN     Not HS Grad    0      1     0</span></span>
+<span id="cb62-17"><a href="#cb62-17" tabindex="-1"></a><span class="do">### &gt; 15    Black     Not HS Grad    1      1     0</span></span>
+<span id="cb62-18"><a href="#cb62-18" tabindex="-1"></a><span class="do">### &gt; 16    Other HSG, No College    1      1     0</span></span>
+<span id="cb62-19"><a href="#cb62-19" tabindex="-1"></a><span class="do">### &gt; 17    Other     Not HS Grad    1      0     1</span></span>
+<span id="cb62-20"><a href="#cb62-20" tabindex="-1"></a><span class="do">### &gt; 18    Asian     Not HS Grad    0      0     0</span></span>
+<span id="cb62-21"><a href="#cb62-21" tabindex="-1"></a><span class="do">### &gt; 19 Hispanic     Not HS Grad    0      0     0</span></span>
+<span id="cb62-22"><a href="#cb62-22" tabindex="-1"></a><span class="do">### &gt; 20    Multi     Not HS Grad    0      0     0</span></span></code></pre></div>
+<p>…with non-value-labeled data.frames</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="fu">tabl</span>(iris, <span class="st">&quot;Species&quot;</span>) <span class="co"># explicit vars arg with one-var (&quot;Species&quot;)</span></span>
+<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a><span class="do">### &gt;      Species  n</span></span>
+<span id="cb63-3"><a href="#cb63-3" tabindex="-1"></a><span class="do">### &gt; 1     setosa 50</span></span>
+<span id="cb63-4"><a href="#cb63-4" tabindex="-1"></a><span class="do">### &gt; 2 versicolor 50</span></span>
+<span id="cb63-5"><a href="#cb63-5" tabindex="-1"></a><span class="do">### &gt; 3  virginica 50</span></span>
+<span id="cb63-6"><a href="#cb63-6" tabindex="-1"></a></span>
+<span id="cb63-7"><a href="#cb63-7" tabindex="-1"></a><span class="co"># many-valued numeric vars automatically converted to quantile categories</span></span>
+<span id="cb63-8"><a href="#cb63-8" tabindex="-1"></a><span class="fu">tabl</span>(mtcars, <span class="fu">c</span>(<span class="st">&quot;am&quot;</span>, <span class="st">&quot;gear&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;mpg&quot;</span>),</span>
+<span id="cb63-9"><a href="#cb63-9" tabindex="-1"></a>  <span class="at">qtiles =</span> <span class="dv">4</span>, <span class="at">zero.rm =</span> <span class="cn">TRUE</span></span>
+<span id="cb63-10"><a href="#cb63-10" tabindex="-1"></a>)</span>
+<span id="cb63-11"><a href="#cb63-11" tabindex="-1"></a><span class="do">### &gt;    am gear cyl disp  mpg n</span></span>
+<span id="cb63-12"><a href="#cb63-12" tabindex="-1"></a><span class="do">### &gt; 1   0    3   8 q100 q025 5</span></span>
+<span id="cb63-13"><a href="#cb63-13" tabindex="-1"></a><span class="do">### &gt; 2   1    4   4 q025 q100 4</span></span>
+<span id="cb63-14"><a href="#cb63-14" tabindex="-1"></a><span class="do">### &gt; 3   0    3   8 q075 q050 3</span></span>
+<span id="cb63-15"><a href="#cb63-15" tabindex="-1"></a><span class="do">### &gt; 4   0    3   8 q075 q025 2</span></span>
+<span id="cb63-16"><a href="#cb63-16" tabindex="-1"></a><span class="do">### &gt; 5   0    3   8 q100 q050 2</span></span>
+<span id="cb63-17"><a href="#cb63-17" tabindex="-1"></a><span class="do">### &gt; 6   0    4   6 q050 q050 2</span></span>
+<span id="cb63-18"><a href="#cb63-18" tabindex="-1"></a><span class="do">### &gt; 7   1    4   6 q050 q075 2</span></span>
+<span id="cb63-19"><a href="#cb63-19" tabindex="-1"></a><span class="do">### &gt; 8   1    5   4 q025 q100 2</span></span>
+<span id="cb63-20"><a href="#cb63-20" tabindex="-1"></a><span class="do">### &gt; 9   0    3   4 q025 q075 1</span></span>
+<span id="cb63-21"><a href="#cb63-21" tabindex="-1"></a><span class="do">### &gt; 10  0    3   6 q075 q050 1</span></span>
+<span id="cb63-22"><a href="#cb63-22" tabindex="-1"></a><span class="do">### &gt; 11  0    3   6 q075 q075 1</span></span>
+<span id="cb63-23"><a href="#cb63-23" tabindex="-1"></a><span class="do">### &gt; 12  0    4   4 q050 q075 1</span></span>
+<span id="cb63-24"><a href="#cb63-24" tabindex="-1"></a><span class="do">### &gt; 13  0    4   4 q050 q100 1</span></span>
+<span id="cb63-25"><a href="#cb63-25" tabindex="-1"></a><span class="do">### &gt; 14  1    4   4 q025 q075 1</span></span>
+<span id="cb63-26"><a href="#cb63-26" tabindex="-1"></a><span class="do">### &gt; 15  1    4   4 q050 q075 1</span></span>
+<span id="cb63-27"><a href="#cb63-27" tabindex="-1"></a><span class="do">### &gt; 16  1    5   6 q050 q075 1</span></span>
+<span id="cb63-28"><a href="#cb63-28" tabindex="-1"></a><span class="do">### &gt; 17  1    5   8 q075 q025 1</span></span>
+<span id="cb63-29"><a href="#cb63-29" tabindex="-1"></a><span class="do">### &gt; 18  1    5   8 q100 q050 1</span></span></code></pre></div>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>This is the suitably abrupt ending to our choppy, ad hoc overview of
+some additional labelr capabilities and special topics. Thanks for
+reading.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
