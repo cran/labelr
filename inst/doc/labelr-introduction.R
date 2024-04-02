@@ -44,7 +44,7 @@ get_name_labs(df)
 ## -----------------------------------------------------------------------------
 df <- add_val_labs(df, # data.frame with to-be-value-labeled column
   vars = "raceth", # quoted variable name of to-be-labeled col
-  vals = c(1:7), # label values 1 through 7, inclusive
+  vals = c(1:7), # to-be-labeled values 1 through 7, inclusive
   labs = c(
     "White", "Black", "Hispanic", # ordered labels for vals 1-7
     "Asian", "AIAN", "Multi", "Other"
@@ -57,7 +57,7 @@ df <- add_val1(
   data = df,
   var = gender, # contrast this var argument to the vars argument demo'd above
   vals = c(0, 1, 2), # the values to be labeled
-  labs = c("Male", "Female", "Other"), # the labels, applied in order to the vals
+  labs = c("Male", "Female", "Other"), # the labels, applied in order, to the vals
   max.unique.vals = 10
 )
 

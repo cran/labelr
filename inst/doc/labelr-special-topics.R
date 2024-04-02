@@ -8,6 +8,7 @@ knitr::opts_chunk$set(
 ## -----------------------------------------------------------------------------
 opening_ding <- Sys.time() # to time labelr
 
+library(labelr)
 library(nycflights13)
 
 ## -----------------------------------------------------------------------------
@@ -65,18 +66,18 @@ ny_val <- airlines$carrier
 ny_lab <- airlines$name
 
 ## -----------------------------------------------------------------------------
-ny_month_vals <- c(1:12) # values
-ny_month_labs <- c(
-  "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-) # labels
-
-## -----------------------------------------------------------------------------
 df <- add_val1(df,
   var = carrier, vals = ny_val,
   labs = ny_lab,
   max.unique.vals = 20
 )
+
+## -----------------------------------------------------------------------------
+ny_month_vals <- c(1:12) # values
+ny_month_labs <- c(
+  "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+) # labels
 
 ## -----------------------------------------------------------------------------
 df <- add_val_labs(df,
@@ -426,7 +427,7 @@ AIC(lm(mpg ~ carb, data = carb_fac))
 
 ## -----------------------------------------------------------------------------
 # ??"back"?? to integer? Not quite. Compare below to carb_orig above
-carb_to_int <- factor_to_lab_int(carb_fac, carb) # alias int2f() also works
+carb_to_int <- factor_to_lab_int(carb_fac, carb) # alias f2int() also works
 
 class(carb_to_int$carb) # Is an integer
 

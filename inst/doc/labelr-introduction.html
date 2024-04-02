@@ -356,7 +356,7 @@ general features or characteristics (e.g., source, date produced or
 published, high-level contents).</p></li>
 <li><p><strong>Name labels</strong> - Each data.frame column (variable)
 may be given exactly one name label, which is an extended variable name
-or brief description of the variable. Name labels equivalent to what
+or brief description of the variable. Name labels are equivalent to what
 Stata and SAS call “variable labels.”</p></li>
 <li><p><strong>Value labels</strong> - Specific values of a data.frame
 column (variable) can be labeled as well. The package supports three (3)
@@ -500,7 +500,7 @@ manipulate a simple lookup table as needed.</p>
 variable “raceth”.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_val_labs</span>(df, <span class="co"># data.frame with to-be-value-labeled column</span></span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;raceth&quot;</span>, <span class="co"># quoted variable name of to-be-labeled col</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>), <span class="co"># label values 1 through 7, inclusive</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>), <span class="co"># to-be-labeled values 1 through 7, inclusive</span></span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(</span>
 <span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    <span class="st">&quot;White&quot;</span>, <span class="st">&quot;Black&quot;</span>, <span class="st">&quot;Hispanic&quot;</span>, <span class="co"># ordered labels for vals 1-7</span></span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    <span class="st">&quot;Asian&quot;</span>, <span class="st">&quot;AIAN&quot;</span>, <span class="st">&quot;Multi&quot;</span>, <span class="st">&quot;Other&quot;</span></span>
@@ -520,7 +520,7 @@ once).</p>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="at">var =</span> gender, <span class="co"># contrast this var argument to the vars argument demo&#39;d above</span></span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="co"># the values to be labeled</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Other&quot;</span>), <span class="co"># the labels, applied in order to the vals</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Other&quot;</span>), <span class="co"># the labels, applied in order, to the vals</span></span>
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="at">max.unique.vals =</span> <span class="dv">10</span></span>
 <span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>)</span></code></pre></div>
 <p>Once again, we can create a lookup table, this time for our
@@ -561,8 +561,8 @@ to the quintile or decile to which it belongs, you can use
 <p>Here, we will use <code>add_quant_labs</code> with the partial
 argument set to TRUE to apply quintile range labels to <strong>all
 variables</strong> of df that have an “x” in their names (i.e., vars
-“x1” and “x2”). We’ll demonstrate this capability further at the end of
-this vignette.</p>
+“x1” and “x2”). We demonstrate this capability further at the end of the
+separate “Special Topics” vignette.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>df_temp <span class="ot">&lt;-</span> <span class="fu">add_quant_labs</span>(</span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;x&quot;</span>,</span>
@@ -596,19 +596,23 @@ this vignette.</p>
 <span id="cb9-31"><a href="#cb9-31" tabindex="-1"></a><span class="do">### &gt; 22     x2 0.80538     q080</span></span>
 <span id="cb9-32"><a href="#cb9-32" tabindex="-1"></a><span class="do">### &gt; 23     x2  0.9992     q100</span></span>
 <span id="cb9-33"><a href="#cb9-33" tabindex="-1"></a><span class="do">### &gt; 24     x2      NA       NA</span></span></code></pre></div>
-<p>Note: If you wish to apply quantile-based value labels to all numeric
-variables at once, you may wish to explore
-<code>all_quant_labs()</code>.</p>
+<p>For these variables, <code>get_val_labs()</code> shows the quantity
+values that define the requested quantile thresholds (in this case,
+quintiles), with all values at or below the given threshold (and above
+the previous threshold) receiving the corresponding label.</p>
 <p><strong>Be careful</strong> with setting partial to TRUE like this:
 If your data set featured a column called “sex” or that featured the
 string “tax” or the suffix “max” in its name,
 <code>add_quant_labs()</code> would attempt to apply the value labeling
 scheme to that column as well!</p>
-<p>We can use the same function to assign arbitrary, user-specified
-range labels. Here, we assign numerical range labels based on an
-arbitrary cutpoint that differentiate values of “x1” and “x2” that are
-at or below 100 from values that are at or below 150 (but greater than
-100).</p>
+<p>(One more side note: If you wish to apply quantile-based value labels
+to all numeric variables at once, you may wish to explore
+<code>all_quant_labs()</code>.)</p>
+<p>Moving on. We can use the same function to assign arbitrary,
+user-specified range labels. Here, we assign numerical range labels
+based on an arbitrary cutpoint that differentiates values of “x1” and
+“x2” that are at or below 100 from values that are at or below 150 (but
+greater than 100).</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>df_temp <span class="ot">&lt;-</span> <span class="fu">add_quant_labs</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="at">data =</span> df_temp,</span>
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="at">vars =</span> <span class="st">&quot;x&quot;</span>,</span>
@@ -664,11 +668,10 @@ successive calls to <code>add_m1_lab()</code> Here, the “m1” is
 shorthand for “many to one,” as in “many values get the same one value
 label.”</p>
 <p>Note that each call to <code>add_m1_lab()</code> applies a single
-value label, so,<br />
-multiple calls are needed to apply multiple labels. Here, we illustrate
-this workflow, applying the label “Some College+” to values 3, 4, or 5
-of the variable “edu”, then applying other distinct labels to values 1
-and 2, respectively.</p>
+value label, so, multiple calls are needed to apply multiple labels.
+Here, we illustrate this workflow, applying the label “Some College+” to
+values 3, 4, or 5 of the variable “edu”, then applying other distinct
+labels to values 1 and 2, respectively.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_m1_lab</span>(df, <span class="st">&quot;edu&quot;</span>, <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">lab =</span> <span class="st">&quot;Some College+&quot;</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_m1_lab</span>(df, <span class="st">&quot;edu&quot;</span>, <span class="at">vals =</span> <span class="dv">1</span>, <span class="at">lab =</span> <span class="st">&quot;Not HS Grad&quot;</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_m1_lab</span>(df, <span class="st">&quot;edu&quot;</span>, <span class="at">vals =</span> <span class="dv">2</span>, <span class="at">lab =</span> <span class="st">&quot;HSG, No College&quot;</span>)</span>
@@ -787,7 +790,7 @@ created.</p>
 <p>In addition to this hack, labelr provides label-preserving variants
 of common data management functions, including <code>sfilter()</code>,
 <code>sselect()</code>, <code>ssubset()</code>, <code>srename()</code>,
-<code>ssort()</code>, and others. Here, the “s” prefix is for “safely,”
+<code>ssort()</code>, and others. (Here, the “s” prefix is for “safely,”
 as in, “your labels will be safely retained”). Other popular packages
 (e.g., “dplyr”) may also preserve label attributes, but an advantage of
 the labelr functions like <code>sselect()</code> is that they will
@@ -971,8 +974,8 @@ data.frame with the same names and dimensions as the one supplied, with
 value labels replacing values for all value-labeled variables (or for a
 subset of those variables, if you specify them). Those variables will be
 coerced to character (if they were not already). Since there is no
-“undo” shortcut for this action, it is safest to assign the result to a
-new object.</p>
+simple “undo” facility for this action, it is safest to assign the
+result to a new object.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>df_labd <span class="ot">&lt;-</span> <span class="fu">use_val_labs</span>(df)</span>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="fu">head</span>(df_labd) <span class="co"># note, this is utils::head(), not labelr::headl()</span></span>
 <span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="do">### &gt;     id age gender raceth             edu   x1     x2</span></span>
@@ -982,12 +985,12 @@ new object.</p>
 <span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="do">### &gt; Q-4  4  46 Female   AIAN   Some College+ q060 0.2243</span></span>
 <span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="do">### &gt; E-5  5  18 Female  Multi   Some College+ q040 0.0099</span></span>
 <span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="do">### &gt; K-6  6  45   Male  Black   Some College+ q020 0.9250</span></span></code></pre></div>
-<p>Better still, we do not need to choose between values and labels. We
-can use <code>add_lab_cols()</code> to preserve all existing variables
-(columns), including the value-labeled ones, while adding to our
-data.frame an additional labels-as-values column for each value-labeled
-column.</p>
-<p>Easier done than said, perhaps. Take a look:</p>
+<p>Perhaps better still, we do not need to choose between values and
+labels. We can use <code>add_lab_cols()</code> to preserve all existing
+variables (columns), including the value-labeled ones, while adding to
+our data.frame an additional labels-as-values column for each
+value-labeled column.</p>
+<p>Easier done than said. Take a look:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>df_plus_labs <span class="ot">&lt;-</span> <span class="fu">add_lab_cols</span>(df)</span>
 <span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="fu">head</span>(df_plus_labs[<span class="fu">c</span>(<span class="st">&quot;gender&quot;</span>, <span class="st">&quot;gender_lab&quot;</span>, <span class="st">&quot;raceth&quot;</span>, <span class="st">&quot;raceth_lab&quot;</span>)])</span>
 <span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="do">### &gt;     gender gender_lab raceth raceth_lab</span></span>
@@ -1004,8 +1007,8 @@ column.</p>
 returning a subsetted data.frame in terms of the original values. In
 other words, we can use the more semantically meaningful value labels to
 guide our subsetting, even as they remain “invisible” and “in the
-background” as far as conventional R data views, descriptives, and
-analyses are concerned. Again, I find this “easier done than said.”</p>
+background” of the returned, filtered data.frame. Again, I find this
+“easier done than said.”</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">head</span>(df)</span>
 <span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="do">### &gt;     id age gender raceth edu     x1     x2</span></span>
 <span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="do">### &gt; T-1  1  59      1      4   5 120.25 0.5928</span></span>
@@ -1186,10 +1189,11 @@ names. Here are a few illustrative examples.</p>
 <p>Another approach is to use <code>with_name_labs()</code> (or its more
 compact alias <code>wnl()</code>), which will automatically display name
 labels in place of column names in fairly flexible ways.
-<code>with_name_labs()</code> is an alternative approach that you can
-call on the regular, name-labeled data.frame. You should
-<strong>not</strong> call it on a data.frame after swapping in name
-labels with <code>use_name_labs()</code>.</p>
+<code>with_name_labs()</code> is an alternative to
+<code>use_name_labs()</code> that you can call on the regular,
+name-labeled data.frame. You should <strong>not</strong> call it on a
+data.frame after swapping in name labels with
+<code>use_name_labs()</code>.</p>
 <p>With that said, let’s revert back to our original column names, then
 we’ll verify that the name labels are still there in the background,
 <strong>then</strong> we’ll take <code>with_name_labs()</code> for a
@@ -1231,7 +1235,7 @@ spin.</p>
 <p>Note that this sort of switching back and forth between your original
 column names and name labels (i.e., <code>use_name_labs()</code> and
 <code>use_var_names()</code>) assumes you are <strong>not</strong>
-otherwise modifying your either set of names in the interim.</p>
+otherwise modifying either set of names in the interim.</p>
 <p>Now, pay attention to the variable names in the console output of the
 following calls to <code>with_name_labs()</code>.You’ll be using the
 familiar column names in your function call expressions, but their
@@ -1315,11 +1319,11 @@ commands.</p>
 <p>This concludes our whirlwind tour of labelr functionalities. You’ve
 graduated.</p>
 <p>Well, almost. Before you go, here is a list of aliases for common
-functions. Aside from having a different name, each alias function is
-identical to (i.e., performs the same operations, returning the same
-result as) the parent function that it aliases. More concise and more
-cryptic, these alias functions will save you some typing at the console
-(and some characters in your scripts).</p>
+functions. Other than its name, each alias function is identical to
+(i.e., performs the same operations, returning the same result as) the
+parent function that it aliases. More concise and more cryptic, these
+alias functions will save you some typing at the console (and some
+characters in your scripts).</p>
 <p>The available aliases are as follows:</p>
 <ul>
 <li><p><code>add_val_labs</code> alias is <code>avl</code></p></li>

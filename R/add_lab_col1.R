@@ -9,10 +9,17 @@
 #' Note 1: `add_lab_col1` is a variant of `add_lab_cols` that allows you to
 #' specify only one variable at a time but that allows you to pass its name
 #' without quoting it (compare add_lab_col1(mtcars, am) to
-#' add_lab_col1(mtcars, am)).
+#' add_lab_cols(mtcars, "am")).
 #'
 #' Note 2: `alc1` is a compact alias for `add_lab_col1`: they do the same thing,
 #' and the former is easier to type.
+#'
+#' Note 3: This command is intended exclusively for interactive use. In
+#' particular, the var argument must be the literal name of a single variable
+#' (column) found in the supplied data.frame and may NOT be, e.g., the name of a
+#' character vector that contains the variable (column name) of interest. If you
+#' wish to supply a character vector with the names of variables (columns) of
+#' interest, use `add_lab_cols()`.
 #'
 #' `add_lab_col1` creates a "labels-on" version of a value-labeled column and
 #' adds that new column to the supplied data.frame. Here, "labels-on" means that
@@ -25,9 +32,8 @@
 #' may be useful in working with value labels.
 #'
 #' @param data a data.frame.
-#' @param var the unquoted name of the column (variable) for which a "labels-on"
-#' (values replaced with value labels) version of the variable will be added to
-#' the returned data.frame.
+#' @param var the unquoted name of the column (variable) whose values you wish
+#' to replace with the corresponding value labels.
 #' @param suffix a suffix that will be added to the name of the labels-on
 #' column added to the data.frame (the non-suffix portion of the variable
 #' name will be identical to the original variable, e.g., the labels-on version
@@ -84,10 +90,12 @@ add_lab_col1 <- function(data, var, suffix = "_lab") {
   vars <- gsub("\\(", "", vars)
   vars <- gsub("\\)", "", vars)
 
-  # test length of var
-  if (length(vars) != 1) {
-    stop("\n
-var argument must be a single variable name (no more or less).")
+  # test for presence of var in data.frame
+  if (!all(vars %in% names(data)) || length(vars) != 1) {
+    stop("
+\nInvalid var argument specification: var arg should be a single, unquoted
+name of a variable that is present in the data.frame.
+         ")
   }
 
   # test length of var
@@ -106,12 +114,6 @@ invalid suffix argument")
     warning("
 \nNote: labelr is not optimized for data.frames this large.")
   }
-
-  # check systematically for all found values being NA
-  size <- 5000
-  if (nrow(data) < size) size <- nrow(data)
-  inds2check <- unique(floor(seq(1, nrow(data), length.out = size)))
-  any_all_na_init <- any(sapply(data[inds2check, ], function(x) all(is.na(x))))
 
   # get label attributes, to restore when we're done
   initial_lab_atts <- get_all_lab_atts(data)
@@ -180,20 +182,6 @@ No value labels found for supplied var --%s--.",
 
   # to restore label attributes information
   data <- add_lab_atts(data, initial_lab_atts, num.convert = FALSE)
-
-  # check systematically for columns that lost many values to NA
-  inds2check <- unique(floor(seq(1, nrow(data), length.out = size)))
-  any_all_na_end <- any(sapply(data[inds2check, ], function(x) all(is.na(x))))
-
-  # throw an error if some column acquired new NA values based on
-  # non-comprehensive but systematic test
-  if (!any_all_na_init && any_all_na_end) {
-    stop("
-\nThis application of add_lab_cols() would lead a column to be coerced to all NA values,
-which is not allowed. This may result from attempting multiple nested or redundant
-calls to add_lab_cols() and/or related functions.
-           ")
-  }
   return(data)
 }
 

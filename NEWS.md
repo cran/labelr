@@ -1,5 +1,26 @@
 # labelr News
 
+# labelr 0.1.4
+* Functions `has_val_labs()`, `has_avl_labs()`, `has_m1_labs()`, and `has_quant_labs()` added to facilitate logical check of a single data.frame variable (column) for the presence of, respectively: (1) any sort of value labels, (2) `add_val_labs()` -style value labels specifically, (3) `add_m1_lab()`-style value labels specifically, or (4) `add_quant_labs()`-style value labels specifically.
+
+* Function `all_uniquev()` (alias `all_univ()`) added. This checks where the length of a vector is equal to the length of the unique values in the vector (is equivalent to `length(x)` == `length(unique(x))`. It is anticipated that this will be used internally in future iterations of labelr.
+
+* Improved `add_val_labs()` (and `add_val1()`) to better detect and prevent their use on variables that already have `add_m1_lab()` -style many-to-one values labels. Previously, it was possible in some cases to modify select `add_m1_lab()`-style value labels using `add_val_labs()`. Now, `add_val_labs()` (and `add_val1()`) will detect and prohibit this behavior, redirecting the user to use `add_m1_lab()` for such variables. This reinforces the distinction between `add_val_labs()`-style (one-to-one) and `add_m1_lab()`-style (many-values-to-one-label) value labels, whereas prior behavior blurred this line.
+
+* Modified select `*1()` functions (e.g., `add_lab_col1()`, `use_val_lab1()`) so that they explicitly dis-allow indirection (e.g., passing an arbitrarily named character vector containing column names) and instead require that the supplied variable name (the var argument) be the literal name of a single variable present in the supplied data.frame. The functions permit users to pass that var name unquoted or quoted, although the documentation advises the user to supply unquoted variable names.
+
+* Two shared, vestigial code chunks removed from the following: `use_val_labs()`, `use_val_lab1()`, `add_lab_cols()`, `add_lab_col1()`, and `val_labs_vec()`  documentation). Code involved checking for all values NA from an earlier iteration of `use_val_labs()`. Code is more concise; functions, arguments, and outputs are unchanged.
+
+* `val_labs_vec()` now strips any lingering attributes from the returned character vector. 
+
+* Improved handling of errant and varying var arg specifications in `val_labs_vec()`, `add_lab_col1()`, and `use_val_lab1()` to be more flexible and informative if a non-existent var is supplied by the user.
+
+* Move internal functions to the beginning of the the body of `add_val_labs()`, `add_val1()`, `add_m1_lab()`, and `add1m1()`. 
+
+* Copy edit fixes and improved argument explanations in documentation items (e.g., an outdated comment in README, an infelicitous example in `use_val1()` and `add_lab_col1()` documentation).
+
+* function `get_val_lab1()` (with alias `gvl1()`) added, providing a variant of `get_val_labs()` that follows the conventions of other `*1()` functions (i.e., allowing only a single variable, whose name may be passed unquoted to the var argument). In addition, `get_val_lab1()` includes a simplify argument (FALSE by default) that allows the user to return the value-label mapping as a named vector.
+
 # labelr 0.1.3
 * functions `add_lab_dummies()` and `add_lab_dumm1()` (with aliases `ald()` and `ald1()`) added. These generate a dummy variable for each label of a value-labeled variable and return the supplied data.frame with these dummy variables added.
 

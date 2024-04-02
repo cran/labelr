@@ -6,8 +6,13 @@
 #' vector.
 #'
 #' @details
-#' Note: `vlv` is a compact alias for `val_labs_vec`: they do the same thing,
+#' Note 1: `vlv` is a compact alias for `val_labs_vec`: they do the same thing,
 #' and the former is easier to type.
+#'
+#' Note 2: This command is intended exclusively for interactive use. In
+#' particular, the var argument must be the literal name of a single variable
+#' (column) found in the supplied data.frame and may NOT be, e.g., the name of a
+#' character vector that contains the variable (column name) of interest.
 #'
 #' `val_labs_vec` works with other labelr functions to facilitate creation,
 #' modification, accessing, use, and destruction of variable-specific value
@@ -48,40 +53,6 @@
 #' am_labs
 #'
 val_labs_vec <- function(data, var) {
-  # make var character value
-  var <- deparse(substitute(var))
-  test_quote <- any(grepl("\"", var))
-  if (test_quote && is.character(var)) vars <- gsub("\"", "", var)
-
-  # test length of var
-  if (length(var) != 1) {
-    stop("\n
-var argument must be a single variable name (no more or less).")
-  }
-
-  # make this a Base R data.frame
-  data <- as_base_data_frame(data)
-
-  # subset down to var of interest
-  data <- sbrac(data, , var)
-
-  val_labs_att <- paste0("val.labs.", var)
-  if (!check_labs_att(data, val_labs_att)) {
-    stop(sprintf(
-      "
-No value labels found for supplied var --%s--.",
-      var
-    ))
-  }
-
-  # ensure value labels are sorted
-  data <- sort_val_labs(data)
-
-  if (nrow(data) > 300000) {
-    warning("
-Note: labelr is not optimized for data.frames this large.")
-  }
-
   # use numeric range labs for numeric variables
   use_q_labs <- function(data, var) {
     x <- data[[var]]
@@ -106,11 +77,44 @@ Note: labelr is not optimized for data.frames this large.")
     return(data)
   }
 
-  # check systematically for all found values being NA
-  size <- 5000
-  if (nrow(data) < size) size <- nrow(data)
-  inds2check <- unique(floor(seq(1, nrow(data), length.out = size)))
-  any_all_na_init <- any(sapply(data[inds2check, ], function(x) all(is.na(x))))
+  # make var character value
+  var <- deparse(substitute(var))
+  test_quote <- any(grepl("\"", var))
+  if (test_quote && is.character(var)) var <- gsub("\"", "", var)
+  var <- gsub("c\\(", "", var)
+  var <- gsub("\\(", "", var)
+  var <- gsub("\\)", "", var)
+
+  # test for presence of var in data.frame
+  if (!all(var %in% names(data)) || length(var) != 1) {
+    stop("
+\nInvalid var argument specification: var arg should be a single, unquoted
+name of a variable that is present in the data.frame.
+         ")
+  }
+
+  # make this a Base R data.frame
+  data <- as_base_data_frame(data)
+
+  # subset down to var of interest
+  data <- sbrac(data, , var)
+
+  val_labs_att <- paste0("val.labs.", var)
+  if (!check_labs_att(data, val_labs_att)) {
+    stop(sprintf(
+      "
+No value labels found for supplied var --%s--.",
+      var
+    ))
+  }
+
+  # ensure value labels are sorted
+  data <- sort_val_labs(data)
+
+  if (nrow(data) > 300000) {
+    warning("
+Note: labelr is not optimized for data.frames this large.")
+  }
 
   # get value labs
   val.labs <- get_val_labs(data)
@@ -169,22 +173,9 @@ data.frame to see which, if any, variables have value labels.
     attributes(data)[[val_lab_name]] <- NULL
   }
 
-  # check systematically for columns that lost many values to NA
-  inds2check <- unique(floor(seq(1, nrow(data), length.out = size)))
-  any_all_na_end <- any(sapply(data[inds2check, ], function(x) all(is.na(x))))
-
-  # throw an error if some column acquired new NA values based on
-  # non-comprehensive but systematic test
-  if (!any_all_na_init && any_all_na_end) {
-    stop("
-\nThis application of val_labs_vec() would lead the vector to be coerced to all NA values,
-which is not allowed. This may result from attempting multiple nested or redundant
-calls to val_labs_vec().
-           ")
-  }
-
   data <- clean_data_atts(data)
   x <- data[[var]]
+  attributes(x) <- NULL
   return(x)
 }
 
