@@ -56,8 +56,8 @@ df <- add_val_labs(df, # data.frame with to-be-value-labeled column
 df <- add_val1(
   data = df,
   var = gender, # contrast this var argument to the vars argument demo'd above
-  vals = c(0, 1, 2), # the values to be labeled
-  labs = c("Male", "Female", "Other"), # the labels, applied in order, to the vals
+  vals = c(0, 1, 2, 3, 4), # the values to be labeled
+  labs = c("M", "F", "TR", "NB", "Diff-Term"), # the labels, applied in order, to the vals
   max.unique.vals = 10
 )
 
@@ -88,7 +88,7 @@ get_val_labs(df_temp)
 df <- add_quant1(df, # data.frame
   x1, # variable to value-label
   qtiles = 5
-) # number quintiles to define numerical range labels
+) # number of quintiles to use in defining numerical range labels
 
 ## -----------------------------------------------------------------------------
 df <- add_m1_lab(df, "edu", vals = c(3:5), lab = "Some College+")

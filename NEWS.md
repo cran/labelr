@@ -1,5 +1,10 @@
 # labelr News
 
+# labelr 0.1.5
+* Added function `v()` to allow passing of an "unquoted character vector" (of labels or column names). 
+* Updated `make_demo_data()` and associated gender identity label examples to be more inclusive.
+* Fixed some typos and copy-editing errors in documentation. 
+
 # labelr 0.1.4
 * Functions `has_val_labs()`, `has_avl_labs()`, `has_m1_labs()`, and `has_quant_labs()` added to facilitate logical check of a single data.frame variable (column) for the presence of, respectively: (1) any sort of value labels, (2) `add_val_labs()` -style value labels specifically, (3) `add_m1_lab()`-style value labels specifically, or (4) `add_quant_labs()`-style value labels specifically.
 
@@ -9,7 +14,7 @@
 
 * Modified select `*1()` functions (e.g., `add_lab_col1()`, `use_val_lab1()`) so that they explicitly dis-allow indirection (e.g., passing an arbitrarily named character vector containing column names) and instead require that the supplied variable name (the var argument) be the literal name of a single variable present in the supplied data.frame. The functions permit users to pass that var name unquoted or quoted, although the documentation advises the user to supply unquoted variable names.
 
-* Two shared, vestigial code chunks removed from the following: `use_val_labs()`, `use_val_lab1()`, `add_lab_cols()`, `add_lab_col1()`, and `val_labs_vec()`  documentation). Code involved checking for all values NA from an earlier iteration of `use_val_labs()`. Code is more concise; functions, arguments, and outputs are unchanged.
+* Two shared, vestigial code chunks removed from the following: `use_val_labs()`, `use_val_lab1()`, `add_lab_cols()`, `add_lab_col1()`, and `val_labs_vec()` documentation. Code involved checking for all values NA from an earlier iteration of `use_val_labs()`. Code is more concise; functions, arguments, and outputs are unchanged.
 
 * `val_labs_vec()` now strips any lingering attributes from the returned character vector. 
 

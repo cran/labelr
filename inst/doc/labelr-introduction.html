@@ -351,7 +351,7 @@ and ancillary labelr functionalities and uses cases.</p>
 <p>labelr supports the following kinds of labels:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Frame labels</strong> - Each data.frame may be given a
-single “frame label”, which can be used describe the data set’s key
+single “frame label”, which can be used to describe the data set’s key
 general features or characteristics (e.g., source, date produced or
 published, high-level contents).</p></li>
 <li><p><strong>Name labels</strong> - Each data.frame column (variable)
@@ -519,8 +519,8 @@ once).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_val1</span>(</span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="at">var =</span> gender, <span class="co"># contrast this var argument to the vars argument demo&#39;d above</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="co"># the values to be labeled</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Other&quot;</span>), <span class="co"># the labels, applied in order, to the vals</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="at">vals =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="co"># the values to be labeled</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="at">labs =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;TR&quot;</span>, <span class="st">&quot;NB&quot;</span>, <span class="st">&quot;Diff-Term&quot;</span>), <span class="co"># the labels, applied in order, to the vals</span></span>
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="at">max.unique.vals =</span> <span class="dv">10</span></span>
 <span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>)</span></code></pre></div>
 <p>Once again, we can create a lookup table, this time for our
@@ -531,19 +531,21 @@ any unique values that were not explicitly assigned a label were given
 one automatically (the value itself, coerced to character as
 needed).</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">get_val_labs</span>(df)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="do">### &gt;       var vals     labs</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="do">### &gt; 1  gender    0     Male</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="do">### &gt; 2  gender    1   Female</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="do">### &gt; 3  gender    2    Other</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="do">### &gt; 4  gender   NA       NA</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="do">### &gt; 5  raceth    1    White</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="do">### &gt; 6  raceth    2    Black</span></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="do">### &gt; 7  raceth    3 Hispanic</span></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="do">### &gt; 8  raceth    4    Asian</span></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="do">### &gt; 9  raceth    5     AIAN</span></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="do">### &gt; 10 raceth    6    Multi</span></span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="do">### &gt; 11 raceth    7    Other</span></span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="do">### &gt; 12 raceth   NA       NA</span></span></code></pre></div>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="do">### &gt;       var vals      labs</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="do">### &gt; 1  gender    0         M</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="do">### &gt; 2  gender    1         F</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="do">### &gt; 3  gender    2        TR</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="do">### &gt; 4  gender    3        NB</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="do">### &gt; 5  gender    4 Diff-Term</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="do">### &gt; 6  gender   NA        NA</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="do">### &gt; 7  raceth    1     White</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="do">### &gt; 8  raceth    2     Black</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="do">### &gt; 9  raceth    3  Hispanic</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="do">### &gt; 10 raceth    4     Asian</span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="do">### &gt; 11 raceth    5      AIAN</span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="do">### &gt; 12 raceth    6     Multi</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="do">### &gt; 13 raceth    7     Other</span></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a><span class="do">### &gt; 14 raceth   NA        NA</span></span></code></pre></div>
 </div>
 <div id="add-numerical-range-labels-using-add_quant_labs" class="section level3">
 <h3>Add NUMERICAL RANGE Labels Using <code>add_quant_labs()</code></h3>
@@ -571,31 +573,33 @@ separate “Special Topics” vignette.</p>
 <span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>)</span>
 <span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a></span>
 <span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="fu">get_val_labs</span>(df_temp)</span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="do">### &gt;       var    vals     labs</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="do">### &gt; 1  gender       0     Male</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="do">### &gt; 2  gender       1   Female</span></span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="do">### &gt; 3  gender       2    Other</span></span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="do">### &gt; 4  gender      NA       NA</span></span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a><span class="do">### &gt; 5  raceth       1    White</span></span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="do">### &gt; 6  raceth       2    Black</span></span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a><span class="do">### &gt; 7  raceth       3 Hispanic</span></span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a><span class="do">### &gt; 8  raceth       4    Asian</span></span>
-<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a><span class="do">### &gt; 9  raceth       5     AIAN</span></span>
-<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a><span class="do">### &gt; 10 raceth       6    Multi</span></span>
-<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a><span class="do">### &gt; 11 raceth       7    Other</span></span>
-<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a><span class="do">### &gt; 12 raceth      NA       NA</span></span>
-<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a><span class="do">### &gt; 13     x1  82.976     q020</span></span>
-<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a><span class="do">### &gt; 14     x1  95.238     q040</span></span>
-<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a><span class="do">### &gt; 15     x1 106.142     q060</span></span>
-<span id="cb9-25"><a href="#cb9-25" tabindex="-1"></a><span class="do">### &gt; 16     x1 117.524     q080</span></span>
-<span id="cb9-26"><a href="#cb9-26" tabindex="-1"></a><span class="do">### &gt; 17     x1  157.98     q100</span></span>
-<span id="cb9-27"><a href="#cb9-27" tabindex="-1"></a><span class="do">### &gt; 18     x1      NA       NA</span></span>
-<span id="cb9-28"><a href="#cb9-28" tabindex="-1"></a><span class="do">### &gt; 19     x2 0.22404     q020</span></span>
-<span id="cb9-29"><a href="#cb9-29" tabindex="-1"></a><span class="do">### &gt; 20     x2 0.41608     q040</span></span>
-<span id="cb9-30"><a href="#cb9-30" tabindex="-1"></a><span class="do">### &gt; 21     x2 0.62034     q060</span></span>
-<span id="cb9-31"><a href="#cb9-31" tabindex="-1"></a><span class="do">### &gt; 22     x2 0.80538     q080</span></span>
-<span id="cb9-32"><a href="#cb9-32" tabindex="-1"></a><span class="do">### &gt; 23     x2  0.9992     q100</span></span>
-<span id="cb9-33"><a href="#cb9-33" tabindex="-1"></a><span class="do">### &gt; 24     x2      NA       NA</span></span></code></pre></div>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="do">### &gt;       var    vals      labs</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="do">### &gt; 1  gender       0         M</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="do">### &gt; 2  gender       1         F</span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="do">### &gt; 3  gender       2        TR</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="do">### &gt; 4  gender       3        NB</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a><span class="do">### &gt; 5  gender       4 Diff-Term</span></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="do">### &gt; 6  gender      NA        NA</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a><span class="do">### &gt; 7  raceth       1     White</span></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a><span class="do">### &gt; 8  raceth       2     Black</span></span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a><span class="do">### &gt; 9  raceth       3  Hispanic</span></span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a><span class="do">### &gt; 10 raceth       4     Asian</span></span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a><span class="do">### &gt; 11 raceth       5      AIAN</span></span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a><span class="do">### &gt; 12 raceth       6     Multi</span></span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a><span class="do">### &gt; 13 raceth       7     Other</span></span>
+<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a><span class="do">### &gt; 14 raceth      NA        NA</span></span>
+<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a><span class="do">### &gt; 15     x1  82.976      q020</span></span>
+<span id="cb9-25"><a href="#cb9-25" tabindex="-1"></a><span class="do">### &gt; 16     x1  95.238      q040</span></span>
+<span id="cb9-26"><a href="#cb9-26" tabindex="-1"></a><span class="do">### &gt; 17     x1 106.142      q060</span></span>
+<span id="cb9-27"><a href="#cb9-27" tabindex="-1"></a><span class="do">### &gt; 18     x1 117.524      q080</span></span>
+<span id="cb9-28"><a href="#cb9-28" tabindex="-1"></a><span class="do">### &gt; 19     x1  157.98      q100</span></span>
+<span id="cb9-29"><a href="#cb9-29" tabindex="-1"></a><span class="do">### &gt; 20     x1      NA        NA</span></span>
+<span id="cb9-30"><a href="#cb9-30" tabindex="-1"></a><span class="do">### &gt; 21     x2 0.22404      q020</span></span>
+<span id="cb9-31"><a href="#cb9-31" tabindex="-1"></a><span class="do">### &gt; 22     x2 0.41608      q040</span></span>
+<span id="cb9-32"><a href="#cb9-32" tabindex="-1"></a><span class="do">### &gt; 23     x2 0.62034      q060</span></span>
+<span id="cb9-33"><a href="#cb9-33" tabindex="-1"></a><span class="do">### &gt; 24     x2 0.80538      q080</span></span>
+<span id="cb9-34"><a href="#cb9-34" tabindex="-1"></a><span class="do">### &gt; 25     x2  0.9992      q100</span></span>
+<span id="cb9-35"><a href="#cb9-35" tabindex="-1"></a><span class="do">### &gt; 26     x2      NA        NA</span></span></code></pre></div>
 <p>For these variables, <code>get_val_labs()</code> shows the quantity
 values that define the requested quantile thresholds (in this case,
 quintiles), with all values at or below the given threshold (and above
@@ -625,28 +629,30 @@ greater than 100).</p>
 <span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="do">### &gt; the observed range of var --x2-- values</span></span>
 <span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a></span>
 <span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="fu">get_val_labs</span>(df_temp)</span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="do">### &gt;       var vals     labs</span></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="do">### &gt; 1  gender    0     Male</span></span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="do">### &gt; 2  gender    1   Female</span></span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="do">### &gt; 3  gender    2    Other</span></span>
-<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="do">### &gt; 4  gender   NA       NA</span></span>
-<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="do">### &gt; 5  raceth    1    White</span></span>
-<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="do">### &gt; 6  raceth    2    Black</span></span>
-<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="do">### &gt; 7  raceth    3 Hispanic</span></span>
-<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="do">### &gt; 8  raceth    4    Asian</span></span>
-<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="do">### &gt; 9  raceth    5     AIAN</span></span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="do">### &gt; 10 raceth    6    Multi</span></span>
-<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="do">### &gt; 11 raceth    7    Other</span></span>
-<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="do">### &gt; 12 raceth   NA       NA</span></span>
-<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a><span class="do">### &gt; 13     x1  100    &lt;=100</span></span>
-<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="do">### &gt; 14     x1  150    &lt;=150</span></span>
-<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="do">### &gt; 15     x1   NA       NA</span></span>
-<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="do">### &gt; 16     x2  100    &lt;=100</span></span>
-<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a><span class="do">### &gt; 17     x2  150    &lt;=150</span></span>
-<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a><span class="do">### &gt; 18     x2   NA       NA</span></span></code></pre></div>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="do">### &gt;       var vals      labs</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="do">### &gt; 1  gender    0         M</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="do">### &gt; 2  gender    1         F</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="do">### &gt; 3  gender    2        TR</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="do">### &gt; 4  gender    3        NB</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="do">### &gt; 5  gender    4 Diff-Term</span></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="do">### &gt; 6  gender   NA        NA</span></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="do">### &gt; 7  raceth    1     White</span></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="do">### &gt; 8  raceth    2     Black</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="do">### &gt; 9  raceth    3  Hispanic</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="do">### &gt; 10 raceth    4     Asian</span></span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="do">### &gt; 11 raceth    5      AIAN</span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="do">### &gt; 12 raceth    6     Multi</span></span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a><span class="do">### &gt; 13 raceth    7     Other</span></span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="do">### &gt; 14 raceth   NA        NA</span></span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="do">### &gt; 15     x1  100     &lt;=100</span></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="do">### &gt; 16     x1  150     &lt;=150</span></span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a><span class="do">### &gt; 17     x1   NA        NA</span></span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a><span class="do">### &gt; 18     x2  100     &lt;=100</span></span>
+<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a><span class="do">### &gt; 19     x2  150     &lt;=150</span></span>
+<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a><span class="do">### &gt; 20     x2   NA        NA</span></span></code></pre></div>
 <p>Having demonstrated the basic functionality on our df_temp copy of
 df, let’s ignore that data.frame and return our focus to df. We’ll use
-<code>add_quant1</code> to apply decile range labeling to the variable
+<code>add_quant1</code> to apply quintile range labeling to the variable
 “x1” only. Note that <code>add_quant1</code> is like
 <code>add_quant_labs</code>, but accepts only a single variable, whose
 name can be supplied without quotes. The opposite trade-off holds for
@@ -656,7 +662,7 @@ functions mirrors the relationship between <code>add_val_labs</code> and
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">add_quant1</span>(df, <span class="co"># data.frame</span></span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  x1, <span class="co"># variable to value-label</span></span>
 <span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="at">qtiles =</span> <span class="dv">5</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>) <span class="co"># number quintiles to define numerical range labels</span></span></code></pre></div>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>) <span class="co"># number of quintiles to use in defining numerical range labels</span></span></code></pre></div>
 <p>We’ll preserve the “x1” range labels going forward, keeping “x2”
 unlabeled.</p>
 </div>
@@ -678,30 +684,32 @@ labels to values 1 and 2, respectively.</p>
 <span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="fu">get_val_labs</span>(df)</span>
 <span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="do">### &gt;       var    vals            labs</span></span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="do">### &gt; 1  gender       0            Male</span></span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="do">### &gt; 2  gender       1          Female</span></span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="do">### &gt; 3  gender       2           Other</span></span>
-<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="do">### &gt; 4  gender      NA              NA</span></span>
-<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="do">### &gt; 5  raceth       1           White</span></span>
-<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="do">### &gt; 6  raceth       2           Black</span></span>
-<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a><span class="do">### &gt; 7  raceth       3        Hispanic</span></span>
-<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a><span class="do">### &gt; 8  raceth       4           Asian</span></span>
-<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a><span class="do">### &gt; 9  raceth       5            AIAN</span></span>
-<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a><span class="do">### &gt; 10 raceth       6           Multi</span></span>
-<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a><span class="do">### &gt; 11 raceth       7           Other</span></span>
-<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a><span class="do">### &gt; 12 raceth      NA              NA</span></span>
-<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a><span class="do">### &gt; 13    edu       1     Not HS Grad</span></span>
-<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a><span class="do">### &gt; 14    edu       2 HSG, No College</span></span>
-<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a><span class="do">### &gt; 15    edu       3   Some College+</span></span>
-<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a><span class="do">### &gt; 16    edu       4   Some College+</span></span>
-<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a><span class="do">### &gt; 17    edu       5   Some College+</span></span>
-<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a><span class="do">### &gt; 18    edu      NA              NA</span></span>
-<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a><span class="do">### &gt; 19     x1  82.976            q020</span></span>
-<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a><span class="do">### &gt; 20     x1  95.238            q040</span></span>
-<span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a><span class="do">### &gt; 21     x1 106.142            q060</span></span>
-<span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a><span class="do">### &gt; 22     x1 117.524            q080</span></span>
-<span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a><span class="do">### &gt; 23     x1  157.98            q100</span></span>
-<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a><span class="do">### &gt; 24     x1      NA              NA</span></span></code></pre></div>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="do">### &gt; 1  gender       0               M</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="do">### &gt; 2  gender       1               F</span></span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="do">### &gt; 3  gender       2              TR</span></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="do">### &gt; 4  gender       3              NB</span></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="do">### &gt; 5  gender       4       Diff-Term</span></span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="do">### &gt; 6  gender      NA              NA</span></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a><span class="do">### &gt; 7  raceth       1           White</span></span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a><span class="do">### &gt; 8  raceth       2           Black</span></span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a><span class="do">### &gt; 9  raceth       3        Hispanic</span></span>
+<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a><span class="do">### &gt; 10 raceth       4           Asian</span></span>
+<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a><span class="do">### &gt; 11 raceth       5            AIAN</span></span>
+<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a><span class="do">### &gt; 12 raceth       6           Multi</span></span>
+<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a><span class="do">### &gt; 13 raceth       7           Other</span></span>
+<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a><span class="do">### &gt; 14 raceth      NA              NA</span></span>
+<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a><span class="do">### &gt; 15    edu       1     Not HS Grad</span></span>
+<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a><span class="do">### &gt; 16    edu       2 HSG, No College</span></span>
+<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a><span class="do">### &gt; 17    edu       3   Some College+</span></span>
+<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a><span class="do">### &gt; 18    edu       4   Some College+</span></span>
+<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a><span class="do">### &gt; 19    edu       5   Some College+</span></span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a><span class="do">### &gt; 20    edu      NA              NA</span></span>
+<span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a><span class="do">### &gt; 21     x1  82.976            q020</span></span>
+<span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a><span class="do">### &gt; 22     x1  95.238            q040</span></span>
+<span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a><span class="do">### &gt; 23     x1 106.142            q060</span></span>
+<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a><span class="do">### &gt; 24     x1 117.524            q080</span></span>
+<span id="cb12-31"><a href="#cb12-31" tabindex="-1"></a><span class="do">### &gt; 25     x1  157.98            q100</span></span>
+<span id="cb12-32"><a href="#cb12-32" tabindex="-1"></a><span class="do">### &gt; 26     x1      NA              NA</span></span></code></pre></div>
 <p>As with the other value-adding functions, there is a variant of
 <code>add_m1_lab</code> that allows you to value-label a single variable
 whose name is unquoted. It is <code>add1m1()</code>.</p>
@@ -768,8 +776,8 @@ created.</p>
 <span id="cb16-21"><a href="#cb16-21" tabindex="-1"></a><span class="do">### &gt;         &quot;Galaga reaction time test scores&quot; </span></span>
 <span id="cb16-22"><a href="#cb16-22" tabindex="-1"></a><span class="do">### &gt; </span></span>
 <span id="cb16-23"><a href="#cb16-23" tabindex="-1"></a><span class="do">### &gt; $val.labs.gender</span></span>
-<span id="cb16-24"><a href="#cb16-24" tabindex="-1"></a><span class="do">### &gt;        0        1        2       NA </span></span>
-<span id="cb16-25"><a href="#cb16-25" tabindex="-1"></a><span class="do">### &gt;   &quot;Male&quot; &quot;Female&quot;  &quot;Other&quot;     &quot;NA&quot; </span></span>
+<span id="cb16-24"><a href="#cb16-24" tabindex="-1"></a><span class="do">### &gt;           0           1           2           3           4          NA </span></span>
+<span id="cb16-25"><a href="#cb16-25" tabindex="-1"></a><span class="do">### &gt;         &quot;M&quot;         &quot;F&quot;        &quot;TR&quot;        &quot;NB&quot; &quot;Diff-Term&quot;        &quot;NA&quot; </span></span>
 <span id="cb16-26"><a href="#cb16-26" tabindex="-1"></a><span class="do">### &gt; </span></span>
 <span id="cb16-27"><a href="#cb16-27" tabindex="-1"></a><span class="do">### &gt; $val.labs.raceth</span></span>
 <span id="cb16-28"><a href="#cb16-28" tabindex="-1"></a><span class="do">### &gt;          1          2          3          4          5          6          7 </span></span>
@@ -826,11 +834,11 @@ help you visually locate a literal row that may appear across calls.</p>
 <span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a></span>
 <span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a><span class="fu">headl</span>(df, <span class="dv">5</span>) <span class="co"># labelr function headl() (note the &quot;l&quot;)</span></span>
 <span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a><span class="do">### &gt;     id age gender raceth             edu   x1     x2</span></span>
-<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a><span class="do">### &gt; T-1  1  59 Female  Asian   Some College+ q100 0.5928</span></span>
-<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a><span class="do">### &gt; N-2  2  56 Female  White HSG, No College q020 0.9116</span></span>
-<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a><span class="do">### &gt; D-3  3  54 Female  Multi   Some College+ q020 0.6993</span></span>
-<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a><span class="do">### &gt; Q-4  4  46 Female   AIAN   Some College+ q060 0.2243</span></span>
-<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a><span class="do">### &gt; E-5  5  18 Female  Multi   Some College+ q040 0.0099</span></span>
+<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a><span class="do">### &gt; T-1  1  59      F  Asian   Some College+ q100 0.5928</span></span>
+<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a><span class="do">### &gt; N-2  2  56      F  White HSG, No College q020 0.9116</span></span>
+<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a><span class="do">### &gt; D-3  3  54      F  Multi   Some College+ q020 0.6993</span></span>
+<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a><span class="do">### &gt; Q-4  4  46      F   AIAN   Some College+ q060 0.2243</span></span>
+<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a><span class="do">### &gt; E-5  5  18      F  Multi   Some College+ q040 0.0099</span></span>
 <span id="cb17-16"><a href="#cb17-16" tabindex="-1"></a></span>
 <span id="cb17-17"><a href="#cb17-17" tabindex="-1"></a><span class="fu">tail</span>(df, <span class="dv">5</span>) <span class="co"># Base R function utils::tail()</span></span>
 <span id="cb17-18"><a href="#cb17-18" tabindex="-1"></a><span class="do">### &gt;          id age gender raceth edu     x1     x2</span></span>
@@ -842,11 +850,11 @@ help you visually locate a literal row that may appear across calls.</p>
 <span id="cb17-24"><a href="#cb17-24" tabindex="-1"></a></span>
 <span id="cb17-25"><a href="#cb17-25" tabindex="-1"></a><span class="fu">taill</span>(df, <span class="dv">5</span>) <span class="co"># labelr function taill() (note the extra &quot;l&quot;)</span></span>
 <span id="cb17-26"><a href="#cb17-26" tabindex="-1"></a><span class="do">### &gt;          id age gender raceth             edu   x1     x2</span></span>
-<span id="cb17-27"><a href="#cb17-27" tabindex="-1"></a><span class="do">### &gt; Z-996   996  63   Male  White   Some College+ q040 0.0447</span></span>
-<span id="cb17-28"><a href="#cb17-28" tabindex="-1"></a><span class="do">### &gt; S-997   997  18   Male  Asian   Some College+ q100 0.2252</span></span>
-<span id="cb17-29"><a href="#cb17-29" tabindex="-1"></a><span class="do">### &gt; K-998   998  45   Male   AIAN HSG, No College q080 0.1610</span></span>
-<span id="cb17-30"><a href="#cb17-30" tabindex="-1"></a><span class="do">### &gt; I-999   999  46 Female  Asian HSG, No College q100 0.7666</span></span>
-<span id="cb17-31"><a href="#cb17-31" tabindex="-1"></a><span class="do">### &gt; H-1000 1000  68   Male  Multi   Some College+ q020 0.5123</span></span>
+<span id="cb17-27"><a href="#cb17-27" tabindex="-1"></a><span class="do">### &gt; Z-996   996  63      M  White   Some College+ q040 0.0447</span></span>
+<span id="cb17-28"><a href="#cb17-28" tabindex="-1"></a><span class="do">### &gt; S-997   997  18      M  Asian   Some College+ q100 0.2252</span></span>
+<span id="cb17-29"><a href="#cb17-29" tabindex="-1"></a><span class="do">### &gt; K-998   998  45      M   AIAN HSG, No College q080 0.1610</span></span>
+<span id="cb17-30"><a href="#cb17-30" tabindex="-1"></a><span class="do">### &gt; I-999   999  46      F  Asian HSG, No College q100 0.7666</span></span>
+<span id="cb17-31"><a href="#cb17-31" tabindex="-1"></a><span class="do">### &gt; H-1000 1000  68      M  Multi   Some College+ q020 0.5123</span></span>
 <span id="cb17-32"><a href="#cb17-32" tabindex="-1"></a></span>
 <span id="cb17-33"><a href="#cb17-33" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">293</span>)</span>
 <span id="cb17-34"><a href="#cb17-34" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">some</span>(df, <span class="dv">5</span>) <span class="co"># car package function car::some()</span></span>
@@ -860,11 +868,11 @@ help you visually locate a literal row that may appear across calls.</p>
 <span id="cb17-42"><a href="#cb17-42" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">293</span>)</span>
 <span id="cb17-43"><a href="#cb17-43" tabindex="-1"></a><span class="fu">somel</span>(df, <span class="dv">5</span>) <span class="co"># labelr function somel() (note the &quot;l&quot;)</span></span>
 <span id="cb17-44"><a href="#cb17-44" tabindex="-1"></a><span class="do">### &gt;        id age gender raceth             edu   x1     x2</span></span>
-<span id="cb17-45"><a href="#cb17-45" tabindex="-1"></a><span class="do">### &gt; F-181 181  44 Female   AIAN HSG, No College q040 0.0965</span></span>
-<span id="cb17-46"><a href="#cb17-46" tabindex="-1"></a><span class="do">### &gt; N-341 341  19 Female   AIAN HSG, No College q020 0.6074</span></span>
-<span id="cb17-47"><a href="#cb17-47" tabindex="-1"></a><span class="do">### &gt; P-458 458  30 Female  Other   Some College+ q060 0.5607</span></span>
-<span id="cb17-48"><a href="#cb17-48" tabindex="-1"></a><span class="do">### &gt; F-457 457  58 Female   AIAN   Some College+ q100 0.9890</span></span>
-<span id="cb17-49"><a href="#cb17-49" tabindex="-1"></a><span class="do">### &gt; K-248 248  30 Female  Black   Some College+ q100 0.4484</span></span></code></pre></div>
+<span id="cb17-45"><a href="#cb17-45" tabindex="-1"></a><span class="do">### &gt; F-181 181  44      F   AIAN HSG, No College q040 0.0965</span></span>
+<span id="cb17-46"><a href="#cb17-46" tabindex="-1"></a><span class="do">### &gt; N-341 341  19      F   AIAN HSG, No College q020 0.6074</span></span>
+<span id="cb17-47"><a href="#cb17-47" tabindex="-1"></a><span class="do">### &gt; P-458 458  30      F  Other   Some College+ q060 0.5607</span></span>
+<span id="cb17-48"><a href="#cb17-48" tabindex="-1"></a><span class="do">### &gt; F-457 457  58      F   AIAN   Some College+ q100 0.9890</span></span>
+<span id="cb17-49"><a href="#cb17-49" tabindex="-1"></a><span class="do">### &gt; K-248 248  30      F  Black   Some College+ q100 0.4484</span></span></code></pre></div>
 <p>Note that <code>some()</code> and <code>somel()</code> both return
 random rows, but they will not necessarily return the same random rows,
 even with the same random number seed.</p>
@@ -877,26 +885,26 @@ in”) of value labels to the entire data.frame. For example, we might do
 this temporarily, to visualize the labels in place of values.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">use_val_labs</span>(df)[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, ] <span class="co"># headl() is just a more compact shortcut for this</span></span>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="do">### &gt;      id age gender   raceth             edu   x1     x2</span></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="do">### &gt; T-1   1  59 Female    Asian   Some College+ q100 0.5928</span></span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="do">### &gt; N-2   2  56 Female    White HSG, No College q020 0.9116</span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="do">### &gt; D-3   3  54 Female    Multi   Some College+ q020 0.6993</span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="do">### &gt; Q-4   4  46 Female     AIAN   Some College+ q060 0.2243</span></span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="do">### &gt; E-5   5  18 Female    Multi   Some College+ q040 0.0099</span></span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="do">### &gt; K-6   6  45   Male    Black   Some College+ q020 0.9250</span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="do">### &gt; Y-7   7  57   Male    White HSG, No College q060 0.9446</span></span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="do">### &gt; C-8   8  46   Male Hispanic HSG, No College q080 0.4053</span></span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="do">### &gt; W-9   9  37 Female    Black   Some College+ q020 0.3998</span></span>
-<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="do">### &gt; A-10 10  12 Female    Other HSG, No College q060 0.5857</span></span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="do">### &gt; A-11 11  46   Male    Other   Some College+ q020 0.7027</span></span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="do">### &gt; S-12 12  28   Male Hispanic   Some College+ q020 0.6538</span></span>
-<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="do">### &gt; Z-13 13  15 Female     AIAN   Some College+ q080 0.6267</span></span>
-<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="do">### &gt; H-14 14  39 Female     AIAN   Some College+ q020 0.8989</span></span>
-<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="do">### &gt; A-15 15  18 Female    White   Some College+ q100 0.2974</span></span>
-<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a><span class="do">### &gt; B-16 16  48   Male    Multi   Some College+ q080 0.2212</span></span>
-<span id="cb18-19"><a href="#cb18-19" tabindex="-1"></a><span class="do">### &gt; H-17 17  39   Male     AIAN   Some College+ q060 0.3127</span></span>
-<span id="cb18-20"><a href="#cb18-20" tabindex="-1"></a><span class="do">### &gt; F-18 18  52   Male Hispanic   Some College+ q060 0.4350</span></span>
-<span id="cb18-21"><a href="#cb18-21" tabindex="-1"></a><span class="do">### &gt; F-19 19  33   Male    Other   Some College+ q100 0.2809</span></span>
-<span id="cb18-22"><a href="#cb18-22" tabindex="-1"></a><span class="do">### &gt; A-20 20  29   Male    White   Some College+ q060 0.8188</span></span></code></pre></div>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="do">### &gt; T-1   1  59      F    Asian   Some College+ q100 0.5928</span></span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="do">### &gt; N-2   2  56      F    White HSG, No College q020 0.9116</span></span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="do">### &gt; D-3   3  54      F    Multi   Some College+ q020 0.6993</span></span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="do">### &gt; Q-4   4  46      F     AIAN   Some College+ q060 0.2243</span></span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="do">### &gt; E-5   5  18      F    Multi   Some College+ q040 0.0099</span></span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="do">### &gt; K-6   6  45      M    Black   Some College+ q020 0.9250</span></span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="do">### &gt; Y-7   7  57      M    White HSG, No College q060 0.9446</span></span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="do">### &gt; C-8   8  46      M Hispanic HSG, No College q080 0.4053</span></span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="do">### &gt; W-9   9  37      F    Black   Some College+ q020 0.3998</span></span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="do">### &gt; A-10 10  12      F    Other HSG, No College q060 0.5857</span></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="do">### &gt; A-11 11  46      M    Other   Some College+ q020 0.7027</span></span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="do">### &gt; S-12 12  28      M Hispanic   Some College+ q020 0.6538</span></span>
+<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="do">### &gt; Z-13 13  15      F     AIAN   Some College+ q080 0.6267</span></span>
+<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="do">### &gt; H-14 14  39      F     AIAN   Some College+ q020 0.8989</span></span>
+<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="do">### &gt; A-15 15  18      F    White   Some College+ q100 0.2974</span></span>
+<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a><span class="do">### &gt; B-16 16  48      M    Multi   Some College+ q080 0.2212</span></span>
+<span id="cb18-19"><a href="#cb18-19" tabindex="-1"></a><span class="do">### &gt; H-17 17  39      M     AIAN   Some College+ q060 0.3127</span></span>
+<span id="cb18-20"><a href="#cb18-20" tabindex="-1"></a><span class="do">### &gt; F-18 18  52      M Hispanic   Some College+ q060 0.4350</span></span>
+<span id="cb18-21"><a href="#cb18-21" tabindex="-1"></a><span class="do">### &gt; F-19 19  33      M    Other   Some College+ q100 0.2809</span></span>
+<span id="cb18-22"><a href="#cb18-22" tabindex="-1"></a><span class="do">### &gt; A-20 20  29      M    White   Some College+ q060 0.8188</span></span></code></pre></div>
 <p>Or we can wrap a call to this function around our data.frame and pass
 the result to other functions. Here is an illustration that passes a
 <code>use_val_labs()</code> -wrapped data.frame to the
@@ -943,23 +951,29 @@ helpful in a few specific cases.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">with</span>(df, <span class="fu">table</span>(gender, raceth)) <span class="co"># base::with()</span></span>
 <span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="do">### &gt;       raceth</span></span>
 <span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="do">### &gt; gender  1  2  3  4  5  6  7</span></span>
-<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="do">### &gt;      0 83 66 62 65 64 68 61</span></span>
-<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="do">### &gt;      1 70 74 79 56 83 69 64</span></span>
-<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="do">### &gt;      2  3  7  3  6  8  3  6</span></span>
-<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="fu">with_val_labs</span>(df, <span class="fu">table</span>(gender, raceth)) <span class="co"># labelr::with_val_labs()</span></span>
-<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="do">### &gt;         raceth</span></span>
-<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="do">### &gt; gender   AIAN Asian Black Hispanic Multi Other White</span></span>
-<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="do">### &gt;   Female   83    56    74       79    69    64    70</span></span>
-<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a><span class="do">### &gt;   Male     64    65    66       62    68    61    83</span></span>
-<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a><span class="do">### &gt;   Other     8     6     7        3     3     6     3</span></span>
-<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a></span>
-<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a><span class="fu">wvl</span>(df, <span class="fu">table</span>(gender, raceth)) <span class="co"># labelr::wvl is a more compact alias</span></span>
-<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a><span class="do">### &gt;         raceth</span></span>
-<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a><span class="do">### &gt; gender   AIAN Asian Black Hispanic Multi Other White</span></span>
-<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a><span class="do">### &gt;   Female   83    56    74       79    69    64    70</span></span>
-<span id="cb20-19"><a href="#cb20-19" tabindex="-1"></a><span class="do">### &gt;   Male     64    65    66       62    68    61    83</span></span>
-<span id="cb20-20"><a href="#cb20-20" tabindex="-1"></a><span class="do">### &gt;   Other     8     6     7        3     3     6     3</span></span></code></pre></div>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="do">### &gt;      0 82 65 62 61 61 67 60</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="do">### &gt;      1 66 71 74 52 78 65 62</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="do">### &gt;      2  3  3  5  8  7  5  3</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="do">### &gt;      3  3  6  3  4  7  3  5</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="do">### &gt;      4  2  2  0  2  2  0  1</span></span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a><span class="fu">with_val_labs</span>(df, <span class="fu">table</span>(gender, raceth)) <span class="co"># labelr::with_val_labs()</span></span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a><span class="do">### &gt;            raceth</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a><span class="do">### &gt; gender      AIAN Asian Black Hispanic Multi Other White</span></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a><span class="do">### &gt;   Diff-Term    2     2     2        0     0     1     2</span></span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a><span class="do">### &gt;   F           78    52    71       74    65    62    66</span></span>
+<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a><span class="do">### &gt;   M           61    61    65       62    67    60    82</span></span>
+<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a><span class="do">### &gt;   NB           7     4     6        3     3     5     3</span></span>
+<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a><span class="do">### &gt;   TR           7     8     3        5     5     3     3</span></span>
+<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" tabindex="-1"></a><span class="fu">wvl</span>(df, <span class="fu">table</span>(gender, raceth)) <span class="co"># labelr::wvl is a more compact alias</span></span>
+<span id="cb20-20"><a href="#cb20-20" tabindex="-1"></a><span class="do">### &gt;            raceth</span></span>
+<span id="cb20-21"><a href="#cb20-21" tabindex="-1"></a><span class="do">### &gt; gender      AIAN Asian Black Hispanic Multi Other White</span></span>
+<span id="cb20-22"><a href="#cb20-22" tabindex="-1"></a><span class="do">### &gt;   Diff-Term    2     2     2        0     0     1     2</span></span>
+<span id="cb20-23"><a href="#cb20-23" tabindex="-1"></a><span class="do">### &gt;   F           78    52    71       74    65    62    66</span></span>
+<span id="cb20-24"><a href="#cb20-24" tabindex="-1"></a><span class="do">### &gt;   M           61    61    65       62    67    60    82</span></span>
+<span id="cb20-25"><a href="#cb20-25" tabindex="-1"></a><span class="do">### &gt;   NB           7     4     6        3     3     5     3</span></span>
+<span id="cb20-26"><a href="#cb20-26" tabindex="-1"></a><span class="do">### &gt;   TR           7     8     3        5     5     3     3</span></span></code></pre></div>
 <p>In a little bit, we’ll see that we have some parallel options for
 overlaying (“turning on”) NAME labels.</p>
 </div>
@@ -979,12 +993,12 @@ result to a new object.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>df_labd <span class="ot">&lt;-</span> <span class="fu">use_val_labs</span>(df)</span>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="fu">head</span>(df_labd) <span class="co"># note, this is utils::head(), not labelr::headl()</span></span>
 <span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="do">### &gt;     id age gender raceth             edu   x1     x2</span></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="do">### &gt; T-1  1  59 Female  Asian   Some College+ q100 0.5928</span></span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="do">### &gt; N-2  2  56 Female  White HSG, No College q020 0.9116</span></span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="do">### &gt; D-3  3  54 Female  Multi   Some College+ q020 0.6993</span></span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="do">### &gt; Q-4  4  46 Female   AIAN   Some College+ q060 0.2243</span></span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="do">### &gt; E-5  5  18 Female  Multi   Some College+ q040 0.0099</span></span>
-<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="do">### &gt; K-6  6  45   Male  Black   Some College+ q020 0.9250</span></span></code></pre></div>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="do">### &gt; T-1  1  59      F  Asian   Some College+ q100 0.5928</span></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="do">### &gt; N-2  2  56      F  White HSG, No College q020 0.9116</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="do">### &gt; D-3  3  54      F  Multi   Some College+ q020 0.6993</span></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="do">### &gt; Q-4  4  46      F   AIAN   Some College+ q060 0.2243</span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="do">### &gt; E-5  5  18      F  Multi   Some College+ q040 0.0099</span></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="do">### &gt; K-6  6  45      M  Black   Some College+ q020 0.9250</span></span></code></pre></div>
 <p>Perhaps better still, we do not need to choose between values and
 labels. We can use <code>add_lab_cols()</code> to preserve all existing
 variables (columns), including the value-labeled ones, while adding to
@@ -994,12 +1008,12 @@ value-labeled column.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>df_plus_labs <span class="ot">&lt;-</span> <span class="fu">add_lab_cols</span>(df)</span>
 <span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="fu">head</span>(df_plus_labs[<span class="fu">c</span>(<span class="st">&quot;gender&quot;</span>, <span class="st">&quot;gender_lab&quot;</span>, <span class="st">&quot;raceth&quot;</span>, <span class="st">&quot;raceth_lab&quot;</span>)])</span>
 <span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="do">### &gt;     gender gender_lab raceth raceth_lab</span></span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="do">### &gt; T-1      1     Female      4      Asian</span></span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="do">### &gt; N-2      1     Female      1      White</span></span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="do">### &gt; D-3      1     Female      6      Multi</span></span>
-<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="do">### &gt; Q-4      1     Female      5       AIAN</span></span>
-<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="do">### &gt; E-5      1     Female      6      Multi</span></span>
-<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="do">### &gt; K-6      0       Male      2      Black</span></span></code></pre></div>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="do">### &gt; T-1      1          F      4      Asian</span></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="do">### &gt; N-2      1          F      1      White</span></span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="do">### &gt; D-3      1          F      6      Multi</span></span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="do">### &gt; Q-4      1          F      5       AIAN</span></span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="do">### &gt; E-5      1          F      6      Multi</span></span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="do">### &gt; K-6      0          M      2      Black</span></span></code></pre></div>
 </div>
 <div id="filter-values-using-labels-with-flab" class="section level3">
 <h3>“Filter values using labels” with <code>flab()</code></h3>
@@ -1021,20 +1035,12 @@ background” of the returned, filtered data.frame. Again, I find this
 <span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">flab</span>(df, raceth <span class="sc">==</span> <span class="st">&quot;Asian&quot;</span> <span class="sc">&amp;</span> gender <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>)</span>
 <span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a></span>
 <span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a><span class="fu">head</span>(df1, <span class="dv">5</span>) <span class="co"># returned df1 is in terms of values, just like df</span></span>
-<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="do">### &gt;      id age gender raceth edu     x1     x2</span></span>
-<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="do">### &gt; T-1   1  59      1      4   5 120.25 0.5928</span></span>
-<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a><span class="do">### &gt; D-40 40  60      1      4   4  78.12 0.9885</span></span>
-<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a><span class="do">### &gt; E-67 67  39      1      4   5  98.21 0.6244</span></span>
-<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a><span class="do">### &gt; I-73 73  36      1      4   2  98.42 0.2102</span></span>
-<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a><span class="do">### &gt; V-80 80  27      1      4   4 122.62 0.3137</span></span>
-<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a></span>
-<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a><span class="fu">headl</span>(df1, <span class="dv">5</span>) <span class="co"># note use of labelr::headl; labels are there</span></span>
-<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a><span class="do">### &gt;      id age gender raceth             edu   x1     x2</span></span>
-<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a><span class="do">### &gt; T-1   1  59 Female  Asian   Some College+ q100 0.5928</span></span>
-<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a><span class="do">### &gt; D-40 40  60 Female  Asian   Some College+ q020 0.9885</span></span>
-<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a><span class="do">### &gt; E-67 67  39 Female  Asian   Some College+ q060 0.6244</span></span>
-<span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a><span class="do">### &gt; I-73 73  36 Female  Asian HSG, No College q060 0.2102</span></span>
-<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a><span class="do">### &gt; V-80 80  27 Female  Asian   Some College+ q100 0.3137</span></span></code></pre></div>
+<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="do">### &gt; [1] id     age    gender raceth edu    x1     x2    </span></span>
+<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="do">### &gt; &lt;0 rows&gt; (or 0-length row.names)</span></span>
+<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a><span class="fu">headl</span>(df1, <span class="dv">5</span>) <span class="co"># note use of labelr::headl; labels are there</span></span>
+<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a><span class="do">### &gt; Warning: non-unique values when setting &#39;row.names&#39;:</span></span>
+<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a><span class="do">### &gt; Error in `.rowNamesDF&lt;-`(x, value = value): duplicate &#39;row.names&#39; are not allowed</span></span></code></pre></div>
 <p>We’ve used these two variables’ value labels to guide our filtering,
 without ever explicitly changing the contents of our columns from values
 to labels. For instance, note that we did NOT make an explicit call to
@@ -1051,17 +1057,8 @@ we return. In this case, we filter on two value-labeled columns and
 return a data.frame consisting of only those columns.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">slab</span>(df, raceth <span class="sc">==</span> <span class="st">&quot;Black&quot;</span> <span class="sc">&amp;</span> gender <span class="sc">==</span> <span class="st">&quot;Male&quot;</span>, gender, raceth)</span>
 <span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="fu">head</span>(df2, <span class="dv">10</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="do">### &gt;       gender raceth</span></span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="do">### &gt; K-6        0      2</span></span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="do">### &gt; F-22       0      2</span></span>
-<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="do">### &gt; E-30       0      2</span></span>
-<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="do">### &gt; O-46       0      2</span></span>
-<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="do">### &gt; Q-48       0      2</span></span>
-<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="do">### &gt; F-72       0      2</span></span>
-<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="do">### &gt; T-117      0      2</span></span>
-<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a><span class="do">### &gt; K-149      0      2</span></span>
-<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a><span class="do">### &gt; M-161      0      2</span></span>
-<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a><span class="do">### &gt; A-167      0      2</span></span></code></pre></div>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="do">### &gt; [1] gender raceth</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="do">### &gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code></pre></div>
 <p>In the case of <code>slab()</code>, we simply list the desired
 columns – unquoted and comma-separated – after the filter</p>
 </div>

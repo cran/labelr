@@ -433,8 +433,6 @@ class(carb_to_int$carb) # Is an integer
 
 levels(carb_to_int$carb) # NOT a factor
 
-head(carb_to_int$carb, 3) # NOT the same as carb_orig
-
 mean(carb_to_int$carb) # NOT the same as carb_orig
 
 identical(carb_to_int$carb, carb_orig$carb) # really!
@@ -513,7 +511,7 @@ get_val_labs(dfxgone)
 
 ## -----------------------------------------------------------------------------
 set.seed(4847) # for reproducibility
-df <- make_demo_data(n = 100) # make a fictional n = 100 data set
+df <- make_demo_data(n = 1000) # make a fictional n = 1000 data set
 
 df <- add_val1(df, # data.frame
   var = raceth, # var to label, unquoted since this is add_val1()
@@ -527,8 +525,8 @@ df <- add_val1(df, # data.frame
 df <- add_val1(
   data = df,
   var = gender,
-  vals = c(0, 1, 2), # the values to be labeled
-  labs = c("Male", "Female", "Other"), # labs order should reflect vals order
+  vals = c(0, 1, 2, 3, 4), # the values to be labeled
+  labs = c("M", "F", "TR", "NB", "Diff-Term"), # labs order should reflect vals order
   max.unique.vals = 10
 )
 

@@ -5,13 +5,13 @@
 #' variable for each of that column's unique value labels.
 #'
 #' @details
-#' #' Note 1: `add_lab_dumm1` is a variant of `add_lab_dummies` that allows you
+#' Note 1: `add_lab_dumm1` is a variant of `add_lab_dummies` that allows you
 #' to specify only one var to label at a time but that allows you to pass its
 #' name without quoting.
 #'
 #' Note 2: `ald1` is a compact alias for `add_lab_dumm1`: they do the same thing,
 #' and the former is easier to type
-
+#'
 #' Note 3: If the default of simple.names is used, dummy variable column names
 #' will be the "parent" variable column name, followed by a separator character
 #' (by default, "_"), followed by a number, to differentiate each dummy variable
@@ -54,7 +54,7 @@
 #' value label to use use in constructing dummy variable column names. For
 #' example, consider the following setup: parent column name is "tacos";
 #' prefix.length = 3; sep = "_", and suffix.length = 2. In this case, if
-#' simple.names = FALSE, then a dummy variable column named "tac.so" would be
+#' simple.names = FALSE, then a dummy variable column named "tac_so" would be
 #' created to represent those values of the tacos" column that have the value
 #' label "soft" (because "tac" are the first three letters of the parent column
 #' name, the separator is ".", and "so" are the first two characters in "soft").
