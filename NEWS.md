@@ -1,8 +1,21 @@
 # labelr News
 
+# labelr 0.1.6
+* added two convenience functions: `fact2char()` converts all factor data.frame variables to character variables, and `irregular2()` converts all irregular (see `check_irregular()` and `irregular2v()`) values in a data.frame to some other single value (NA, by default). `irregular2()`. 
+
+* `ssort()` code is streamlined (and no longer issues a warning when it recycles the descending argument). 
+
+* added fact.to.char (defaults to FALSE) and irreg.to.na (defaults to FALSE) arguments to `as_base_data_frame()`.
+
+* removed extraneous code from `transfer_labs()`.
+
+* Corrected argument specification error in example `flab()` and `slab()` calls in the Introduction vignette (call was supplying argument "Female" when it should have supplied "F") . Vignette call syntax error was introduced in v1.0.5 and was limited to the syntax of the specific example calls in the vignette. The functions themselves were not at fault and are, thus, unchanged.
+
 # labelr 0.1.5
 * Added function `v()` to allow passing of an "unquoted character vector" (of labels or column names). 
+
 * Updated `make_demo_data()` and associated gender identity label examples to be more inclusive.
+
 * Fixed some typos and copy-editing errors in documentation. 
 
 # labelr 0.1.4

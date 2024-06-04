@@ -2,12 +2,19 @@
 % Please edit documentation in R/as_base_data_frame.R
 \name{as_base_data_frame}
 \alias{as_base_data_frame}
+\alias{adf}
 \title{Convert Augmented Data Frame to Base R Data Frame}
 \usage{
-as_base_data_frame(data)
+as_base_data_frame(data, fact.to.char = FALSE, irreg.to.na = FALSE)
+
+adf(data, fact.to.char = FALSE, irreg.to.na = FALSE)
 }
 \arguments{
 \item{data}{a data.frame object.}
+
+\item{fact.to.char}{coerce all factor variables to character variables.}
+
+\item{irreg.to.na}{convert all irregular values (see \code{irregular2v()}) to NA.}
 }
 \value{
 a data.frame object with any additional classes removed.
@@ -17,7 +24,10 @@ a data.frame object with any additional classes removed.
 data.frame.
 }
 \details{
-Note: To minimize dependencies and complexities, labelr label-assigning
+Note: \code{adf} is a compact alias for \code{as_base_data_frame}: they do the same
+thing, and the former is easier to type
+
+To minimize dependencies and complexities, labelr label-assigning
 functions are designed to work exclusively with Base R data.frames, not
 alternative data structures like matrices or augmented data.frames, such as
 data.tables or tibbles. The suggested labeling workflow is to first assign

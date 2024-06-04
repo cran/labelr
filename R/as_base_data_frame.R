@@ -5,7 +5,10 @@
 #' data.frame.
 #
 #' @details
-#' Note: To minimize dependencies and complexities, labelr label-assigning
+#' Note: `adf` is a compact alias for `as_base_data_frame`: they do the same
+#' thing, and the former is easier to type
+#'
+#' To minimize dependencies and complexities, labelr label-assigning
 #' functions are designed to work exclusively with Base R data.frames, not
 #' alternative data structures like matrices or augmented data.frames, such as
 #' data.tables or tibbles. The suggested labeling workflow is to first assign
@@ -26,7 +29,8 @@
 #' is returned with no changes made and no messages.
 #'
 #' @param data a data.frame object.
-#'
+#' @param fact.to.char coerce all factor variables to character variables.
+#' @param irreg.to.na convert all irregular values (see `irregular2v()`) to NA.
 #' @return a data.frame object with any additional classes removed.
 #' @export
 #'
@@ -34,13 +38,12 @@
 #' x1 <- runif(10)
 #' x2 <- as.character(sample(c(1:20), 10, replace = TRUE))
 #' x3 <- sample(letters, size = 10, replace = TRUE)
-
 #' df <- data.frame(x1, x2, x3)
 #' dft <- tibble::as_tibble(df)
 #' class(dft)
 #' df_vanilla <- as_base_data_frame(dft)
 #' class(df_vanilla)
-as_base_data_frame <- function(data) {
+as_base_data_frame <- function(data, fact.to.char = FALSE, irreg.to.na = FALSE) {
   if (!"data.frame" %in% class(data)) {
     stop("
 data argument object must be, but is not, a data.frame.")
@@ -49,5 +52,22 @@ data argument object must be, but is not, a data.frame.")
     warning("
 data argument object coerced from augmented to conventional (Base R) data.frame.")
   }
+
+  # optionally convert factor to character
+  if (fact.to.char) {
+    data <- as.data.frame(data)
+    i <- sapply(data, is.factor)
+    data[i] <- lapply(data[i], as.character)
+  }
+
+  # optionally replace all iregular values with NA
+  if (irreg.to.na) {
+    data[names(data)] <- lapply(data[names(data)], \(x) irregular2v(x, NA))
+  }
+
   return(data)
 }
+
+#' @export
+#' @rdname as_base_data_frame
+adf <- as_base_data_frame

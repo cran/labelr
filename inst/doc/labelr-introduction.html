@@ -1032,15 +1032,23 @@ background” of the returned, filtered data.frame. Again, I find this
 <span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="do">### &gt; E-5  5  18      1      6   4  90.49 0.0099</span></span>
 <span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="do">### &gt; K-6  6  45      0      2   4  78.55 0.9250</span></span>
 <span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">flab</span>(df, raceth <span class="sc">==</span> <span class="st">&quot;Asian&quot;</span> <span class="sc">&amp;</span> gender <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">flab</span>(df, raceth <span class="sc">==</span> <span class="st">&quot;Asian&quot;</span> <span class="sc">&amp;</span> gender <span class="sc">==</span> <span class="st">&quot;F&quot;</span>)</span>
 <span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a></span>
 <span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a><span class="fu">head</span>(df1, <span class="dv">5</span>) <span class="co"># returned df1 is in terms of values, just like df</span></span>
-<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="do">### &gt; [1] id     age    gender raceth edu    x1     x2    </span></span>
-<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="do">### &gt; &lt;0 rows&gt; (or 0-length row.names)</span></span>
-<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a></span>
-<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a><span class="fu">headl</span>(df1, <span class="dv">5</span>) <span class="co"># note use of labelr::headl; labels are there</span></span>
-<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a><span class="do">### &gt; Warning: non-unique values when setting &#39;row.names&#39;:</span></span>
-<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a><span class="do">### &gt; Error in `.rowNamesDF&lt;-`(x, value = value): duplicate &#39;row.names&#39; are not allowed</span></span></code></pre></div>
+<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="do">### &gt;      id age gender raceth edu     x1     x2</span></span>
+<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a><span class="do">### &gt; T-1   1  59      1      4   5 120.25 0.5928</span></span>
+<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a><span class="do">### &gt; D-40 40  60      1      4   4  78.12 0.9885</span></span>
+<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a><span class="do">### &gt; E-67 67  39      1      4   5  98.21 0.6244</span></span>
+<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a><span class="do">### &gt; I-73 73  36      1      4   2  98.42 0.2102</span></span>
+<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a><span class="do">### &gt; V-80 80  27      1      4   4 122.62 0.3137</span></span>
+<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a></span>
+<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a><span class="fu">headl</span>(df1, <span class="dv">5</span>) <span class="co"># note use of labelr::headl; labels are there</span></span>
+<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a><span class="do">### &gt;      id age gender raceth             edu   x1     x2</span></span>
+<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a><span class="do">### &gt; T-1   1  59      F  Asian   Some College+ q100 0.5928</span></span>
+<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a><span class="do">### &gt; D-40 40  60      F  Asian   Some College+ q020 0.9885</span></span>
+<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a><span class="do">### &gt; E-67 67  39      F  Asian   Some College+ q060 0.6244</span></span>
+<span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a><span class="do">### &gt; I-73 73  36      F  Asian HSG, No College q060 0.2102</span></span>
+<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a><span class="do">### &gt; V-80 80  27      F  Asian   Some College+ q100 0.3137</span></span></code></pre></div>
 <p>We’ve used these two variables’ value labels to guide our filtering,
 without ever explicitly changing the contents of our columns from values
 to labels. For instance, note that we did NOT make an explicit call to
@@ -1055,10 +1063,19 @@ them.</p>
 <p>As with <code>base::subset()</code>, we can also limit which columns
 we return. In this case, we filter on two value-labeled columns and
 return a data.frame consisting of only those columns.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">slab</span>(df, raceth <span class="sc">==</span> <span class="st">&quot;Black&quot;</span> <span class="sc">&amp;</span> gender <span class="sc">==</span> <span class="st">&quot;Male&quot;</span>, gender, raceth)</span>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">slab</span>(df, raceth <span class="sc">==</span> <span class="st">&quot;Black&quot;</span> <span class="sc">&amp;</span> gender <span class="sc">==</span> <span class="st">&quot;M&quot;</span>, gender, raceth)</span>
 <span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="fu">head</span>(df2, <span class="dv">10</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="do">### &gt; [1] gender raceth</span></span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="do">### &gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code></pre></div>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="do">### &gt;       gender raceth</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="do">### &gt; K-6        0      2</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="do">### &gt; F-22       0      2</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="do">### &gt; E-30       0      2</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="do">### &gt; O-46       0      2</span></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="do">### &gt; Q-48       0      2</span></span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="do">### &gt; F-72       0      2</span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="do">### &gt; T-117      0      2</span></span>
+<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a><span class="do">### &gt; K-149      0      2</span></span>
+<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a><span class="do">### &gt; M-161      0      2</span></span>
+<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a><span class="do">### &gt; A-167      0      2</span></span></code></pre></div>
 <p>In the case of <code>slab()</code>, we simply list the desired
 columns – unquoted and comma-separated – after the filter</p>
 </div>
@@ -1352,6 +1369,7 @@ characters in your scripts).</p>
 <li><p><code>get_frame_lab</code> alias is <code>gfl</code></p></li>
 <li><p><code>drop_frame_lab</code> alias is <code>dfl</code></p></li>
 <li><p><code>axis_lab</code> is <code>alb</code></p></li>
+<li><p><code>as_base_data_frame</code> is <code>adf</code></p></li>
 </ul>
 </div>
 

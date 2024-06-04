@@ -396,11 +396,11 @@ has_decv(carb_orig$carb) # and does NOT have decimals; so, lab_int_to_fac() work
 
 levels(carb_orig$carb) # none, not a factor
 
-head(carb_orig$carb, 3) # remember to compare to carb_to_int (below)
+head(carb_orig$carb, 3)
 
-mean(carb_orig$carb) # remember to compare to carb_to_int (below)
+mean(carb_orig$carb) # compare to carb_to_int (below)
 
-lm(mpg ~ carb, data = carb_orig) # remember to compare to carb_to_int (below)
+lm(mpg ~ carb, data = carb_orig) # compare to carb_to_int (below)
 
 # note this for comparison to below
 (adj_r2_orig <- summary(lm(mpg ~ carb, data = carb_orig))$adj.r.squared)

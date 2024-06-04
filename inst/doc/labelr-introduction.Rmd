@@ -477,7 +477,7 @@ data.frame. Again, I find this "easier done than said."
 ```{r}
 head(df)
 
-df1 <- flab(df, raceth == "Asian" & gender == "Female")
+df1 <- flab(df, raceth == "Asian" & gender == "F")
 
 head(df1, 5) # returned df1 is in terms of values, just like df
 
@@ -497,7 +497,7 @@ case, we filter on two value-labeled columns and return a data.frame consisting
 of only those columns.
 
 ```{r}
-df2 <- slab(df, raceth == "Black" & gender == "Male", gender, raceth)
+df2 <- slab(df, raceth == "Black" & gender == "M", gender, raceth)
 head(df2, 10)
 ```
 
@@ -713,3 +713,6 @@ The available aliases are as follows:
 * `drop_frame_lab` alias is `dfl`
 
 * `axis_lab` is  `alb` 
+
+* `as_base_data_frame` is  `adf` 
+

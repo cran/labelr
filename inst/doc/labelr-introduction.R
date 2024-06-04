@@ -158,14 +158,14 @@ head(df_plus_labs[c("gender", "gender_lab", "raceth", "raceth_lab")])
 ## -----------------------------------------------------------------------------
 head(df)
 
-df1 <- flab(df, raceth == "Asian" & gender == "Female")
+df1 <- flab(df, raceth == "Asian" & gender == "F")
 
 head(df1, 5) # returned df1 is in terms of values, just like df
 
 headl(df1, 5) # note use of labelr::headl; labels are there
 
 ## -----------------------------------------------------------------------------
-df2 <- slab(df, raceth == "Black" & gender == "Male", gender, raceth)
+df2 <- slab(df, raceth == "Black" & gender == "M", gender, raceth)
 head(df2, 10)
 
 ## -----------------------------------------------------------------------------
