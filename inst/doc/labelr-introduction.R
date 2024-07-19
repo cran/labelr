@@ -103,18 +103,6 @@ head(df_copy, 3) # our pre-labeling copy of the data.frame
 head(df, 3) # our latest, post-labeling version of same data.frame
 
 ## -----------------------------------------------------------------------------
-labs.df <- get_all_lab_atts(df)
-
-## -----------------------------------------------------------------------------
-df <- strip_labs(df) # remove our labels
-get_all_lab_atts(df) # show that they're gone
-
-## -----------------------------------------------------------------------------
-df <- add_lab_atts(df, labs.df)
-
-get_all_lab_atts(df)
-
-## -----------------------------------------------------------------------------
 head(df, 5) # Base R function utils::head()
 
 headl(df, 5) # labelr function headl() (note the "l")
