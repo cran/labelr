@@ -1,6 +1,6 @@
-b5a5b2a5b578c444179010d98e174ac4 *DESCRIPTION
+7b23f3655b0961e502784086a282c7ca *DESCRIPTION
 47e01e8a2e35e06f4eb144f5f4307957 *NAMESPACE
-867b88a83f9c220d8e9347d5d151d784 *NEWS.md
+5aad0c25ea1f4babf5ec028a8d07e9d0 *NEWS.md
 7426be4e9eec485f8b7d870e8fb48d80 *R/add1m1.R
 433dad67227b735fc3b2c8c3b7ff300f *R/add_factor_info.R
 903b5ae3f24186997fa460061db6440b *R/add_frame_lab.R
@@ -81,7 +81,7 @@ fa8ac6de37b8307de24755ef83255e80 *R/sselect.R
 0c72b27d55298d30e19de439829857fc *R/ssort.R
 8891eaa4f960582a2a18b883df802f22 *R/ssubset.R
 4dcc562d60f557654394490fd05dfa21 *R/strip_labs.R
-8d46a2cdd511ba908208c17c51fb946f *R/tabl.R
+19e3653af427edc24690351207e57228 *R/tabl.R
 d837afbb8ef5ed637871dd28e006d12b *R/taill.R
 0fe7fb49d17342db7d03f09ab6f92f45 *R/transfer_labs.R
 99980c753e55100ced4d3d2cca10c1f2 *R/use_name_labs.R
@@ -100,7 +100,7 @@ e656ca49000cc62d717c43bb6938d556 *inst/doc/labelr-introduction.Rmd
 2270535f6f9883907e364c55d070a185 *inst/doc/labelr-introduction.html
 984eeb56d7a2fc2e922776c2bd56ec75 *inst/doc/labelr-special-topics.R
 137ea4a7f675dac0c576d86165a69c56 *inst/doc/labelr-special-topics.Rmd
-52dd79bf3af029868b5e10554fe50b9a *inst/doc/labelr-special-topics.html
+ea5dd73d76cac51b1629a46e5bcc4d5b *inst/doc/labelr-special-topics.html
 6b4be8da5ba30e192754579d77e8a5d2 *man/add1m1.Rd
 c34bc472db56bebd3697a351cf566264 *man/add_factor_info.Rd
 0fe2713f81bf517ef1b5a7c677212793 *man/add_frame_lab.Rd
