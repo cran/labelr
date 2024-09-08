@@ -328,7 +328,7 @@ tabl <- function(data,
                  irreg.rm = FALSE,
                  wide.col = NULL) {
   ############################################################################
-  # tabl_df - internal function to calculated compact tables and weighted tables
+  # tabl_df - internal function to calculate compact tables and weighted tables
   ############################################################################
   tabl_df <- function(data, vars = NULL, group.id.name = "gid", wts = NULL) {
     # safe_char_val() - search for presence of character stub in x

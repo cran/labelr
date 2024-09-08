@@ -1,5 +1,8 @@
 # labelr News
 
+# labelr 0.1.9
+* fixed `smerge()` bug introduced by Base R changes to set operation behavior.
+
 # labelr 0.1.8
 * fixed `tabl()` bug affecting use of wide.col option. Bug was introduced with the `labeled.data.frame` construct in 0.1.7 and affected internal call to `stats::reshape()`.
 

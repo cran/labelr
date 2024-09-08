@@ -51,21 +51,25 @@ smerge <- function(x, y, ...) {
   y <- as_base_data_frame(y)
 
   # lab atts found in x
-  main_lab_atts <- get_all_lab_atts(x)
+  x_lab_atts <- get_all_lab_atts(x)
 
-  # lab atts found in y but not x
-  more_lab_atts <- base::setdiff(get_all_lab_atts(y), get_all_lab_atts(x))
+  # lab atts found in y
+  y_lab_atts <- get_all_lab_atts(y)
+
+  # names of lab atts found in y but not x
+  more_lab_atts <- base::setdiff(names(y_lab_atts), names(x_lab_atts))
 
   if (length(more_lab_atts) > 0) {
-    length_main <- length(main_lab_atts)
+    length_x_lab_atts <- length(x_lab_atts)
 
     for (i in seq_along(more_lab_atts)) {
-      main_lab_atts[[length_main + i]] <- more_lab_atts[[i]]
-      names(main_lab_atts)[[length_main + i]] <- names(more_lab_atts)[[i]]
+      more_lab_att_i <- more_lab_atts[i]
+      x_lab_atts[[length_x_lab_atts + i]] <- y_lab_atts[[more_lab_att_i]]
+      names(x_lab_atts)[[length_x_lab_atts + i]] <- more_lab_att_i
     }
   }
 
   xy <- base::merge(x, y, ...)
-  xy <- add_lab_atts(xy, main_lab_atts, num.convert = FALSE)
+  xy <- add_lab_atts(xy, x_lab_atts, num.convert = FALSE)
   return(xy)
 }
